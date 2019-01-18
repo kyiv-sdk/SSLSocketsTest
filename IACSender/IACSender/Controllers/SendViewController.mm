@@ -67,6 +67,7 @@
     self.socket = [[SSLClientSocket alloc] initWithPort:port];
     [self.socket startSocket];
     [self updateConnectionStatus];
+    self.isAsking = false;
 }
 
 @end
