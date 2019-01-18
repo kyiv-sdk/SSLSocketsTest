@@ -6,6 +6,7 @@
 //  Copyright © 2019 SoftServe. All rights reserved.
 //
 
+#import "NetworkManager.h"
 #import "CoreDataManager.h"
 
 @interface CoreDataManager ()
@@ -49,6 +50,22 @@
     webSite.url = url;
     [self saveChanges];
     return webSite;
+}
+
+
+- (void)setTitleForWebSite:(WebSite *)webSite comletionHandler:(void (^)())handler {
+    NSURL *url = [NSURL URLWithString:webSite.url];
+    if (url) {
+        [[NetworkManager sharedManager] getTitleOfWebSiteWithURL:url completionHandler:^(NSString * _Nullable title) {
+            [webSite setTitle:title];
+            [self saveChanges];
+            handler();
+        }];
+    } else {
+        [webSite setTitle:@"Invalid URL"];
+        [self saveChanges];
+        handler();
+    }
 }
 
 

@@ -27,6 +27,31 @@
 
 
 
+- (void)getTitleOfWebSiteWithURL:(NSURL *)url completionHandler:(void (^)(NSString * _Nullable))handler {
+    [[[NSURLSession sharedSession] dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        if (data) {
+            NSString *html = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
+            if (html) {
+                NSArray *components1 = [html componentsSeparatedByString:@"<title>"];
+                if (components1.count > 1) {
+                    NSString *partWithTitle = components1[1];
+                    NSArray *components2 = [partWithTitle componentsSeparatedByString:@"</title>"];
+                    NSString *title = [components2 objectAtIndex:0];
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        handler(title);
+                    });
+                }
+            }
+        } else if (error) {
+            NSLog(@"getTitleOfWebSiteWithURL error: %@", [error localizedDescription]);
+            dispatch_async(dispatch_get_main_queue(), ^{
+                handler(nil);
+            });
+        }
+    }] resume];
+}
+
+
 - (void)shareSocketConnectionWithPort:(int)port toScheme:(NSString *)scheme withHost:(NSString *)host {
     NSURLComponents *cmp = [[NSURLComponents alloc] init];
     [cmp setScheme:scheme];

@@ -18,6 +18,7 @@
     [super viewDidLoad];
     
     self.webSites = [NSMutableArray arrayWithArray:[[CoreDataManager sharedManager] getWebSites]];
+    [self updateWebSiteTitles];
 }
 
 
@@ -36,6 +37,29 @@
 }
 
 
+- (void)updateWebSiteTitles {
+    if (self.webSites) {
+        for (WebSite *webSite in self.webSites) {
+            if (!webSite.title) {
+                [self updateTitleForWebSite:webSite];
+            }
+        }
+    }
+}
+
+
+- (void)updateTitleForWebSite:(WebSite *)webSite {
+    __block ReceivedTableViewController *weakSelf = self;
+    [[CoreDataManager sharedManager] setTitleForWebSite:webSite comletionHandler:^{
+        NSInteger idx = [self.webSites indexOfObject:webSite];
+        if (idx != NSNotFound) {
+            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:idx inSection:0];
+            [weakSelf.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+        }
+    }];
+}
+
+
 
 #pragma mark - <ReceivedWebSiteHandler>
 - (void)didReceiveWebSite:(WebSite *)webSite {
@@ -50,6 +74,7 @@
     }
     
     [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    [self updateTitleForWebSite:webSite];
 }
 
 

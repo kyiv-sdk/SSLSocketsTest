@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (NSArray *)getWebSites;
 - (WebSite *)addNewWebSiteWithURL:(NSString *)url;
+- (void)setTitleForWebSite:(WebSite *)webSite comletionHandler:(void (^)(void))handler;
 
 + (instancetype)sharedManager;
 
