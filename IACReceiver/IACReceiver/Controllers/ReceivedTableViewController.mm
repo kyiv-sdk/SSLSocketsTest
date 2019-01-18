@@ -23,6 +23,8 @@
 
 
 - (int)openServerSocket {
+    if ([self.socket isRunning]) return self.socket.port;
+    
     int port;
     self.socketDelegate = [[URLSocketDelegate alloc] initWithWebSiteHandler:self];
     do {
