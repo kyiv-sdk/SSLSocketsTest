@@ -9,6 +9,7 @@
 #import "NetworkManager.h"
 #import "ProjectConstants.h"
 #import "SendViewController.h"
+#import "NSString+ProjectAdditions.h"
 
 @interface SendViewController ()
 
@@ -23,12 +24,16 @@
 
 - (IBAction)sendURLButtonPressed:(UIButton *)sender {
     if ([self.socket isRunning]) {
-        // TODO: Check for url is valid
-        NSDictionary<NSString *, id> *json = @{ @"url": [self.URLToSendTextField text] };
-        NSData *jsonData = [NSJSONSerialization dataWithJSONObject:json options:0 error:nil];
-        NSString *msg = [[NSString alloc] initWithData:jsonData encoding: NSUTF8StringEncoding];
-        [self.socket sendData:msg];
-        [self.URLToSendTextField setText:@""];
+        NSString *stringURL = [self.URLToSendTextField text];
+        if ([stringURL isPotentialURL]) {
+            NSDictionary<NSString *, id> *json = @{ @"url": stringURL };
+            NSData *jsonData = [NSJSONSerialization dataWithJSONObject:json options:0 error:nil];
+            NSString *msg = [[NSString alloc] initWithData:jsonData encoding: NSUTF8StringEncoding];
+            [self.socket sendData:msg];
+            [self.URLToSendTextField setText:@""];
+        } else {
+            // TODO: Show alert with invalid URL notification
+        }
     }
 }
 

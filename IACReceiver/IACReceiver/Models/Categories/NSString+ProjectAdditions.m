@@ -10,6 +10,13 @@
 
 @implementation NSString (ProjectAdditions)
 
+- (BOOL)isPotentialURL {
+    NSString *urlRegEx = @"(http|https)://((\\w)*|([0-9]*)|([-|_])*)+([\\.|/]((\\w)*|([0-9]*)|([-|_])*))+";
+    NSPredicate *urlValidation = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", urlRegEx];
+    return [urlValidation evaluateWithObject:self];
+}
+
+
 - (NSString *)cleanTitle {
     return [self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 }

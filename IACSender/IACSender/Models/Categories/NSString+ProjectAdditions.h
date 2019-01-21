@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NSString (ProjectAdditions)
 
+- (BOOL)isPotentialURL;
 - (NSString *)cleanTitle;
 
 @end
