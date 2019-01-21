@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ReceivedURLCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UILabel *receivedDate;
 @property (weak, nonatomic) IBOutlet UILabel *webPageNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *webPageURLLabel;
 

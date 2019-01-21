@@ -91,7 +91,11 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ReceivedURLCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ReceivedURLCell" forIndexPath:indexPath];
     
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"MMM d, yyyy HH:mm"];
+    
     WebSite *webSite = [self.webSites objectAtIndex:indexPath.row];
+    [cell.receivedDate setText:[dateFormatter stringFromDate:webSite.date]];
     [cell.webPageNameLabel setText:webSite.title];
     [cell.webPageURLLabel setText:webSite.url];
     
