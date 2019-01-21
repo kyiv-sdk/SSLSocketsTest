@@ -8,9 +8,11 @@
 
 #import "ReceivedURLCell.h"
 #import "CoreDataManager.h"
+#import "SSLSocketsManager.h"
+#import "NSDate+ProjectAdditions.h"
+#import "NSString+ProjectAdditions.h"
 #import "WebSite+CoreDataProperties.h"
 #import "ReceivedTableViewController.h"
-#import "SSLSocketsManager.h"
 
 @implementation ReceivedTableViewController
 
@@ -90,16 +92,10 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ReceivedURLCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ReceivedURLCell" forIndexPath:indexPath];
+    
     WebSite *webSite = [self.webSites objectAtIndex:indexPath.row];
-
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"MMM d, yyyy HH:mm"];
-    
-    NSString *stringDate = [dateFormatter stringFromDate:webSite.date];
-    NSString *cleanTitle = [webSite.title stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-    
-    [cell.receivedDate setText:stringDate];
-    [cell.webPageNameLabel setText:cleanTitle];
+    [cell.receivedDate setText:[webSite.date receivedURLFormat]];
+    [cell.webPageNameLabel setText:[webSite.title cleanTitle]];
     [cell.webPageURLLabel setText:webSite.url];
     
     return cell;

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5649804321F5ED1B00905409 /* NSString+ProjectAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5649803F21F5ED1B00905409 /* NSString+ProjectAdditions.m */; };
+		5649804421F5ED1B00905409 /* NSDate+ProjectAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5649804221F5ED1B00905409 /* NSDate+ProjectAdditions.m */; };
 		56B7B94221E4F76000EDAB1D /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 56B7B94121E4F76000EDAB1D /* AppDelegate.mm */; };
 		56B7B94821E4F76000EDAB1D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56B7B94621E4F76000EDAB1D /* Main.storyboard */; };
 		56B7B94B21E4F76000EDAB1D /* IACReceiver.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 56B7B94921E4F76000EDAB1D /* IACReceiver.xcdatamodeld */; };
@@ -42,6 +44,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5649803F21F5ED1B00905409 /* NSString+ProjectAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+ProjectAdditions.m"; sourceTree = "<group>"; };
+		5649804021F5ED1B00905409 /* NSDate+ProjectAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+ProjectAdditions.h"; sourceTree = "<group>"; };
+		5649804121F5ED1B00905409 /* NSString+ProjectAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+ProjectAdditions.h"; sourceTree = "<group>"; };
+		5649804221F5ED1B00905409 /* NSDate+ProjectAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+ProjectAdditions.m"; sourceTree = "<group>"; };
 		56B7B93D21E4F76000EDAB1D /* IAReceiver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IAReceiver.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56B7B94021E4F76000EDAB1D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		56B7B94121E4F76000EDAB1D /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
@@ -225,6 +231,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5649803E21F5ED1B00905409 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				5649804021F5ED1B00905409 /* NSDate+ProjectAdditions.h */,
+				5649804221F5ED1B00905409 /* NSDate+ProjectAdditions.m */,
+				5649804121F5ED1B00905409 /* NSString+ProjectAdditions.h */,
+				5649803F21F5ED1B00905409 /* NSString+ProjectAdditions.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
 		56B7B93421E4F76000EDAB1D = {
 			isa = PBXGroup;
 			children = (
@@ -288,6 +305,7 @@
 			children = (
 				56DC639421F0BFE400331A6F /* Networking */,
 				56DC639521F0BFEE00331A6F /* CoreData */,
+				5649803E21F5ED1B00905409 /* Categories */,
 				56DC639A21F0D5CF00331A6F /* URLSocketDelegate.h */,
 				56DC639B21F0D5CF00331A6F /* URLsocketDelegate.mm */,
 				56DC63A621F0DF7700331A6F /* ReceivedWebSiteHandler.h */,
@@ -653,6 +671,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5649804421F5ED1B00905409 /* NSDate+ProjectAdditions.m in Sources */,
 				56DC638921F0BE3400331A6F /* SSLServerSocket.mm in Sources */,
 				56DC63BC21F2003300331A6F /* SSLSocketDelegate.mm in Sources */,
 				56DC63A221F0D7B300331A6F /* WebSite+CoreDataProperties.m in Sources */,
@@ -668,6 +687,7 @@
 				56DC639C21F0D5CF00331A6F /* URLsocketDelegate.mm in Sources */,
 				56B7B95321E4F76100EDAB1D /* main.mm in Sources */,
 				56DC637421F0BE2C00331A6F /* BSDSocket.cpp in Sources */,
+				5649804321F5ED1B00905409 /* NSString+ProjectAdditions.m in Sources */,
 				56DC639821F0D03500331A6F /* ProjectConstants.m in Sources */,
 				56B7B94221E4F76000EDAB1D /* AppDelegate.mm in Sources */,
 				56DC638A21F0BE3400331A6F /* SSLClientSocket.mm in Sources */,
