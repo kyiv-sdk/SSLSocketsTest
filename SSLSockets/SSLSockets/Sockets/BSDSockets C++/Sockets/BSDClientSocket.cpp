@@ -65,7 +65,7 @@ BSDClientSocket::BSDClientSocket(std::string address, int port, BSDSocketDelegat
         _isReady = false;
     }
     
-    SSL_CTX *ctx = SSL_CTX_new(TLSv1_2_client_method());
+    SSL_CTX *ctx = SSL_CTX_new(TLS_client_method());
     
     SSL* ssl = SSL_new(ctx);
     if (!ssl) {
