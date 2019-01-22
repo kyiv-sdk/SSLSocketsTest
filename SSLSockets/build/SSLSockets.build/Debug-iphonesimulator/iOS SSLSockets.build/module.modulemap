@@ -1,0 +1,6 @@
+framework module SSLSockets {
+  umbrella header "SSLSockets.h"
+
+  export *
+  module * { export * }
+}
