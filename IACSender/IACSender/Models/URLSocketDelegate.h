@@ -6,7 +6,7 @@
 //  Copyright © 2019 SoftServe. All rights reserved.
 //
 
-#import "SSLSocketDelegate.h"
+#import <SSLSockets/SSLSockets.h>
 #import <Foundation/Foundation.h>
 #import "ReceivedWebSiteHandler.h"
 

@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SSLServerSocket.h"
+#import <SSLSockets/SSLSockets.h>
 #import "URLSocketDelegate.h"
 #import "ReceivedWebSiteHandler.h"
 
