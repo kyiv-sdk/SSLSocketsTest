@@ -9,8 +9,7 @@
 /* Begin PBXBuildFile section */
 		5649804321F5ED1B00905409 /* NSString+ProjectAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5649803F21F5ED1B00905409 /* NSString+ProjectAdditions.m */; };
 		5649804421F5ED1B00905409 /* NSDate+ProjectAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5649804221F5ED1B00905409 /* NSDate+ProjectAdditions.m */; };
-		565EF50321F7277100AC36B3 /* SSLSockets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 565EF50221F7277100AC36B3 /* SSLSockets.framework */; };
-		565EF50421F7277100AC36B3 /* SSLSockets.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 565EF50221F7277100AC36B3 /* SSLSockets.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		568D0DD521F7505700A9E165 /* SSLSockets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 568D0DC721F7504300A9E165 /* SSLSockets.framework */; };
 		56B7B94221E4F76000EDAB1D /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 56B7B94121E4F76000EDAB1D /* AppDelegate.mm */; };
 		56B7B94821E4F76000EDAB1D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56B7B94621E4F76000EDAB1D /* Main.storyboard */; };
 		56B7B94B21E4F76000EDAB1D /* IACReceiver.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 56B7B94921E4F76000EDAB1D /* IACReceiver.xcdatamodeld */; };
@@ -29,6 +28,30 @@
 		56DC63A221F0D7B300331A6F /* WebSite+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 56DC63A021F0D7B300331A6F /* WebSite+CoreDataProperties.m */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		568D0DC621F7504300A9E165 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 568D0DC121F7504300A9E165 /* SSLSockets.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 565EF33E21F71CEC00AC36B3;
+			remoteInfo = "iOS SSLSockets";
+		};
+		568D0DC821F7504300A9E165 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 568D0DC121F7504300A9E165 /* SSLSockets.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 565EF34E21F71D5F00AC36B3;
+			remoteInfo = "macOS SSLSockets";
+		};
+		568D0DD321F7504F00A9E165 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 568D0DC121F7504300A9E165 /* SSLSockets.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 565EF33D21F71CEC00AC36B3;
+			remoteInfo = "iOS SSLSockets";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		565EF50521F7277100AC36B3 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -36,7 +59,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				565EF50421F7277100AC36B3 /* SSLSockets.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -48,7 +70,7 @@
 		5649804021F5ED1B00905409 /* NSDate+ProjectAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+ProjectAdditions.h"; sourceTree = "<group>"; };
 		5649804121F5ED1B00905409 /* NSString+ProjectAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+ProjectAdditions.h"; sourceTree = "<group>"; };
 		5649804221F5ED1B00905409 /* NSDate+ProjectAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+ProjectAdditions.m"; sourceTree = "<group>"; };
-		565EF50221F7277100AC36B3 /* SSLSockets.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SSLSockets.framework; path = "../../../../Library/Developer/Xcode/DerivedData/SSLSocketsTest-bwpxgjxphwzzgddhpgksftbyzyct/Build/Products/Debug-iphoneos/SSLSockets.framework"; sourceTree = "<group>"; };
+		568D0DC121F7504300A9E165 /* SSLSockets.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SSLSockets.xcodeproj; path = ../SSLSockets/SSLSockets.xcodeproj; sourceTree = "<group>"; };
 		56B7B93D21E4F76000EDAB1D /* IAReceiver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IAReceiver.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56B7B94021E4F76000EDAB1D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		56B7B94121E4F76000EDAB1D /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
@@ -86,7 +108,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				565EF50321F7277100AC36B3 /* SSLSockets.framework in Frameworks */,
+				568D0DD521F7505700A9E165 /* SSLSockets.framework in Frameworks */,
 				56B7B97421E50B5800EDAB1D /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -105,10 +127,19 @@
 			path = Categories;
 			sourceTree = "<group>";
 		};
+		568D0DC221F7504300A9E165 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				568D0DC721F7504300A9E165 /* SSLSockets.framework */,
+				568D0DC921F7504300A9E165 /* SSLSockets.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		56B7B93421E4F76000EDAB1D = {
 			isa = PBXGroup;
 			children = (
-				565EF50221F7277100AC36B3 /* SSLSockets.framework */,
+				568D0DC121F7504300A9E165 /* SSLSockets.xcodeproj */,
 				56B7B93F21E4F76000EDAB1D /* IACReceiver */,
 				56B7B93E21E4F76000EDAB1D /* Products */,
 				56B7B97221E50B5700EDAB1D /* Frameworks */,
@@ -230,6 +261,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				568D0DD421F7504F00A9E165 /* PBXTargetDependency */,
 			);
 			name = IAReceiver;
 			productName = IACSender;
@@ -261,12 +293,35 @@
 			mainGroup = 56B7B93421E4F76000EDAB1D;
 			productRefGroup = 56B7B93E21E4F76000EDAB1D /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 568D0DC221F7504300A9E165 /* Products */;
+					ProjectRef = 568D0DC121F7504300A9E165 /* SSLSockets.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				56B7B93C21E4F76000EDAB1D /* IAReceiver */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		568D0DC721F7504300A9E165 /* SSLSockets.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SSLSockets.framework;
+			remoteRef = 568D0DC621F7504300A9E165 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		568D0DC921F7504300A9E165 /* SSLSockets.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SSLSockets.framework;
+			remoteRef = 568D0DC821F7504300A9E165 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		56B7B93B21E4F76000EDAB1D /* Resources */ = {
@@ -304,6 +359,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		568D0DD421F7504F00A9E165 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "iOS SSLSockets";
+			targetProxy = 568D0DD321F7504F00A9E165 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		56B7B94621E4F76000EDAB1D /* Main.storyboard */ = {
@@ -443,7 +506,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3L5KV6CDC9;
-				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/SSLSocketsTest-bwpxgjxphwzzgddhpgksftbyzyct/Build/Products/Debug-iphoneos/SSLSockets.framework\"";
+				FRAMEWORK_SEARCH_PATHS = "";
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/../SSLSockets/SSLSockets/Sockets/OpenSSL/include";
 				INFOPLIST_FILE = IACReceiver/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -463,7 +526,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3L5KV6CDC9;
-				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/SSLSocketsTest-bwpxgjxphwzzgddhpgksftbyzyct/Build/Products/Debug-iphoneos/SSLSockets.framework\"";
+				FRAMEWORK_SEARCH_PATHS = "";
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/../SSLSockets/SSLSockets/Sockets/OpenSSL/include";
 				INFOPLIST_FILE = IACReceiver/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
