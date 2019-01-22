@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:SSLSockets/SSLSockets.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:IACReceiver/IAReceiver.xcodeproj">
    </FileRef>
    <FileRef
