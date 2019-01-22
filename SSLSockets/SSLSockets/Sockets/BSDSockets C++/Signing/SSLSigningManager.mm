@@ -54,7 +54,14 @@ EVP_PKEY *SSLSigningManager::generate_key() {
     }
     
     /* Generate the RSA key and assign it to pkey. */
-    RSA * rsa = RSA_generate_key(2048, RSA_F4, NULL, NULL);
+    RSA *rsa = RSA_new();
+    BIGNUM *bn = BN_new();
+    BN_set_word(bn, RSA_F4);
+    int keyResp = RSA_generate_key_ex(rsa, 2048, bn, NULL);
+    if (keyResp != 1) {
+        printf("RSA_generate_key_ex failed\n");
+    }
+    
     if (!EVP_PKEY_assign_RSA(pkey, rsa)) {
         EVP_PKEY_free(pkey);
         return NULL;
