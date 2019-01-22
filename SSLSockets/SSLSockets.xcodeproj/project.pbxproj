@@ -475,6 +475,7 @@
 			children = (
 				565EF34121F71CEC00AC36B3 /* SSLSockets.h */,
 				565EF34221F71CEC00AC36B3 /* Info.plist */,
+				569CEB1C21F769DF0004435C /* Public Headers */,
 				565EF35621F71E6400AC36B3 /* Sockets */,
 			);
 			path = SSLSockets;
@@ -493,7 +494,6 @@
 		565EF35721F71E6400AC36B3 /* SSLSockets Obj-C */ = {
 			isa = PBXGroup;
 			children = (
-				565EF36921F71E6400AC36B3 /* SSLSocketsManager.h */,
 				565EF36821F71E6400AC36B3 /* SSLSocketsManager.mm */,
 				565EF35C21F71E6400AC36B3 /* Sockets */,
 				565EF35821F71E6400AC36B3 /* Handling */,
@@ -505,7 +505,6 @@
 		565EF35821F71E6400AC36B3 /* Handling */ = {
 			isa = PBXGroup;
 			children = (
-				565EF35921F71E6400AC36B3 /* SSLSocketHandler.h */,
 				565EF35A21F71E6400AC36B3 /* SSLSocketHandler+Protected.h */,
 				565EF35B21F71E6400AC36B3 /* SSLSocketHandler.mm */,
 			);
@@ -515,12 +514,9 @@
 		565EF35C21F71E6400AC36B3 /* Sockets */ = {
 			isa = PBXGroup;
 			children = (
-				565EF36021F71E6400AC36B3 /* SSLSocket.h */,
 				565EF36321F71E6400AC36B3 /* SSLSocket+Protected.h */,
 				565EF36221F71E6400AC36B3 /* SSLSocket.mm */,
-				565EF35D21F71E6400AC36B3 /* SSLServerSocket.h */,
 				565EF35E21F71E6400AC36B3 /* SSLServerSocket.mm */,
-				565EF35F21F71E6400AC36B3 /* SSLClientSocket.h */,
 				565EF36121F71E6400AC36B3 /* SSLClientSocket.mm */,
 			);
 			path = Sockets;
@@ -529,7 +525,6 @@
 		565EF36421F71E6400AC36B3 /* Delegation */ = {
 			isa = PBXGroup;
 			children = (
-				565EF36521F71E6400AC36B3 /* SSLSocketDelegate.h */,
 				565EF36721F71E6400AC36B3 /* SSLSocketDelegate+Protected.h */,
 				565EF36621F71E6400AC36B3 /* SSLSocketDelegate.mm */,
 			);
@@ -726,6 +721,19 @@
 				565EF3EC21F71E6400AC36B3 /* libssl.a */,
 			);
 			path = lib;
+			sourceTree = "<group>";
+		};
+		569CEB1C21F769DF0004435C /* Public Headers */ = {
+			isa = PBXGroup;
+			children = (
+				565EF36021F71E6400AC36B3 /* SSLSocket.h */,
+				565EF35D21F71E6400AC36B3 /* SSLServerSocket.h */,
+				565EF35F21F71E6400AC36B3 /* SSLClientSocket.h */,
+				565EF36921F71E6400AC36B3 /* SSLSocketsManager.h */,
+				565EF35921F71E6400AC36B3 /* SSLSocketHandler.h */,
+				565EF36521F71E6400AC36B3 /* SSLSocketDelegate.h */,
+			);
+			path = "Public Headers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
