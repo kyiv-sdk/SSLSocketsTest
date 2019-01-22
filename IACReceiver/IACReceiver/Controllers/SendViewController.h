@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <SSLSockets/SSLSockets.h>
+#import "SSLClientSocket.h"
 #import "SocketConnectionDelegate.h"
 
 NS_ASSUME_NONNULL_BEGIN

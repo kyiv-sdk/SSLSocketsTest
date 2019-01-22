@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 #import "NetworkManager.h"
 #import "ProjectConstants.h"
-#import <SSLSockets/SSLSockets.h>
+#import "SSLSocketsManager.h"
 #import "ReceivedTableViewController.h"
 
 @interface AppDelegate ()

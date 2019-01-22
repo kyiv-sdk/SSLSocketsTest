@@ -8,7 +8,7 @@
 
 #import "ReceivedURLCell.h"
 #import "CoreDataManager.h"
-#import <SSLSockets/SSLSockets.h>
+#import "SSLSocketsManager.h"
 #import "NSDate+ProjectAdditions.h"
 #import "NSString+ProjectAdditions.h"
 #import "WebSite+CoreDataProperties.h"
