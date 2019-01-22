@@ -33,7 +33,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)initWithPort:(int)port;
 
 /**
-    @brief Creates and configures SSLServerSocket.
+    @brief Designated initializer, creates and configures SSLServerSocket.
     @discussion Creates and configures SSL Server Socket with given port and delegate.
 
     Configuring may be failed while using BSD Sockets API (calls: socket(), bind() and listen()). Errors will be displayed in console.
@@ -42,7 +42,7 @@ NS_ASSUME_NONNULL_BEGIN
     @param delegate - will manage received messages. Notification will send to delegate when Socket will receive new message.
     @return SSLServerSocket, configured with given port.
  */
-- (instancetype)initWithPort:(int)port andDelegate:(nullable SSLSocketDelegate *)delegate NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithPort:(int)port andDelegate:(nullable SSLSocketDelegate *)delegate;
 
 @end
 
