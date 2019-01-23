@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5609C1C921F8874800B80D56 /* SSLLogger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5609C1C721F8874800B80D56 /* SSLLogger.cpp */; };
+		5609C1CA21F8874800B80D56 /* SSLLogger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5609C1C721F8874800B80D56 /* SSLLogger.cpp */; };
+		5609C1CB21F8874800B80D56 /* SSLLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 5609C1C821F8874800B80D56 /* SSLLogger.h */; };
+		5609C1CC21F8874800B80D56 /* SSLLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 5609C1C821F8874800B80D56 /* SSLLogger.h */; };
 		565EF34321F71CEC00AC36B3 /* SSLSockets.h in Headers */ = {isa = PBXBuildFile; fileRef = 565EF34121F71CEC00AC36B3 /* SSLSockets.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		565EF3ED21F71E6400AC36B3 /* SSLSocketHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 565EF35921F71E6400AC36B3 /* SSLSocketHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		565EF3EE21F71E6400AC36B3 /* SSLSocketHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 565EF35921F71E6400AC36B3 /* SSLSocketHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -283,9 +287,33 @@
 		565EF4FD21F71E6400AC36B3 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 565EF3EC21F71E6400AC36B3 /* libssl.a */; };
 		565EF4FE21F71E6400AC36B3 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 565EF3EC21F71E6400AC36B3 /* libssl.a */; };
 		565EF4FF21F71F2500AC36B3 /* SSLSockets.h in Headers */ = {isa = PBXBuildFile; fileRef = 565EF34121F71CEC00AC36B3 /* SSLSockets.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		56B406CD21F89D8F001BA320 /* FileManagement.h in Headers */ = {isa = PBXBuildFile; fileRef = 56B406CC21F89D8F001BA320 /* FileManagement.h */; };
+		56B406CE21F89D8F001BA320 /* FileManagement.h in Headers */ = {isa = PBXBuildFile; fileRef = 56B406CC21F89D8F001BA320 /* FileManagement.h */; };
+		56B406CF21F89D94001BA320 /* FileManagement.mm in Sources */ = {isa = PBXBuildFile; fileRef = 56B406CB21F89D35001BA320 /* FileManagement.mm */; };
+		56B406D021F89D94001BA320 /* FileManagement.mm in Sources */ = {isa = PBXBuildFile; fileRef = 56B406CB21F89D35001BA320 /* FileManagement.mm */; };
+		56B406D221F89D9E001BA320 /* LoggingPriorities.h in Headers */ = {isa = PBXBuildFile; fileRef = 5609C1BE21F8848F00B80D56 /* LoggingPriorities.h */; };
+		56B406D321F89D9E001BA320 /* LoggingPriorities.h in Headers */ = {isa = PBXBuildFile; fileRef = 5609C1BE21F8848F00B80D56 /* LoggingPriorities.h */; };
+		56B406D521F89DA5001BA320 /* ILoggable.h in Headers */ = {isa = PBXBuildFile; fileRef = 5609C1BD21F8822B00B80D56 /* ILoggable.h */; };
+		56B406D621F89DA5001BA320 /* FileLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 5609C1D521F88CCE00B80D56 /* FileLogger.h */; };
+		56B406D721F89DA5001BA320 /* FileLogger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5609C1D421F88CCE00B80D56 /* FileLogger.cpp */; };
+		56B406D821F89DA5001BA320 /* ConsoleLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 5609C1CF21F888F800B80D56 /* ConsoleLogger.h */; };
+		56B406D921F89DA5001BA320 /* ConsoleLogger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5609C1CE21F888F800B80D56 /* ConsoleLogger.cpp */; };
+		56B406DB21F89DA7001BA320 /* ILoggable.h in Headers */ = {isa = PBXBuildFile; fileRef = 5609C1BD21F8822B00B80D56 /* ILoggable.h */; };
+		56B406DC21F89DA7001BA320 /* FileLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 5609C1D521F88CCE00B80D56 /* FileLogger.h */; };
+		56B406DD21F89DA7001BA320 /* FileLogger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5609C1D421F88CCE00B80D56 /* FileLogger.cpp */; };
+		56B406DE21F89DA7001BA320 /* ConsoleLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 5609C1CF21F888F800B80D56 /* ConsoleLogger.h */; };
+		56B406DF21F89DA7001BA320 /* ConsoleLogger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5609C1CE21F888F800B80D56 /* ConsoleLogger.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5609C1BD21F8822B00B80D56 /* ILoggable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ILoggable.h; sourceTree = "<group>"; };
+		5609C1BE21F8848F00B80D56 /* LoggingPriorities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoggingPriorities.h; sourceTree = "<group>"; };
+		5609C1C721F8874800B80D56 /* SSLLogger.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SSLLogger.cpp; sourceTree = "<group>"; };
+		5609C1C821F8874800B80D56 /* SSLLogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSLLogger.h; sourceTree = "<group>"; };
+		5609C1CE21F888F800B80D56 /* ConsoleLogger.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ConsoleLogger.cpp; sourceTree = "<group>"; };
+		5609C1CF21F888F800B80D56 /* ConsoleLogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConsoleLogger.h; sourceTree = "<group>"; };
+		5609C1D421F88CCE00B80D56 /* FileLogger.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = FileLogger.cpp; sourceTree = "<group>"; };
+		5609C1D521F88CCE00B80D56 /* FileLogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FileLogger.h; sourceTree = "<group>"; };
 		565EF33E21F71CEC00AC36B3 /* SSLSockets.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SSLSockets.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		565EF34121F71CEC00AC36B3 /* SSLSockets.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSLSockets.h; sourceTree = "<group>"; };
 		565EF34221F71CEC00AC36B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -428,6 +456,8 @@
 		565EF3EB21F71E6400AC36B3 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcrypto.a; sourceTree = "<group>"; };
 		565EF3EC21F71E6400AC36B3 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libssl.a; sourceTree = "<group>"; };
 		565EF50021F71F4C00AC36B3 /* UniversalFramework.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = UniversalFramework.sh; sourceTree = "<group>"; };
+		56B406CB21F89D35001BA320 /* FileManagement.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = FileManagement.mm; sourceTree = "<group>"; };
+		56B406CC21F89D8F001BA320 /* FileManagement.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FileManagement.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -452,6 +482,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5609C1BC21F881B400B80D56 /* Logging */ = {
+			isa = PBXGroup;
+			children = (
+				5609C1CD21F888C900B80D56 /* ILoggables */,
+				5609C1BE21F8848F00B80D56 /* LoggingPriorities.h */,
+				5609C1C821F8874800B80D56 /* SSLLogger.h */,
+				5609C1C721F8874800B80D56 /* SSLLogger.cpp */,
+			);
+			path = Logging;
+			sourceTree = "<group>";
+		};
+		5609C1CD21F888C900B80D56 /* ILoggables */ = {
+			isa = PBXGroup;
+			children = (
+				5609C1BD21F8822B00B80D56 /* ILoggable.h */,
+				5609C1D521F88CCE00B80D56 /* FileLogger.h */,
+				5609C1D421F88CCE00B80D56 /* FileLogger.cpp */,
+				5609C1CF21F888F800B80D56 /* ConsoleLogger.h */,
+				5609C1CE21F888F800B80D56 /* ConsoleLogger.cpp */,
+			);
+			path = ILoggables;
+			sourceTree = "<group>";
+		};
 		565EF33421F71CEC00AC36B3 = {
 			isa = PBXGroup;
 			children = (
@@ -476,6 +529,8 @@
 				565EF34121F71CEC00AC36B3 /* SSLSockets.h */,
 				565EF34221F71CEC00AC36B3 /* Info.plist */,
 				569CEB1C21F769DF0004435C /* Public Headers */,
+				56B406CA21F89D12001BA320 /* FileManagement */,
+				5609C1BC21F881B400B80D56 /* Logging */,
 				565EF35621F71E6400AC36B3 /* Sockets */,
 			);
 			path = SSLSockets;
@@ -736,6 +791,15 @@
 			path = "Public Headers";
 			sourceTree = "<group>";
 		};
+		56B406CA21F89D12001BA320 /* FileManagement */ = {
+			isa = PBXGroup;
+			children = (
+				56B406CC21F89D8F001BA320 /* FileManagement.h */,
+				56B406CB21F89D35001BA320 /* FileManagement.mm */,
+			);
+			path = FileManagement;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -748,6 +812,7 @@
 				565EF4D721F71E6400AC36B3 /* randerr.h in Headers */,
 				565EF44521F71E6400AC36B3 /* x509.h in Headers */,
 				565EF43921F71E6400AC36B3 /* err.h in Headers */,
+				56B406D521F89DA5001BA320 /* ILoggable.h in Headers */,
 				565EF40921F71E6400AC36B3 /* SSLSocketsManager.h in Headers */,
 				565EF43B21F71E6400AC36B3 /* bn.h in Headers */,
 				565EF48121F71E6400AC36B3 /* pkcs12.h in Headers */,
@@ -790,6 +855,7 @@
 				565EF48B21F71E6400AC36B3 /* obj_mac.h in Headers */,
 				565EF45F21F71E6400AC36B3 /* dh.h in Headers */,
 				565EF4A521F71E6400AC36B3 /* engineerr.h in Headers */,
+				56B406D621F89DA5001BA320 /* FileLogger.h in Headers */,
 				565EF4B721F71E6400AC36B3 /* ecdh.h in Headers */,
 				565EF48521F71E6400AC36B3 /* opensslv.h in Headers */,
 				565EF4C321F71E6400AC36B3 /* buffererr.h in Headers */,
@@ -800,6 +866,7 @@
 				565EF4D921F71E6400AC36B3 /* mdc2.h in Headers */,
 				565EF3EF21F71E6400AC36B3 /* SSLSocketHandler+Protected.h in Headers */,
 				565EF44B21F71E6400AC36B3 /* cmserr.h in Headers */,
+				56B406D221F89D9E001BA320 /* LoggingPriorities.h in Headers */,
 				565EF45D21F71E6400AC36B3 /* rc2.h in Headers */,
 				565EF42121F71E6400AC36B3 /* BSDSocketHandler.h in Headers */,
 				565EF48921F71E6400AC36B3 /* pkcs7.h in Headers */,
@@ -811,6 +878,7 @@
 				565EF4BB21F71E6400AC36B3 /* ecerr.h in Headers */,
 				565EF47D21F71E6400AC36B3 /* x509v3err.h in Headers */,
 				565EF40521F71E6400AC36B3 /* SSLSocketDelegate+Protected.h in Headers */,
+				5609C1CB21F8874800B80D56 /* SSLLogger.h in Headers */,
 				565EF4A321F71E6400AC36B3 /* aes.h in Headers */,
 				565EF4AF21F71E6400AC36B3 /* stack.h in Headers */,
 				565EF46921F71E6400AC36B3 /* pemerr.h in Headers */,
@@ -818,6 +886,7 @@
 				565EF41521F71E6400AC36B3 /* BSDServerSocket.h in Headers */,
 				565EF46721F71E6400AC36B3 /* md5.h in Headers */,
 				565EF42D21F71E6400AC36B3 /* pem.h in Headers */,
+				56B406CD21F89D8F001BA320 /* FileManagement.h in Headers */,
 				565EF43321F71E6400AC36B3 /* ssl3.h in Headers */,
 				565EF41F21F71E6400AC36B3 /* IBSDHandlersManager.h in Headers */,
 				565EF4DD21F71E6400AC36B3 /* x509err.h in Headers */,
@@ -826,6 +895,7 @@
 				565EF4AB21F71E6400AC36B3 /* cast.h in Headers */,
 				565EF42F21F71E6400AC36B3 /* asyncerr.h in Headers */,
 				565EF4AD21F71E6400AC36B3 /* rc4.h in Headers */,
+				56B406D821F89DA5001BA320 /* ConsoleLogger.h in Headers */,
 				565EF4E121F71E6400AC36B3 /* dsa.h in Headers */,
 				565EF47121F71E6400AC36B3 /* cterr.h in Headers */,
 				565EF49921F71E6400AC36B3 /* dherr.h in Headers */,
@@ -877,6 +947,7 @@
 				565EF4D621F71E6400AC36B3 /* rsaerr.h in Headers */,
 				565EF45621F71E6400AC36B3 /* asn1.h in Headers */,
 				565EF45821F71E6400AC36B3 /* bioerr.h in Headers */,
+				56B406DB21F89DA7001BA320 /* ILoggable.h in Headers */,
 				565EF4DC21F71E6400AC36B3 /* ocsperr.h in Headers */,
 				565EF48221F71E6400AC36B3 /* pkcs12.h in Headers */,
 				565EF4AC21F71E6400AC36B3 /* cast.h in Headers */,
@@ -919,6 +990,7 @@
 				565EF4C021F71E6400AC36B3 /* cryptoerr.h in Headers */,
 				565EF4A021F71E6400AC36B3 /* md4.h in Headers */,
 				565EF4CE21F71E6400AC36B3 /* rsa.h in Headers */,
+				56B406DC21F89DA7001BA320 /* FileLogger.h in Headers */,
 				565EF44421F71E6400AC36B3 /* conf_api.h in Headers */,
 				565EF48A21F71E6400AC36B3 /* pkcs7.h in Headers */,
 				565EF48621F71E6400AC36B3 /* opensslv.h in Headers */,
@@ -929,6 +1001,7 @@
 				565EF46C21F71E6400AC36B3 /* x509_vfy.h in Headers */,
 				565EF49221F71E6400AC36B3 /* buffer.h in Headers */,
 				565EF47821F71E6400AC36B3 /* sslerr.h in Headers */,
+				56B406D321F89D9E001BA320 /* LoggingPriorities.h in Headers */,
 				565EF49821F71E6400AC36B3 /* camellia.h in Headers */,
 				565EF4A421F71E6400AC36B3 /* aes.h in Headers */,
 				565EF47021F71E6400AC36B3 /* comperr.h in Headers */,
@@ -940,6 +1013,7 @@
 				565EF43621F71E6400AC36B3 /* ossl_typ.h in Headers */,
 				565EF45221F71E6400AC36B3 /* sha.h in Headers */,
 				565EF44621F71E6400AC36B3 /* x509.h in Headers */,
+				5609C1CC21F8874800B80D56 /* SSLLogger.h in Headers */,
 				565EF4FF21F71F2500AC36B3 /* SSLSockets.h in Headers */,
 				565EF49421F71E6400AC36B3 /* ssl.h in Headers */,
 				565EF45421F71E6400AC36B3 /* symhacks.h in Headers */,
@@ -947,6 +1021,7 @@
 				565EF4D221F71E6400AC36B3 /* whrlpool.h in Headers */,
 				565EF4E421F71E6400AC36B3 /* kdferr.h in Headers */,
 				565EF4E821F71E6400AC36B3 /* asn1t.h in Headers */,
+				56B406CE21F89D8F001BA320 /* FileManagement.h in Headers */,
 				565EF4C421F71E6400AC36B3 /* buffererr.h in Headers */,
 				565EF4E221F71E6400AC36B3 /* dsa.h in Headers */,
 				565EF46E21F71E6400AC36B3 /* txt_db.h in Headers */,
@@ -955,6 +1030,7 @@
 				565EF47621F71E6400AC36B3 /* ecdsa.h in Headers */,
 				565EF48421F71E6400AC36B3 /* crypto.h in Headers */,
 				565EF4EA21F71E6400AC36B3 /* dsaerr.h in Headers */,
+				56B406DE21F89DA7001BA320 /* ConsoleLogger.h in Headers */,
 				565EF44E21F71E6400AC36B3 /* ui.h in Headers */,
 				565EF49C21F71E6400AC36B3 /* evp.h in Headers */,
 				565EF40221F71E6400AC36B3 /* SSLSocketDelegate.h in Headers */,
@@ -1117,6 +1193,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56B406D921F89DA5001BA320 /* ConsoleLogger.cpp in Sources */,
 				565EF40F21F71E6400AC36B3 /* SSLSigningManager.mm in Sources */,
 				565EF41D21F71E6400AC36B3 /* BSDSocketHandler.cpp in Sources */,
 				565EF3F521F71E6400AC36B3 /* SSLServerSocket.mm in Sources */,
@@ -1125,11 +1202,14 @@
 				565EF41B21F71E6400AC36B3 /* BSDSocket.cpp in Sources */,
 				565EF40721F71E6400AC36B3 /* SSLSocketsManager.mm in Sources */,
 				565EF40321F71E6400AC36B3 /* SSLSocketDelegate.mm in Sources */,
+				56B406CF21F89D94001BA320 /* FileManagement.mm in Sources */,
 				565EF42321F71E6400AC36B3 /* BSDSocketDelegate.mm in Sources */,
 				565EF40B21F71E6400AC36B3 /* Constants.m in Sources */,
+				5609C1C921F8874800B80D56 /* SSLLogger.cpp in Sources */,
 				565EF41921F71E6400AC36B3 /* BSDServerSocket.cpp in Sources */,
 				565EF41721F71E6400AC36B3 /* BSDClientSocket.cpp in Sources */,
 				565EF3FD21F71E6400AC36B3 /* SSLSocket.mm in Sources */,
+				56B406D721F89DA5001BA320 /* FileLogger.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1137,6 +1217,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56B406DF21F89DA7001BA320 /* ConsoleLogger.cpp in Sources */,
 				565EF41021F71E6400AC36B3 /* SSLSigningManager.mm in Sources */,
 				565EF41E21F71E6400AC36B3 /* BSDSocketHandler.cpp in Sources */,
 				565EF3F621F71E6400AC36B3 /* SSLServerSocket.mm in Sources */,
@@ -1145,11 +1226,14 @@
 				565EF41C21F71E6400AC36B3 /* BSDSocket.cpp in Sources */,
 				565EF40821F71E6400AC36B3 /* SSLSocketsManager.mm in Sources */,
 				565EF40421F71E6400AC36B3 /* SSLSocketDelegate.mm in Sources */,
+				56B406D021F89D94001BA320 /* FileManagement.mm in Sources */,
 				565EF42421F71E6400AC36B3 /* BSDSocketDelegate.mm in Sources */,
 				565EF40C21F71E6400AC36B3 /* Constants.m in Sources */,
+				5609C1CA21F8874800B80D56 /* SSLLogger.cpp in Sources */,
 				565EF41A21F71E6400AC36B3 /* BSDServerSocket.cpp in Sources */,
 				565EF41821F71E6400AC36B3 /* BSDClientSocket.cpp in Sources */,
 				565EF3FE21F71E6400AC36B3 /* SSLSocket.mm in Sources */,
+				56B406DD21F89DA7001BA320 /* FileLogger.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,23 +8,9 @@
 
 #include <stdexcept>
 #include <openssl/err.h>
+#include "FileManagement.h"
 #include "SSLSigningManager.h"
 #include <Foundation/Foundation.h>
-
-const char *pathForFile(const char *filename) {
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
-    
-    NSString *fileString = [NSString stringWithCString:filename encoding:NSASCIIStringEncoding];
-    NSString *path = [documentsDirectory stringByAppendingPathComponent:fileString];
-    return [path cStringUsingEncoding:NSASCIIStringEncoding];
-}
-
-FILE *iosfopen(const char *filename, const char *mode) {
-    const char *filePath = pathForFile(filename);
-    return fopen(filePath, mode);
-}
-
 
 bool SSLSigningManager::signContext(SSL_CTX *ctx) {
     SSL_CTX_set_ecdh_auto(ctx, 1);
