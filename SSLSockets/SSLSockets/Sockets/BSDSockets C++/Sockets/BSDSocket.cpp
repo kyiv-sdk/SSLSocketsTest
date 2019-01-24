@@ -6,6 +6,7 @@
 //  Copyright © 2019 SoftServe. All rights reserved.
 //
 
+#include "SSLLogger.h"
 #include "BSDSocket.h"
 #include "SSLSigningManager.h"
 
@@ -24,4 +25,5 @@ BSDSocket::BSDSocket(std::string address, const int port, BSDSocketDelegate *del
     _isRunning = false;
     this->delegate = delegate;
     SSLSigningManager::sharedInstance()->initSSLLibrary();
+    SSLLogger::sharedInstance()->log(LOG, "BSDSocket -> instance created.");
 }
