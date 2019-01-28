@@ -16,6 +16,7 @@ class ConsoleLogger : public ILoggable {
 public:
     void log(std::string message) override;
     
+    ~ConsoleLogger() override;
 };
 
 #endif /* ConsoleLogger_hpp */

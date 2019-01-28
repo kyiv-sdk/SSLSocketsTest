@@ -15,7 +15,7 @@ class ILoggable {
     
 public:
     virtual void log(std::string message) = 0;
-    
+    virtual ~ILoggable() = default;
 };
 
 #endif /* ILoggable_h */

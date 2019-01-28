@@ -20,12 +20,12 @@ bool BSDServerSocket::startSocket() {
     
     if (sslContext) {
         _isRunning = true;
-        SSLLogger::sharedInstance()->log(LOG, "BSDServerSocket -> socket started.");
+        SSLLogger::log(LOG, "BSDServerSocket -> socket started.");
         retainedThread = std::thread(&BSDServerSocket::waitForConnections, this);
         return true;
     }
     
-    SSLLogger::sharedInstance()->log(ERROR, "BSDServerSocket -> cannot be started because sslContext == NULL.");
+    SSLLogger::log(ERROR, "BSDServerSocket -> cannot be started because sslContext == NULL.");
     _isReady = false;
     return false;
 }
@@ -34,62 +34,62 @@ bool BSDServerSocket::startSocket() {
 void BSDServerSocket::stopSocket() {
     if (!_isRunning) return;
     
-    SSLLogger::sharedInstance()->log(LOG, "BSDServerSocket -> stopSocket called.");
+    SSLLogger::log(LOG, "BSDServerSocket -> stopSocket called.");
     _isRunning = false;
     if (sslContext && SSL_CTX_ct_is_enabled(sslContext)) {
-        SSLLogger::sharedInstance()->log(LOG, "BSDServerSocket -> freeing sslContext.");
+        SSLLogger::log(LOG, "BSDServerSocket -> freeing sslContext.");
         SSL_CTX_free(sslContext);
     }
     
-    SSLLogger::sharedInstance()->log(LOG, "BSDServerSocket -> socket wil close");
+    SSLLogger::log(LOG, "BSDServerSocket -> socket wil close");
     if (close(socketDescriptor) == FAIL_CODE) {
-        SSLLogger::sharedInstance()->logERRNO("BSDServerSocket -> close failed");
+        SSLLogger::logERRNO("BSDServerSocket -> close failed");
     } else {
-        SSLLogger::sharedInstance()->log(LOG, "BSDServerSocket -> socket successfully closed");
+        SSLLogger::log(LOG, "BSDServerSocket -> socket successfully closed");
     }
     
-    SSLLogger::sharedInstance()->log(LOG, "BSDServerSocket -> will delete accepted sockets pool.");
+    SSLLogger::log(LOG, "BSDServerSocket -> will delete accepted sockets pool.");
     for (BSDSocketHandler *handler : acceptedSockets) {
         delete handler;
     }
     
-    SSLLogger::sharedInstance()->log(LOG, "BSDServerSocket -> will join retained thread.");
+    SSLLogger::log(LOG, "BSDServerSocket -> will join retained thread.");
     if (retainedThread.joinable()) retainedThread.join();
-    SSLLogger::sharedInstance()->log(LOG, "BSDServerSocket -> joined retained thread.");
+    SSLLogger::log(LOG, "BSDServerSocket -> joined retained thread.");
 }
 
 
 bool BSDServerSocket::sendData(const char *data, SSL const *ssl) {
-    SSLLogger::sharedInstance()->log(LOG, "BSDServerSocket -> will find accepted socket to send message.");
+    SSLLogger::log(LOG, "BSDServerSocket -> will find accepted socket to send message.");
     for (BSDSocketHandler *handler : acceptedSockets) {
         if (handler->getSSL() == ssl) {
             handler->send(data);
-            SSLLogger::sharedInstance()->log(LOG, "BSDServerSocket -> have found accepted socket to send message.");
+            SSLLogger::log(LOG, "BSDServerSocket -> have found accepted socket to send message.");
             return true;
         }
     }
     
-    SSLLogger::sharedInstance()->log(ERROR, "BSDServerSocket -> haven't found accepted socket to send message.");
+    SSLLogger::log(ERROR, "BSDServerSocket -> haven't found accepted socket to send message.");
     return false;
 }
 
 
 const std::vector<std::string> BSDServerSocket::getReceivedInfo() {
     std::vector<std::string> info;
-    SSLLogger::sharedInstance()->log(LOG, "BSDServerSocket -> will return received info from all accepted sockets.");
+    SSLLogger::log(LOG, "BSDServerSocket -> will return received info from all accepted sockets.");
     for (BSDSocketHandler *handler : acceptedSockets) {
         const std::vector<std::string> handlerInfo = handler->getReceivedInfo();
         for (std::string message : handlerInfo) {
             info.push_back(message);
         }
     }
-    SSLLogger::sharedInstance()->log(LOG, "BSDServerSocket -> has returned received info from all accepted sockets.");
+    SSLLogger::log(LOG, "BSDServerSocket -> has returned received info from all accepted sockets.");
     return info;
 }
 
 
 const std::vector<BSDSocketHandler *> BSDServerSocket::getAcceptedSockets() {
-    SSLLogger::sharedInstance()->log(LOG, "BSDServerSocket -> accepted sockets asked.");
+    SSLLogger::log(LOG, "BSDServerSocket -> accepted sockets asked.");
     return acceptedSockets;
 }
 
@@ -99,24 +99,24 @@ void BSDServerSocket::waitForConnections() {
     while (_isRunning) {
         int acceptedSocket = accept(socketDescriptor, NULL, NULL);
         if (acceptedSocket >= 0) {
-            SSLLogger::sharedInstance()->log(LOG, "BSDServerSocket -> accepted new socket.");
-            SSLLogger::sharedInstance()->log(LOG, "BSDServerSocket -> creating SSL for new connection.");
+            SSLLogger::log(LOG, "BSDServerSocket -> accepted new socket.");
+            SSLLogger::log(LOG, "BSDServerSocket -> creating SSL for new connection.");
             SSL *acceptedSSL = SSL_new(sslContext);
-            SSLLogger::sharedInstance()->log(LOG, "BSDServerSocket -> setting FD to created SSL.");
+            SSLLogger::log(LOG, "BSDServerSocket -> setting FD to created SSL.");
             SSL_set_fd(acceptedSSL, acceptedSocket);
             
             if (SSL_accept(acceptedSSL) <= 0) {
                 unsigned long errorCode = ERR_get_error();
-                SSLLogger::sharedInstance()->logSSLError("BSDSocketHandler -> write failed", errorCode);
+                SSLLogger::logSSLError("BSDSocketHandler -> write failed", errorCode);
                 
             } else {
                 BSDSocketHandler *newSocketHandler = new BSDSocketHandler(acceptedSSL, acceptedSocket, delegate, this);
                 acceptedSockets.push_back(newSocketHandler);
-                SSLLogger::sharedInstance()->log(LOG, "BSDServerSocket -> new SocketHandler pushed to accepted sockets pool.");
+                SSLLogger::log(LOG, "BSDServerSocket -> new SocketHandler pushed to accepted sockets pool.");
                 newSocketHandler->startHandling();
             }
         } else {
-            SSLLogger::sharedInstance()->logERRNO("BSDServerSocket -> Cannont accept socket");
+            SSLLogger::logERRNO("BSDServerSocket -> Cannont accept socket");
         }
     }
 }
@@ -124,31 +124,31 @@ void BSDServerSocket::waitForConnections() {
 
 
 void BSDServerSocket::didStopHandler(BSDSocketHandler *handler) {
-    SSLLogger::sharedInstance()->log(LOG, "BSDServerSocket -> received notification that accepted socket (sender) stopped handling.");
+    SSLLogger::log(LOG, "BSDServerSocket -> received notification that accepted socket (sender) stopped handling.");
     ptrdiff_t idx = find(acceptedSockets.begin(), acceptedSockets.end(), handler) - acceptedSockets.begin();
     if (idx < acceptedSockets.size()) {
-        SSLLogger::sharedInstance()->log(LOG, "BSDServerSocket -> removed sender from its pool.");
+        SSLLogger::log(LOG, "BSDServerSocket -> removed sender from its pool.");
         acceptedSockets.erase(acceptedSockets.begin() + idx);
     } else {
-        SSLLogger::sharedInstance()->log(ERROR, "BSDServerSocket -> haven't found sender in its pool.");
+        SSLLogger::log(ERROR, "BSDServerSocket -> haven't found sender in its pool.");
     }
 }
 
 
 BSDServerSocket::BSDServerSocket(int port) : BSDServerSocket(port, NULL) { }
 BSDServerSocket::BSDServerSocket(int port, BSDSocketDelegate *delegate) : BSDSocket("127.0.0.1", port, delegate) {
-    SSLLogger::sharedInstance()->log(LOG, "BSDServerSocket -> constructor called.");
+    SSLLogger::log(LOG, "BSDServerSocket -> constructor called.");
     bool flag = true;
-    SSLLogger::sharedInstance()->log(LOG, "BSDServerSocket -> will ask SSLSigningManager to generate context.");
+    SSLLogger::log(LOG, "BSDServerSocket -> will ask SSLSigningManager to generate context.");
     sslContext = SSLSigningManager::sharedInstance()->generateContext();
 
-    SSLLogger::sharedInstance()->log(LOG, "BSDServerSocket -> creating socket.");
+    SSLLogger::log(LOG, "BSDServerSocket -> creating socket.");
     socketDescriptor = socket(PF_INET, SOCK_STREAM, IPPROTO_TCP);
     if (socketDescriptor == FAIL_CODE) {
-        SSLLogger::sharedInstance()->logERRNO("BSDServerSocket -> creation failed");
+        SSLLogger::logERRNO("BSDServerSocket -> creation failed");
         flag = false;
     } else {
-        SSLLogger::sharedInstance()->log(LOG, "BSDServerSocket -> socket successfully created.");
+        SSLLogger::log(LOG, "BSDServerSocket -> socket successfully created.");
     }
     
     struct sockaddr_in sock_addr;
@@ -158,28 +158,28 @@ BSDServerSocket::BSDServerSocket(int port, BSDSocketDelegate *delegate) : BSDSoc
     sock_addr.sin_port = htons(port);
     sock_addr.sin_addr.s_addr = htonl(INADDR_ANY);
     
-    SSLLogger::sharedInstance()->log(LOG, "BSDServerSocket -> binding socket with given port.");
+    SSLLogger::log(LOG, "BSDServerSocket -> binding socket with given port.");
     if (bind(socketDescriptor, (struct sockaddr *)&sock_addr, sizeof(sock_addr)) == FAIL_CODE) {
-        SSLLogger::sharedInstance()->logERRNO("BSDServerSocket -> Bind failed");
+        SSLLogger::logERRNO("BSDServerSocket -> Bind failed");
         flag = false;
     } else {
-        SSLLogger::sharedInstance()->log(LOG, "BSDServerSocket -> successfully binded with given port.");
+        SSLLogger::log(LOG, "BSDServerSocket -> successfully binded with given port.");
     }
     
-    SSLLogger::sharedInstance()->log(LOG, "BSDServerSocket -> startning listening.");
+    SSLLogger::log(LOG, "BSDServerSocket -> startning listening.");
     if (listen(socketDescriptor, 10) == FAIL_CODE) {
-        SSLLogger::sharedInstance()->logERRNO("BSDServerSocket -> Listen failed");
+        SSLLogger::logERRNO("BSDServerSocket -> Listen failed");
         flag = false;
     } else {
-        SSLLogger::sharedInstance()->log(LOG, "BSDServerSocket -> listening successfully started.");
+        SSLLogger::log(LOG, "BSDServerSocket -> listening successfully started.");
     }
     
     if (!flag) {
         close(socketDescriptor);
         _isReady = false;
-        SSLLogger::sharedInstance()->log(LOG, "BSDServerSocket -> instance creation failed.");
+        SSLLogger::log(LOG, "BSDServerSocket -> instance creation failed.");
     } else {
-        SSLLogger::sharedInstance()->log(LOG, "BSDServerSocket -> instance successfully created.");
+        SSLLogger::log(LOG, "BSDServerSocket -> instance successfully created.");
     }
 }
 

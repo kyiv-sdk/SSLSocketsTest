@@ -16,23 +16,18 @@
 class SSLLogger {
     
 private:
-    ILoggable *logger;
-    LoggingPriority minPrioity;
+    static ILoggable *logger;
     
-    void startNewSession();
-    
-    SSLLogger(ILoggable *logger, LoggingPriority minLogPriority);
-    
-    static std::mutex mtxSingletone;
-    static SSLLogger *_sharedInstance;
+    static void startNewSession();
     
 public:
-    void log(LoggingPriority priority, std::string message);
-    void logSSLError(std::string message, long errorCode);
-    void logERRNO(std::string message);
+    static LoggingPriority minPrioity;
     
-    static SSLLogger *sharedInstance();
-    static void configureWith(ILoggable *logger, LoggingPriority minLogPriority);
+    static void setLogger(ILoggable *logger);
+    static void log(LoggingPriority priority, std::string message);
+    static void logSSLError(std::string message, long errorCode);
+    static void logERRNO(std::string message);
+    
 };
 
 #endif /* SSLLogger_hpp */

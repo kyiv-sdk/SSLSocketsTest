@@ -25,5 +25,5 @@ BSDSocket::BSDSocket(std::string address, const int port, BSDSocketDelegate *del
     _isRunning = false;
     this->delegate = delegate;
     SSLSigningManager::sharedInstance()->initSSLLibrary();
-    SSLLogger::sharedInstance()->log(LOG, "BSDSocket -> instance created.");
+    SSLLogger::log(LOG, "BSDSocket -> instance created.");
 }

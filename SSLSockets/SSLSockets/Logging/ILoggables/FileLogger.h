@@ -10,19 +10,27 @@
 #define FileLogger_hpp
 
 #include <thread>
+#include <vector>
 #include "ILoggable.h"
 
 class FileLogger: public ILoggable {
 
 private:
-    std::mutex mtx;
-    std::string filename;
+    bool isLogging;
+    FILE *logfile;
+    std::thread retainedThread;
+    std::vector<std::string> pendingQueue;
+    std::mutex mtxQueue;
+    std::condition_variable notifier;
+    
+    void startRunLoop();
     
 public:
+    void startLogging();
     void log(std::string message) override;
     
     FileLogger(std::string filename);
-    
+    ~FileLogger() override;
 };
 
 #endif /* FileLogger_hpp */

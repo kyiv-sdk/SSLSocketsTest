@@ -9,20 +9,45 @@
 #include "FileLogger.h"
 #include "FileManagement.h"
 
-void FileLogger::log(std::string message) {
-    mtx.lock();
-    FILE *logfile = iosfopen(filename.c_str(), "wb+");
-    if (logfile) {
-        fprintf(logfile, "%s", message.c_str());
-        fclose(logfile);
-    } else {
-        printf("Cannot open file for logging!\n");
+void FileLogger::startRunLoop() {
+    std::unique_lock<std::mutex> lck(mtxQueue);
+    while (isLogging) {
+        notifier.wait(lck);
+        while (pendingQueue.size() > 0) {
+            std::string message(pendingQueue.front());
+            fprintf(logfile, "%s\n", message.c_str());
+            pendingQueue.erase(pendingQueue.begin());
+        }
+        fflush(logfile);
     }
-    mtx.unlock();
+}
+
+
+void FileLogger::startLogging() {
+    if (isLogging || !logfile) return;
+    isLogging = true;
+    retainedThread = std::thread(&FileLogger::startRunLoop, this);
+}
+
+
+void FileLogger::log(std::string message) {
+    pendingQueue.push_back(message);
+    notifier.notify_all();
 }
 
 
 
 FileLogger::FileLogger(std::string filename) {
-    this->filename = filename;
+    isLogging = false;
+    logfile = iosfopen(filename.c_str(), "a+");
+    if (!logfile) printf("Cannot open file for logging.\n");
+}
+
+
+FileLogger::~FileLogger() {
+    log(std::string(" ********** SESSION ENDED ********** "));
+    isLogging = false;
+    notifier.notify_all();
+    if (retainedThread.joinable()) retainedThread.join();
+    fclose(logfile);
 }

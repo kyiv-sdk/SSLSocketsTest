@@ -11,3 +11,6 @@
 void ConsoleLogger::log(std::string message) {
     printf("%s\n", message.c_str());
 }
+
+
+ConsoleLogger::~ConsoleLogger() {}
