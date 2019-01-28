@@ -23,7 +23,7 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    [SSLSocketsManager setLoggingInFileWithName:SSLLoggerFileName andMinimalPriority:SSLLoggingPriorityLog];
     return YES;
 }
 
@@ -65,13 +65,13 @@
         [self.connectionDelegate didOpenSocketWithPort:port];
         self.connectionDelegate = nil;
     } else if ([host isEqualToString:OpenSocketRequest]) {
-        [SSLSocketsManager configureWithCountry:@"UA"
-                                          state:@"Kyiv"
-                                       location:@"Kyiv"
-                                   organization:@"SoftServe"
-                               organizationUnit:@"IACSender"
-                                     commonName:@"com.softserve.iacsender"
-                                   emailAddress:@"ohord2@softserveinc.com"];
+        [SSLSocketsManager configureCertificatesWithCountry:@"UA"
+                                                      state:@"Kyiv"
+                                                   location:@"Kyiv"
+                                               organization:@"SoftServe"
+                                           organizationUnit:@"IACSender"
+                                                 commonName:@"com.softserve.iacsender"
+                                               emailAddress:@"ohord2@softserveinc.com"];
         
         ReceivedTableViewController *viewController = [self getReceivedTableViewControllerInstance];
         int port = [viewController openServerSocket];

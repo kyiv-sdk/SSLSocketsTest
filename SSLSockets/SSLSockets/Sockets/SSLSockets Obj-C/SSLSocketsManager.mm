@@ -6,12 +6,15 @@
 //  Copyright © 2019 SoftServe. All rights reserved.
 //
 
+#import "SSLLogger.h"
+#import "FileLogger.h"
+#import "LoggingPriorities.h"
 #import "SSLSocketsManager.h"
 #import "SSLSigningManager.h"
 
 @implementation SSLSocketsManager
 
-+ (void)configureWithCountry:(NSString *)country
++ (void)configureCertificatesWithCountry:(NSString *)country
                        state:(NSString *)state
                     location:(NSString *)location
                 organization:(NSString *)organization
@@ -26,6 +29,14 @@
                                  [organizationUnit UTF8String],
                                  [commonName UTF8String],
                                  [emailAddress UTF8String]);
+}
+
+
++ (void)setLoggingInFileWithName:(NSString *)name andMinimalPriority:(SSLLoggingPriority)priority {
+    std::string filename([name UTF8String]);
+    LoggingPriority loggingPriority = LoggingPriority(priority);
+    FileLogger *logger = new FileLogger(filename);
+    SSLLogger::configureWith(logger, loggingPriority);
 }
 
 @end

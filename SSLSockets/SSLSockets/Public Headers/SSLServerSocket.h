@@ -14,6 +14,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface SSLServerSocket : SSLSocket
 
+/**
+    @brief Sorage that contains accepted sockets in SSLSocketHandler *representation.
+ */
 @property (strong, nonatomic, readonly) NSArray *acceptedSockets;
 
 /**

@@ -19,6 +19,8 @@ private:
     ILoggable *logger;
     LoggingPriority minPrioity;
     
+    void startNewSession();
+    
     SSLLogger(ILoggable *logger, LoggingPriority minLogPriority);
     
     static std::mutex mtxSingletone;

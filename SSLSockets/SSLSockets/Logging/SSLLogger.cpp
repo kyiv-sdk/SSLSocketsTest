@@ -12,6 +12,12 @@
 #include <openssl/err.h>
 #include "ConsoleLogger.h"
 
+void SSLLogger::startNewSession() {
+    std::string message = "\n ********** NEW SESSION STARTED ********** ";
+    logger->log(message);
+}
+
+
 void SSLLogger::log(LoggingPriority priority, std::string message) {
     if (priority < minPrioity) return;
     
@@ -61,5 +67,6 @@ SSLLogger *SSLLogger::sharedInstance() {
 void SSLLogger::configureWith(ILoggable *logger, LoggingPriority minLogPriority) {
     mtxSingletone.lock();
     _sharedInstance = new SSLLogger(logger, minLogPriority);
+    _sharedInstance->startNewSession();
     mtxSingletone.unlock();
 }

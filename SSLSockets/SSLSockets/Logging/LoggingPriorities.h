@@ -10,8 +10,8 @@
 #define LoggingPriorities_h
 
 typedef enum {
-    LOG         = 1,
-    WARNING     = 2,
+    LOG         = 0,
+    WARNING     = 1,
     ERROR       = 3,
     FATAL_ERROR = 4
 } LoggingPriority;

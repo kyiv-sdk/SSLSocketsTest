@@ -15,3 +15,5 @@ extern NSString * const OpenSocketRequest;
 extern NSString * const OpenedSocketCallback;
 
 extern NSString * const URLKey;
+
+extern NSString * const SSLLoggerFileName;
