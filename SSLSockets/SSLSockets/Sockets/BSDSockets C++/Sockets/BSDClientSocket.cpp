@@ -111,7 +111,7 @@ BSDClientSocket::BSDClientSocket(std::string address, int port, BSDSocketDelegat
         int errorCode = SSL_get_error(ssl, err);
         SSLLogger::logSSLError("BSDSocketHandler -> SSL_connect failed", errorCode);
     } else {
-        SSLLogger::log(LOG, "BSDClientSocket -> successfully configured and conneted.");
+        SSLLogger::log(LOG, "BSDClientSocket -> successfully configured and connected.");
         handler = new BSDSocketHandler(ssl, descriptor, delegate, NULL);
     }
 }
