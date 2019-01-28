@@ -18,8 +18,6 @@ class SSLLogger {
 private:
     static ILoggable *logger;
     
-    static void startNewSession();
-    
 public:
     static LoggingPriority minPrioity;
     

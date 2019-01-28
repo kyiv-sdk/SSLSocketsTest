@@ -18,7 +18,6 @@ void FileLogger::startRunLoop() {
             fprintf(logfile, "%s\n", message.c_str());
             pendingQueue.erase(pendingQueue.begin());
         }
-        fflush(logfile);
     }
 }
 
@@ -40,12 +39,18 @@ void FileLogger::log(std::string message) {
 FileLogger::FileLogger(std::string filename) {
     isLogging = false;
     logfile = iosfopen(filename.c_str(), "a+");
-    if (!logfile) printf("Cannot open file for logging.\n");
+    if (logfile) {
+        std::string message = "\n ********** NEW SESSION STARTED ********** ";
+        fprintf(logfile, "%s\n", message.c_str());
+    } else {
+        printf("Cannot open file for logging.\n");
+    }
 }
 
 
 FileLogger::~FileLogger() {
-    log(std::string(" ********** SESSION ENDED ********** "));
+    log(std::string(" ********** SESSION ENDED ********** \n"));
+    fflush(logfile);
     isLogging = false;
     notifier.notify_all();
     if (retainedThread.joinable()) retainedThread.join();

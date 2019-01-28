@@ -38,6 +38,12 @@ typedef NS_ENUM(NSUInteger, SSLLoggingPriority) {
  */
 + (void)setLoggingInFileWithName:(NSString *)name andMinimalPriority:(SSLLoggingPriority)priority;
 
+
+/**
+    @brief Stops logging to given ILoggable *object. Method is required to be called when application going to be terminated.
+ */
++ (void)stopLogging;
+
 @end
 
 NS_ASSUME_NONNULL_END

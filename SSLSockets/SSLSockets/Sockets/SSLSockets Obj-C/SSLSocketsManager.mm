@@ -40,4 +40,9 @@
     SSLLogger::setLogger(logger);
 }
 
+
++ (void)stopLogging {
+    SSLLogger::setLogger(NULL);
+}
+
 @end

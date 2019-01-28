@@ -16,17 +16,11 @@ ILoggable *SSLLogger::logger;
 LoggingPriority SSLLogger::minPrioity;
 
 
-void SSLLogger::startNewSession() {
-    std::string message = "\n ********** NEW SESSION STARTED ********** ";
-    if (logger) logger->log(message);
-}
-
-
 void SSLLogger::setLogger(ILoggable *logger) {
     if (SSLLogger::logger) delete SSLLogger::logger;
     SSLLogger::logger = logger;
-    SSLLogger::startNewSession();
 }
+
 
 void SSLLogger::log(LoggingPriority priority, std::string message) {
     if (priority < minPrioity) return;
