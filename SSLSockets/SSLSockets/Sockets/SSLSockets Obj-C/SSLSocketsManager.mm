@@ -32,17 +32,17 @@
 }
 
 
-+ (void)setLoggingInFileWithName:(NSString *)name andMinimalPriority:(SSLLoggingPriority)priority {
-    SSLLogger::minPrioity = LoggingPriority(priority);
++ (void)addLoggingInFileWithName:(NSString *)name andMinimalPriority:(SSLLoggingPriority)priority {
+    LoggingPriority lpriority = LoggingPriority(priority);
     std::string filename([name UTF8String]);
-    FileLogger *logger = new FileLogger(filename);
+    FileLogger *logger = new FileLogger(filename, lpriority);
+    SSLLogger::addLogger(logger);
     logger->startLogging();
-    SSLLogger::setLogger(logger);
 }
 
 
 + (void)stopLogging {
-    SSLLogger::setLogger(NULL);
+    SSLLogger::stopLogging();
 }
 
 @end

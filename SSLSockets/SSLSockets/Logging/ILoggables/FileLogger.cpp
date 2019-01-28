@@ -29,15 +29,17 @@ void FileLogger::startLogging() {
 }
 
 
-void FileLogger::log(std::string message) {
+void FileLogger::log(LoggingPriority priority, std::string message) {
+    if (priority < minPrioity) return;
     pendingQueue.push_back(message);
     notifier.notify_all();
 }
 
 
 
-FileLogger::FileLogger(std::string filename) {
+FileLogger::FileLogger(std::string filename, LoggingPriority minPriority) {
     isLogging = false;
+    this->minPrioity = minPrioity;
     logfile = iosfopen(filename.c_str(), "a+");
     if (logfile) {
         std::string message = "\n ********** NEW SESSION STARTED ********** ";
@@ -49,7 +51,8 @@ FileLogger::FileLogger(std::string filename) {
 
 
 FileLogger::~FileLogger() {
-    log(std::string(" ********** SESSION ENDED ********** \n"));
+    std::string message = " ********** SESSION ENDED ********** \n";
+    fprintf(logfile, "%s\n", message.c_str());
     fflush(logfile);
     isLogging = false;
     notifier.notify_all();

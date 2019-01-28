@@ -31,13 +31,11 @@ typedef NS_ENUM(NSUInteger, SSLLoggingPriority) {
                            emailAddress:(NSString *)emailAddress;
 
 /**
-    @brief Sets file as destination of logging and minimal priority of log to be logged.
-    @discussion By default logging configured to do on console wtih priority 'Log'. This function changes destination to passed file and priority.
-    @param name - name of file which will contains all of the SSLSockets logs.
-    @param priority - minimal priority of log that will be logged.
+     @brief Adds file as destination of logging and minimal priority of log to be logged.
+     @param name - name of file which will contains all of the SSLSockets logs with mentioned priority or higher.
+     @param priority - minimal priority of log that will be logged.
  */
-+ (void)setLoggingInFileWithName:(NSString *)name andMinimalPriority:(SSLLoggingPriority)priority;
-
++ (void)addLoggingInFileWithName:(NSString *)name andMinimalPriority:(SSLLoggingPriority)priority;
 
 /**
     @brief Stops logging to given ILoggable *object. Method is required to be called when application going to be terminated.

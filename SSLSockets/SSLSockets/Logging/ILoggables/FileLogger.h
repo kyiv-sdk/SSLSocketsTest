@@ -27,9 +27,9 @@ private:
     
 public:
     void startLogging();
-    void log(std::string message) override;
+    void log(LoggingPriority priority, std::string message) override;
     
-    FileLogger(std::string filename);
+    FileLogger(std::string filename, LoggingPriority minPriority);
     ~FileLogger() override;
 };
 

@@ -9,19 +9,19 @@
 #ifndef SSLLogger_hpp
 #define SSLLogger_hpp
 
-#include <thread>
+#include <vector>
 #include "ILoggable.h"
 #include "LoggingPriorities.h"
 
 class SSLLogger {
     
 private:
-    static ILoggable *logger;
+    static std::vector<ILoggable *> loggers;
     
 public:
-    static LoggingPriority minPrioity;
+    static void addLogger(ILoggable *logger);
+    static void stopLogging();
     
-    static void setLogger(ILoggable *logger);
     static void log(LoggingPriority priority, std::string message);
     static void logSSLError(std::string message, long errorCode);
     static void logERRNO(std::string message);

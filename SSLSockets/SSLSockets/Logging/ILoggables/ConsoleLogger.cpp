@@ -8,8 +8,14 @@
 
 #include "ConsoleLogger.h"
 
-void ConsoleLogger::log(std::string message) {
+void ConsoleLogger::log(LoggingPriority priority, std::string message) {
+    if (priority < minPrioity) return;
     printf("%s\n", message.c_str());
+}
+
+
+ConsoleLogger::ConsoleLogger(LoggingPriority minPriority) {
+    this->minPrioity = minPrioity;
 }
 
 

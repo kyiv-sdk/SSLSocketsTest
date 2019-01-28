@@ -10,11 +10,15 @@
 #define ILoggable_h
 
 #include <string>
+#include "LoggingPriorities.h"
 
 class ILoggable {
     
 public:
-    virtual void log(std::string message) = 0;
+    LoggingPriority minPrioity;
+    
+    virtual void log(LoggingPriority priority, std::string message) = 0;
+    
     virtual ~ILoggable() = default;
 };
 

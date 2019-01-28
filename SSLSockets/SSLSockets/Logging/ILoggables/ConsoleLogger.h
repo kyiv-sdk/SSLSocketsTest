@@ -14,8 +14,9 @@
 class ConsoleLogger : public ILoggable {
 
 public:
-    void log(std::string message) override;
+    void log(LoggingPriority priority, std::string message) override;
     
+    ConsoleLogger(LoggingPriority minPriority);
     ~ConsoleLogger() override;
 };
 
