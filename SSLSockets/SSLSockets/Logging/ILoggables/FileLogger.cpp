@@ -31,6 +31,7 @@ void FileLogger::startLogging() {
 
 void FileLogger::log(LoggingPriority priority, std::string message) {
     if (priority < minPriority) return;
+    std::unique_lock<std::mutex> lck(mtxQueue);
     pendingQueue.push_back(message);
     notifier.notify_all();
 }
@@ -53,11 +54,13 @@ FileLogger::FileLogger(LoggingPriority minPriority, std::string filename) {
 
 FileLogger::~FileLogger() {
     printf("~FileLogger destructor\n");
-    std::string message = " ********** SESSION ENDED ********** \n";
-    fprintf(logfile, "%s\n", message.c_str());
-    fflush(logfile);
+    if (logfile) {
+        std::string message = " ********** SESSION ENDED ********** \n";
+        fprintf(logfile, "%s\n", message.c_str());
+        fflush(logfile);
+    }
     isLogging = false;
     notifier.notify_all();
     if (retainedThread.joinable()) retainedThread.join();
-    fclose(logfile);
+    if (logfile) fclose(logfile);
 }

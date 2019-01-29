@@ -16,7 +16,7 @@
 
 bool BSDClientSocket::startSocket() {
     if (_isRunning) {
-        SSLLogger::log(ERROR, "BSDClientSocket -> cannot start socket. It has already started.");
+        SSLLogger::log(WARNING, "BSDClientSocket -> cannot start socket. It has already started.");
         return true;
     }
     if (!_isReady) {
@@ -45,7 +45,7 @@ void BSDClientSocket::stopSocket() {
 
 bool BSDClientSocket::sendData(const char *data) {
     if (!_isRunning) {
-        SSLLogger::log(ERROR, "BSDClientSocket -> cannot send message. Socket isn't running.");
+        SSLLogger::log(WARNING, "BSDClientSocket -> cannot send message. Socket isn't running.");
         return false;
     }
     SSLLogger::log(LOG, "BSDClientSocket -> will send message to server.");

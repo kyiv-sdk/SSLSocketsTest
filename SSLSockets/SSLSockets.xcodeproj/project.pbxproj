@@ -287,6 +287,8 @@
 		565EF4FD21F71E6400AC36B3 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 565EF3EC21F71E6400AC36B3 /* libssl.a */; };
 		565EF4FE21F71E6400AC36B3 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 565EF3EC21F71E6400AC36B3 /* libssl.a */; };
 		565EF4FF21F71F2500AC36B3 /* SSLSockets.h in Headers */ = {isa = PBXBuildFile; fileRef = 565EF34121F71CEC00AC36B3 /* SSLSockets.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		567C57D32200872B00B6A9F9 /* SSLSockets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 565EF33E21F71CEC00AC36B3 /* SSLSockets.framework */; };
+		567C57DA220090A400B6A9F9 /* SSLSocketsLoggerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 567C57D9220090A400B6A9F9 /* SSLSocketsLoggerTests.m */; };
 		56B406CD21F89D8F001BA320 /* FileManagement.h in Headers */ = {isa = PBXBuildFile; fileRef = 56B406CC21F89D8F001BA320 /* FileManagement.h */; };
 		56B406CE21F89D8F001BA320 /* FileManagement.h in Headers */ = {isa = PBXBuildFile; fileRef = 56B406CC21F89D8F001BA320 /* FileManagement.h */; };
 		56B406CF21F89D94001BA320 /* FileManagement.mm in Sources */ = {isa = PBXBuildFile; fileRef = 56B406CB21F89D35001BA320 /* FileManagement.mm */; };
@@ -304,6 +306,16 @@
 		56B406DE21F89DA7001BA320 /* ConsoleLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 5609C1CF21F888F800B80D56 /* ConsoleLogger.h */; };
 		56B406DF21F89DA7001BA320 /* ConsoleLogger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5609C1CE21F888F800B80D56 /* ConsoleLogger.cpp */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		567C57D42200872B00B6A9F9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 565EF33521F71CEC00AC36B3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 565EF33D21F71CEC00AC36B3;
+			remoteInfo = "iOS SSLSockets";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		5609C1BD21F8822B00B80D56 /* ILoggable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ILoggable.h; sourceTree = "<group>"; };
@@ -456,6 +468,9 @@
 		565EF3EB21F71E6400AC36B3 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcrypto.a; sourceTree = "<group>"; };
 		565EF3EC21F71E6400AC36B3 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libssl.a; sourceTree = "<group>"; };
 		565EF50021F71F4C00AC36B3 /* UniversalFramework.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = UniversalFramework.sh; sourceTree = "<group>"; };
+		567C57CE2200872B00B6A9F9 /* SSLSocketsIOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SSLSocketsIOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		567C57D22200872B00B6A9F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		567C57D9220090A400B6A9F9 /* SSLSocketsLoggerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSLSocketsLoggerTests.m; sourceTree = "<group>"; };
 		56B406CB21F89D35001BA320 /* FileManagement.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = FileManagement.mm; sourceTree = "<group>"; };
 		56B406CC21F89D8F001BA320 /* FileManagement.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FileManagement.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -476,6 +491,14 @@
 			files = (
 				565EF4FE21F71E6400AC36B3 /* libssl.a in Frameworks */,
 				565EF4FC21F71E6400AC36B3 /* libcrypto.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		567C57CB2200872B00B6A9F9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				567C57D32200872B00B6A9F9 /* SSLSockets.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -510,6 +533,7 @@
 			children = (
 				565EF50021F71F4C00AC36B3 /* UniversalFramework.sh */,
 				565EF34021F71CEC00AC36B3 /* SSLSockets */,
+				567C57CF2200872B00B6A9F9 /* SSLSocketsIOSTests */,
 				565EF33F21F71CEC00AC36B3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -519,6 +543,7 @@
 			children = (
 				565EF33E21F71CEC00AC36B3 /* SSLSockets.framework */,
 				565EF34E21F71D5F00AC36B3 /* SSLSockets.framework */,
+				567C57CE2200872B00B6A9F9 /* SSLSocketsIOSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -776,6 +801,15 @@
 				565EF3EC21F71E6400AC36B3 /* libssl.a */,
 			);
 			path = lib;
+			sourceTree = "<group>";
+		};
+		567C57CF2200872B00B6A9F9 /* SSLSocketsIOSTests */ = {
+			isa = PBXGroup;
+			children = (
+				567C57D9220090A400B6A9F9 /* SSLSocketsLoggerTests.m */,
+				567C57D22200872B00B6A9F9 /* Info.plist */,
+			);
+			path = SSLSocketsIOSTests;
 			sourceTree = "<group>";
 		};
 		569CEB1C21F769DF0004435C /* Public Headers */ = {
@@ -1113,6 +1147,24 @@
 			productReference = 565EF34E21F71D5F00AC36B3 /* SSLSockets.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		567C57CD2200872B00B6A9F9 /* SSLSocketsIOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 567C57D82200872B00B6A9F9 /* Build configuration list for PBXNativeTarget "SSLSocketsIOSTests" */;
+			buildPhases = (
+				567C57CA2200872B00B6A9F9 /* Sources */,
+				567C57CB2200872B00B6A9F9 /* Frameworks */,
+				567C57CC2200872B00B6A9F9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				567C57D52200872B00B6A9F9 /* PBXTargetDependency */,
+			);
+			name = SSLSocketsIOSTests;
+			productName = SSLSocketsIOSTests;
+			productReference = 567C57CE2200872B00B6A9F9 /* SSLSocketsIOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -1126,6 +1178,9 @@
 						CreatedOnToolsVersion = 10.1;
 					};
 					565EF34D21F71D5F00AC36B3 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					567C57CD2200872B00B6A9F9 = {
 						CreatedOnToolsVersion = 10.1;
 					};
 				};
@@ -1144,6 +1199,7 @@
 			targets = (
 				565EF33D21F71CEC00AC36B3 /* iOS SSLSockets */,
 				565EF34D21F71D5F00AC36B3 /* macOS SSLSockets */,
+				567C57CD2200872B00B6A9F9 /* SSLSocketsIOSTests */,
 			);
 		};
 /* End PBXProject section */
@@ -1162,6 +1218,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				565EF45021F71E6400AC36B3 /* opensslconf.h.orig in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		567C57CC2200872B00B6A9F9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1237,7 +1300,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		567C57CA2200872B00B6A9F9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				567C57DA220090A400B6A9F9 /* SSLSocketsLoggerTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		567C57D52200872B00B6A9F9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 565EF33D21F71CEC00AC36B3 /* iOS SSLSockets */;
+			targetProxy = 567C57D42200872B00B6A9F9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		565EF34421F71CEC00AC36B3 /* Debug */ = {
@@ -1502,6 +1581,49 @@
 			};
 			name = Release;
 		};
+		567C57D62200872B00B6A9F9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3L5KV6CDC9;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+					"TEST=1",
+				);
+				INFOPLIST_FILE = SSLSocketsIOSTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = SoftServe.SSLSocketsIOSTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		567C57D72200872B00B6A9F9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3L5KV6CDC9;
+				INFOPLIST_FILE = SSLSocketsIOSTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = SoftServe.SSLSocketsIOSTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1528,6 +1650,15 @@
 			buildConfigurations = (
 				565EF35421F71D5F00AC36B3 /* Debug */,
 				565EF35521F71D5F00AC36B3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		567C57D82200872B00B6A9F9 /* Build configuration list for PBXNativeTarget "SSLSocketsIOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				567C57D62200872B00B6A9F9 /* Debug */,
+				567C57D72200872B00B6A9F9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

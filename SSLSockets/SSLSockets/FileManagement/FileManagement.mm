@@ -13,8 +13,14 @@
 #import <Foundation/Foundation.h>
 
 const char *pathForFile(const char *filename) {
+    NSString *documentsDirectory;
+    
+#ifndef TEST
+    documentsDirectory = NSTemporaryDirectory();
+#else
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
+    documentsDirectory = [paths objectAtIndex:0];
+#endif
     
     NSString *fileString = [NSString stringWithCString:filename encoding:NSASCIIStringEncoding];
     NSString *path = [documentsDirectory stringByAppendingPathComponent:fileString];

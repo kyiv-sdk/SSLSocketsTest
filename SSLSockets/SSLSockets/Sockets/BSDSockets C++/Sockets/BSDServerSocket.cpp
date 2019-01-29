@@ -16,7 +16,10 @@
 #include "SSLSigningManager.h"
 
 bool BSDServerSocket::startSocket() {
-    if (_isRunning) return true;
+    if (_isRunning) {
+        SSLLogger::log(WARNING, "BSDServerSocket -> cannot start socket. It has already started.");
+        return true;
+    }
     
     if (sslContext) {
         _isRunning = true;
@@ -49,8 +52,11 @@ void BSDServerSocket::stopSocket() {
     }
     
     SSLLogger::log(LOG, "BSDServerSocket -> will delete accepted sockets pool.");
-    for (BSDSocketHandler *handler : acceptedSockets) {
-        delete handler;
+    
+    long size = acceptedSockets.size();
+    for (long i = size-1; i >= 0; i--) {
+        BSDSocketHandler *handler = acceptedSockets.at(i);
+        if (handler) delete handler;
     }
     
     SSLLogger::log(LOG, "BSDServerSocket -> will join retained thread.");
@@ -127,6 +133,7 @@ void BSDServerSocket::didStopHandler(BSDSocketHandler *handler) {
     SSLLogger::log(LOG, "BSDServerSocket -> received notification that accepted socket (sender) stopped handling.");
     ptrdiff_t idx = find(acceptedSockets.begin(), acceptedSockets.end(), handler) - acceptedSockets.begin();
     if (idx < acceptedSockets.size()) {
+        printf("idx = %ld\n", idx);
         SSLLogger::log(LOG, "BSDServerSocket -> removed sender from its pool.");
         acceptedSockets.erase(acceptedSockets.begin() + idx);
     } else {
