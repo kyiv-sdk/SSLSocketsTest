@@ -37,9 +37,9 @@ void FileLogger::log(LoggingPriority priority, std::string message) {
 
 
 
-FileLogger::FileLogger(std::string identifier, LoggingPriority minPriority, std::string filename) {
+FileLogger::FileLogger(LoggingPriority minPriority, std::string filename) {
     isLogging = false;
-    this->identifier = identifier;
+    this->classIdentifier = "FileLogger";
     this->minPriority = minPriority;
     logfile = iosfopen(filename.c_str(), "a+");
     if (logfile) {
@@ -52,6 +52,7 @@ FileLogger::FileLogger(std::string identifier, LoggingPriority minPriority, std:
 
 
 FileLogger::~FileLogger() {
+    printf("~FileLogger destructor\n");
     std::string message = " ********** SESSION ENDED ********** \n";
     fprintf(logfile, "%s\n", message.c_str());
     fflush(logfile);

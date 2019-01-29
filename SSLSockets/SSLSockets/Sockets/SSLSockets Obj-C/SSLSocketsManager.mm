@@ -37,8 +37,8 @@
     LoggingPriority lpriority = LoggingPriority(priority);
     std::string lidentifier([identifier UTF8String]);
     std::string filename([name UTF8String]);
-    FileLogger *logger = new FileLogger(lidentifier, lpriority, filename);
-    SSLLogger::addLogger(logger);
+    FileLogger *logger = new FileLogger(lpriority, filename);
+    SSLLogger::addLogger(logger, lidentifier);
     logger->startLogging();
 }
 
@@ -46,8 +46,8 @@
 + (void)addLoggingInConsoleWithIdentifier:(NSString *)identifier andMinimalPriority:(SSLLoggingPriority)priority {
     LoggingPriority lpriority = LoggingPriority(priority);
     std::string lidentifier([identifier UTF8String]);
-    ConsoleLogger *logger = new ConsoleLogger(lidentifier, lpriority);
-    SSLLogger::addLogger(logger);
+    ConsoleLogger *logger = new ConsoleLogger(lpriority);
+    SSLLogger::addLogger(logger, lidentifier);
 }
 
 
@@ -55,6 +55,13 @@
     std::string lidentifier([identifier UTF8String]);
     SSLLogger::removeLoggerWithIdentifier(lidentifier);
 }
+
+
++ (void)removeLoggersWithClassIdentifier:(NSString *)identifier {
+    std::string lidentifier([identifier UTF8String]);
+    SSLLogger::removeLoggersWithClassIdentifier(lidentifier);
+}
+
 
 + (void)stopLogging {
     SSLLogger::stopLogging();

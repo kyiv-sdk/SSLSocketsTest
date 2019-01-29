@@ -15,7 +15,7 @@
 class ILoggable {
     
 public:
-    std::string identifier;
+    std::string classIdentifier;
     LoggingPriority minPriority;
     
     virtual void log(LoggingPriority priority, std::string message) = 0;
