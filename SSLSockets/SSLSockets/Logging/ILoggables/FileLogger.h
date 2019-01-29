@@ -29,7 +29,7 @@ public:
     void startLogging();
     void log(LoggingPriority priority, std::string message) override;
     
-    FileLogger(std::string filename, LoggingPriority minPriority);
+    FileLogger(std::string identifier, LoggingPriority minPriority, std::string filename);
     ~FileLogger() override;
 };
 

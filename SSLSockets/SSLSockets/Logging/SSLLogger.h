@@ -20,6 +20,7 @@ private:
     
 public:
     static void addLogger(ILoggable *logger);
+    static void removeLoggerWithIdentifier(std::string identifier);
     static void stopLogging();
     
     static void log(LoggingPriority priority, std::string message);

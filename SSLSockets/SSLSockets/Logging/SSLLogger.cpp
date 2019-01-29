@@ -20,6 +20,14 @@ void SSLLogger::addLogger(ILoggable *logger) {
 }
 
 
+void SSLLogger::removeLoggerWithIdentifier(std::string identifier) {
+    loggers.erase(std::remove_if(begin(loggers), end(loggers), [identifier](ILoggable *logger)
+    {
+        return logger->identifier == identifier;
+    }), end(loggers));
+}
+
+
 void SSLLogger::stopLogging() {
     for (ILoggable *logger : loggers) {
         if (logger) delete logger;

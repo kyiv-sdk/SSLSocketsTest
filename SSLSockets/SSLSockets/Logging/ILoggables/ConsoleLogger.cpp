@@ -9,13 +9,14 @@
 #include "ConsoleLogger.h"
 
 void ConsoleLogger::log(LoggingPriority priority, std::string message) {
-    if (priority < minPrioity) return;
+    if (priority < minPriority) return;
     printf("%s\n", message.c_str());
 }
 
 
-ConsoleLogger::ConsoleLogger(LoggingPriority minPriority) {
-    this->minPrioity = minPrioity;
+ConsoleLogger::ConsoleLogger(std::string identifier, LoggingPriority minPriority) {
+    this->identifier = identifier;
+    this->minPriority = minPriority;
 }
 
 

@@ -8,6 +8,7 @@
 
 #import "SSLLogger.h"
 #import "FileLogger.h"
+#import "ConsoleLogger.h"
 #import "LoggingPriorities.h"
 #import "SSLSocketsManager.h"
 #import "SSLSigningManager.h"
@@ -32,14 +33,28 @@
 }
 
 
-+ (void)addLoggingInFileWithName:(NSString *)name andMinimalPriority:(SSLLoggingPriority)priority {
++ (void)addLoggingInFileWithName:(NSString *)name identifier:(nonnull NSString *)identifier andMinimalPriority:(SSLLoggingPriority)priority {
     LoggingPriority lpriority = LoggingPriority(priority);
+    std::string lidentifier([identifier UTF8String]);
     std::string filename([name UTF8String]);
-    FileLogger *logger = new FileLogger(filename, lpriority);
+    FileLogger *logger = new FileLogger(lidentifier, lpriority, filename);
     SSLLogger::addLogger(logger);
     logger->startLogging();
 }
 
+
++ (void)addLoggingInConsoleWithIdentifier:(NSString *)identifier andMinimalPriority:(SSLLoggingPriority)priority {
+    LoggingPriority lpriority = LoggingPriority(priority);
+    std::string lidentifier([identifier UTF8String]);
+    ConsoleLogger *logger = new ConsoleLogger(lidentifier, lpriority);
+    SSLLogger::addLogger(logger);
+}
+
+
++ (void)removeLoggerWithIdentifier:(NSString *)identifier {
+    std::string lidentifier([identifier UTF8String]);
+    SSLLogger::removeLoggerWithIdentifier(lidentifier);
+}
 
 + (void)stopLogging {
     SSLLogger::stopLogging();

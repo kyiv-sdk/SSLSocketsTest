@@ -23,7 +23,7 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [SSLSocketsManager addLoggingInFileWithName:SSLLoggerFileName andMinimalPriority:SSLLoggingPriorityLog];
+    [SSLSocketsManager addLoggingInFileWithName:SSLLoggerFileName identifier:@"filelogging" andMinimalPriority:SSLLoggingPriorityLog];
     return YES;
 }
 

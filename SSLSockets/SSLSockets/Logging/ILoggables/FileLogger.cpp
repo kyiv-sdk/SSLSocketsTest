@@ -30,16 +30,17 @@ void FileLogger::startLogging() {
 
 
 void FileLogger::log(LoggingPriority priority, std::string message) {
-    if (priority < minPrioity) return;
+    if (priority < minPriority) return;
     pendingQueue.push_back(message);
     notifier.notify_all();
 }
 
 
 
-FileLogger::FileLogger(std::string filename, LoggingPriority minPriority) {
+FileLogger::FileLogger(std::string identifier, LoggingPriority minPriority, std::string filename) {
     isLogging = false;
-    this->minPrioity = minPrioity;
+    this->identifier = identifier;
+    this->minPriority = minPriority;
     logfile = iosfopen(filename.c_str(), "a+");
     if (logfile) {
         std::string message = "\n ********** NEW SESSION STARTED ********** ";
