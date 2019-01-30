@@ -16,42 +16,22 @@
 
 std::map<std::string, ILoggable *> CSSLLogger::loggers;
 
-
-const std::map<std::string, ILoggable *> CSSLLogger::getLoggers() {
-    return loggers;
-}
-
-
-void CSSLLogger::addLogger(ILoggable *logger, std::string identifier) {
-    ILoggable *oldLogger = loggers[identifier];
+#pragma mark Loggers Management Methods
+void CSSLLogger::addLogger(ILoggable *logger, std::string key) {
+    ILoggable *oldLogger = loggers[key];
     if (oldLogger) delete oldLogger;
-    loggers[identifier] = logger;
+    loggers[key] = logger;
 }
 
-
-void CSSLLogger::removeLoggerWithIdentifier(std::string identifier) {
-    ILoggable *logger = loggers[identifier];
+void CSSLLogger::removeLoggerWithKey(std::string key) {
+    ILoggable *logger = loggers[key];
     if (logger) {
         delete logger;
-        loggers.erase(identifier);
+        loggers.erase(key);
     }
 }
 
-
-void CSSLLogger::removeLoggersWithClassIdentifier(std::string identifier) {
-    for (auto it = loggers.cbegin(); it != loggers.cend(); /* no increment */) {
-        ILoggable *logger = it->second;
-        if (logger->classIdentifier == identifier) {
-            if (logger) delete logger;
-            loggers.erase(it++);
-        } else {
-            ++it;
-        }
-    }
-}
-
-
-void CSSLLogger::stopLogging() {
+void CSSLLogger::removeAllLoggers() {
     for (auto it = loggers.cbegin(); it != loggers.cend(); /* no increment */) {
         ILoggable *logger = it->second;
         if (logger) delete logger;
@@ -59,7 +39,7 @@ void CSSLLogger::stopLogging() {
     }
 }
 
-
+#pragma mark Logging Methods
 void CSSLLogger::log(LoggingPriority priority, std::string message) {
     // Current Time
     auto now = std::chrono::system_clock::now();

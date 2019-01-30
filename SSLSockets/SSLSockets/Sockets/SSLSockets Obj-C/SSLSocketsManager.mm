@@ -32,39 +32,4 @@
                                  [emailAddress UTF8String]);
 }
 
-
-+ (void)addLoggingInFileWithName:(NSString *)name identifier:(nonnull NSString *)identifier andMinimalPriority:(SSLLoggingPriority)priority {
-    LoggingPriority lpriority = LoggingPriority(priority);
-    std::string lidentifier([identifier UTF8String]);
-    std::string filename([name UTF8String]);
-    FileLogger *logger = new FileLogger(lpriority, filename);
-    CSSLLogger::addLogger(logger, lidentifier);
-    logger->startLogging();
-}
-
-
-+ (void)addLoggingInConsoleWithIdentifier:(NSString *)identifier andMinimalPriority:(SSLLoggingPriority)priority {
-    LoggingPriority lpriority = LoggingPriority(priority);
-    std::string lidentifier([identifier UTF8String]);
-    ConsoleLogger *logger = new ConsoleLogger(lpriority);
-    CSSLLogger::addLogger(logger, lidentifier);
-}
-
-
-+ (void)removeLoggerWithIdentifier:(NSString *)identifier {
-    std::string lidentifier([identifier UTF8String]);
-    CSSLLogger::removeLoggerWithIdentifier(lidentifier);
-}
-
-
-+ (void)removeLoggersWithClassIdentifier:(NSString *)identifier {
-    std::string lidentifier([identifier UTF8String]);
-    CSSLLogger::removeLoggersWithClassIdentifier(lidentifier);
-}
-
-
-+ (void)stopLogging {
-    CSSLLogger::stopLogging();
-}
-
 @end

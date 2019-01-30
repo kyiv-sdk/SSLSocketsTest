@@ -15,7 +15,6 @@ void ConsoleLogger::log(LoggingPriority priority, std::string message) {
 
 
 ConsoleLogger::ConsoleLogger(LoggingPriority minPriority) {
-    this->classIdentifier = "ConsoleLogger";
     this->minPriority = minPriority;
 }
 

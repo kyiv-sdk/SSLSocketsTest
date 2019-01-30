@@ -19,7 +19,7 @@ private:
 public:
     void log(LoggingPriority priority, std::string message) override;
     
-    HighLevelLogger(void *logger, std::string classIdentifier, LoggingPriority minPriority);
+    HighLevelLogger(void *logger, LoggingPriority minPriority);
     ~HighLevelLogger() override;
     
 };

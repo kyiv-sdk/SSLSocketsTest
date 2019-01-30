@@ -20,12 +20,12 @@
 @implementation SSLSocketsLoggerTests
 
 - (void)setUp {
-    [SSLSocketsManager addLoggingInConsoleWithIdentifier:@"ConsoleLogging" andMinimalPriority:SSLLoggingPriorityLog];
-    [SSLSocketsManager addLoggingInFileWithName:@"LogFile.txt" identifier:@"file1" andMinimalPriority:SSLLoggingPriorityLog];
-    [SSLSocketsManager addLoggingInFileWithName:@"WarningFile.txt" identifier:@"file2" andMinimalPriority:SSLLoggingPriorityWarning];
-    [SSLSocketsManager addLoggingInFileWithName:@"ErrorFile.txt" identifier:@"file3" andMinimalPriority:SSLLoggingPriorityLog];
-    [SSLSocketsManager addLoggingInFileWithName:@"FatalErrorFile.txt" identifier:@"file4" andMinimalPriority:SSLLoggingPriorityLog];
-    [SSLSocketsManager addLoggingInFileWithName:@"SomeFile.txt" identifier:@"file5" andMinimalPriority:SSLLoggingPriorityLog];
+//    [SSLSocketsManager addLoggingInConsoleWithIdentifier:@"ConsoleLogging" andMinimalPriority:SSLLoggingPriorityLog];
+//    [SSLSocketsManager addLoggingInFileWithName:@"LogFile.txt" identifier:@"file1" andMinimalPriority:SSLLoggingPriorityLog];
+//    [SSLSocketsManager addLoggingInFileWithName:@"WarningFile.txt" identifier:@"file2" andMinimalPriority:SSLLoggingPriorityWarning];
+//    [SSLSocketsManager addLoggingInFileWithName:@"ErrorFile.txt" identifier:@"file3" andMinimalPriority:SSLLoggingPriorityLog];
+//    [SSLSocketsManager addLoggingInFileWithName:@"FatalErrorFile.txt" identifier:@"file4" andMinimalPriority:SSLLoggingPriorityLog];
+//    [SSLSocketsManager addLoggingInFileWithName:@"SomeFile.txt" identifier:@"file5" andMinimalPriority:SSLLoggingPriorityLog];
 }
 
 

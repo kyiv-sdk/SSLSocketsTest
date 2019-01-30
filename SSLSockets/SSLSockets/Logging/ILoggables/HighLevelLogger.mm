@@ -28,10 +28,9 @@ void HighLevelLogger::log(LoggingPriority priority, std::string message) {
 }
 
 #pragma mark LifeCycle
-HighLevelLogger::HighLevelLogger(void *logger, std::string classIdentifier, LoggingPriority minPriority) {
+HighLevelLogger::HighLevelLogger(void *logger, LoggingPriority minPriority) {
     this->loggerObj = logger;
     this->minPriority = minPriority;
-    this->classIdentifier = classIdentifier;
 }
 
 HighLevelLogger::~HighLevelLogger() {

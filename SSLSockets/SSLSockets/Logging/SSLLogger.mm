@@ -20,49 +20,24 @@
     CSSLLogger::log(lpriority, lmessage);
 }
 
-#pragma mark Add Destination
-+ (void)addLoggingDestination:(id<SSLLoggable>)destination withIdentifier:(NSString *)identifier {
-    std::string lidentifier([identifier UTF8String]);
-    NSString *className = NSStringFromClass([destination class]);
-    std::string classIdentifier([className UTF8String]);
+#pragma mark Loggers Management Methods
++ (void)addLoggingDestination:(id<SSLLoggable>)destination {
+    NSString *objectHash = [NSString stringWithFormat:@"%li", [destination hash]];
     LoggingPriority lpriority = LoggingPriority(destination.minPriority);
     void *loggerObj = (void *)CFBridgingRetain(destination);
-    HighLevelLogger *logger = new HighLevelLogger(loggerObj, classIdentifier, lpriority);
-    CSSLLogger::addLogger(logger, lidentifier);
+    HighLevelLogger *logger = new HighLevelLogger(loggerObj, lpriority);
+    std::string key([objectHash UTF8String]);
+    CSSLLogger::addLogger(logger, key);
 }
 
-+ (void)addLoggingInFile:(NSFileHandle *)file withIdentifier:(NSString *)identifier andMinimalPriority:(SSLLoggingPriority)priority {
-    LoggingPriority lpriority = LoggingPriority(priority);
-    std::string lidentifier([identifier UTF8String]);
-    FILE *fd = fdopen([file fileDescriptor], "a+");
-    FileLogger *logger = new FileLogger(lpriority, fd);
-    CSSLLogger::addLogger(logger, lidentifier);
-    logger->startLogging();
++ (void)removeLoggingDestination:(id<SSLLoggable>)destination {
+    NSString *objectHash = [NSString stringWithFormat:@"%li", [destination hash]];
+    std::string key([objectHash UTF8String]);
+    CSSLLogger::removeLoggerWithKey(key);
 }
 
-+ (void)addLoggingInFileWithName:(NSString *)name withIdentifier:(NSString *)identifier andMinimalPriority:(SSLLoggingPriority)priority {
-    LoggingPriority lpriority = LoggingPriority(priority);
-    std::string lidentifier([identifier UTF8String]);
-    std::string filename([name UTF8String]);
-    FileLogger *logger = new FileLogger(lpriority, filename);
-    CSSLLogger::addLogger(logger, lidentifier);
-    logger->startLogging();
-}
-
-#pragma mark Remove Destination
-+ (void)removeLoggerWithSSLLoggableClass:(__unsafe_unretained Class)loggableClass {
-    NSString *className = NSStringFromClass(loggableClass);
-    std::string classIdentifier([className UTF8String]);
-    CSSLLogger::removeLoggersWithClassIdentifier(classIdentifier);
-}
-
-+ (void)removeLoggerWithIdentifier:(NSString *)identifier {
-    std::string lidentifier([identifier UTF8String]);
-    CSSLLogger::removeLoggerWithIdentifier(lidentifier);
-}
-
-+ (void)stopLogging {
-    CSSLLogger::stopLogging();
++ (void)removeAllLoggingDestinations {
+    CSSLLogger::removeAllLoggers();
 }
 
 @end

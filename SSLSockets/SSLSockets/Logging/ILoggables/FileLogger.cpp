@@ -44,7 +44,6 @@ FileLogger::FileLogger(LoggingPriority minPriority, std::string filename) : File
 FileLogger::FileLogger(LoggingPriority minPriority, FILE *logfile) {
     isLogging = false;
     this->logfile = logfile;
-    this->classIdentifier = "FileLogger";
     this->minPriority = minPriority;
     if (logfile) {
         std::string message = "\n ********** NEW SESSION STARTED ********** ";

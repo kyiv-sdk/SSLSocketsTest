@@ -15,17 +15,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (void)logMessage:(NSString *)message withPriority:(SSLLoggingPriority)priority;
 
-+ (void)addLoggingDestination:(id<SSLLoggable>)destination withIdentifier:(NSString *)identifier;
++ (void)addLoggingDestination:(id<SSLLoggable>)destination;
 
-+ (void)addLoggingInFile:(NSFileHandle *)file withIdentifier:(NSString *)identifier andMinimalPriority:(SSLLoggingPriority)priority;
++ (void)removeLoggingDestination:(id<SSLLoggable>)destination;
 
-+ (void)addLoggingInFileWithName:(NSString *)name withIdentifier:(NSString *)identifier andMinimalPriority:(SSLLoggingPriority)priority;
-
-+ (void)removeLoggerWithSSLLoggableClass:(__unsafe_unretained Class)loggableClass;
-
-+ (void)removeLoggerWithIdentifier:(NSString *)identifier;
-
-+ (void)stopLogging;
++ (void)removeAllLoggingDestinations;
 
 @end
 

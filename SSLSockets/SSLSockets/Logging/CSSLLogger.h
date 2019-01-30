@@ -19,11 +19,9 @@ private:
     static std::map<std::string, ILoggable *> loggers;
     
 public:
-    static const std::map<std::string, ILoggable *> getLoggers();
-    static void addLogger(ILoggable *logger, std::string identifier);
-    static void removeLoggerWithIdentifier(std::string identifier);
-    static void removeLoggersWithClassIdentifier(std::string identifier);
-    static void stopLogging();
+    static void addLogger(ILoggable *logger, std::string key);
+    static void removeLoggerWithKey(std::string key);
+    static void removeAllLoggers();
     
     static void log(LoggingPriority priority, std::string message);
     static void logSSLError(std::string message, long errorCode);
