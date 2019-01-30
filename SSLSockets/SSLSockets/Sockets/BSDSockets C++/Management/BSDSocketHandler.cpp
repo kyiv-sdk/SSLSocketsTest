@@ -38,7 +38,7 @@ bool BSDSocketHandler::isHandling() {
 
 void BSDSocketHandler::startHandling() {
     if (_isHandling) {
-        
+        SSLLogger::log(WARNING, "BSDSocketHandler -> Cannot start becase it is already started.");
         return;
     }
     _isHandling = true;

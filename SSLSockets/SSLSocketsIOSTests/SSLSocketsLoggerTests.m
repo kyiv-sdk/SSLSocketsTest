@@ -60,7 +60,6 @@
     // Spamming
     for (NSInteger message = 0; message < messagesCount; message++) {
         NSUInteger idx = arc4random_uniform((int)clientsCount);
-        NSLog(@"MESSAGE = %ld, idx = %ld", message, idx);
         SSLClientSocket *randomClient = [clientsPool objectAtIndex:idx];
         NSString *testMessage = [NSString stringWithFormat:@"Test message number %ld", message];
         XCTAssert([randomClient sendData:testMessage], "Message should be successfully sent");

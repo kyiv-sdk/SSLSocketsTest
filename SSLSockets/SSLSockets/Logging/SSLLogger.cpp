@@ -8,6 +8,8 @@
 
 #include <ctime>
 #include <chrono>
+#include <thread>
+#include <sstream>
 #include "SSLLogger.h"
 #include <openssl/err.h>
 #include "ConsoleLogger.h"
@@ -53,13 +55,21 @@ void SSLLogger::stopLogging() {
 
 
 void SSLLogger::log(LoggingPriority priority, std::string message) {
+    // Current Time
     auto now = std::chrono::system_clock::now();
     std::time_t time_t_now = std::chrono::system_clock::to_time_t(now);
     std::string time = std::ctime(&time_t_now);
-    std::string logMessage = time.substr(0, time.size()-1) + ": " + message;
     
+    // Current Thread
+    std::thread::id curentThread = std::this_thread::get_id();
+    std::stringstream ss;
+    ss << curentThread;
+    std::string stringThread = "(Thread " + ss.str() + "): ";
+    
+    // Redirecting to ILoggables
+    std::string logMessage = time.substr(0, time.size()-1) + ": " + stringThread + message;
     for (std::map<std::string, ILoggable *>::iterator it = loggers.begin(); it != loggers.end(); ++it) {
-        it->second->log(priority, message);
+        it->second->log(priority, logMessage);
     }
 }
 

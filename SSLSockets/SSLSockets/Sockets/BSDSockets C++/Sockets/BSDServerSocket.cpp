@@ -133,7 +133,6 @@ void BSDServerSocket::didStopHandler(BSDSocketHandler *handler) {
     SSLLogger::log(LOG, "BSDServerSocket -> received notification that accepted socket (sender) stopped handling.");
     ptrdiff_t idx = find(acceptedSockets.begin(), acceptedSockets.end(), handler) - acceptedSockets.begin();
     if (idx < acceptedSockets.size()) {
-        printf("idx = %ld\n", idx);
         SSLLogger::log(LOG, "BSDServerSocket -> removed sender from its pool.");
         acceptedSockets.erase(acceptedSockets.begin() + idx);
     } else {
