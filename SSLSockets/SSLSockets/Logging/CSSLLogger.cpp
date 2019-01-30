@@ -1,5 +1,5 @@
 //
-//  SSLLogger.cpp
+//  CSSLLogger.cpp
 //  SSLSockets
 //
 //  Created by Oleksandr Hordiienko on 1/23/19.
@@ -10,21 +10,26 @@
 #include <chrono>
 #include <thread>
 #include <sstream>
-#include "SSLLogger.h"
+#include "CSSLLogger.h"
 #include <openssl/err.h>
 #include "ConsoleLogger.h"
 
-std::map<std::string, ILoggable *> SSLLogger::loggers;
+std::map<std::string, ILoggable *> CSSLLogger::loggers;
 
 
-void SSLLogger::addLogger(ILoggable *logger, std::string identifier) {
+const std::map<std::string, ILoggable *> CSSLLogger::getLoggers() {
+    return loggers;
+}
+
+
+void CSSLLogger::addLogger(ILoggable *logger, std::string identifier) {
     ILoggable *oldLogger = loggers[identifier];
     if (oldLogger) delete oldLogger;
     loggers[identifier] = logger;
 }
 
 
-void SSLLogger::removeLoggerWithIdentifier(std::string identifier) {
+void CSSLLogger::removeLoggerWithIdentifier(std::string identifier) {
     ILoggable *logger = loggers[identifier];
     if (logger) {
         delete logger;
@@ -33,7 +38,7 @@ void SSLLogger::removeLoggerWithIdentifier(std::string identifier) {
 }
 
 
-void SSLLogger::removeLoggersWithClassIdentifier(std::string identifier) {
+void CSSLLogger::removeLoggersWithClassIdentifier(std::string identifier) {
     for (auto it = loggers.cbegin(); it != loggers.cend(); /* no increment */) {
         ILoggable *logger = it->second;
         if (logger->classIdentifier == identifier) {
@@ -45,7 +50,8 @@ void SSLLogger::removeLoggersWithClassIdentifier(std::string identifier) {
     }
 }
 
-void SSLLogger::stopLogging() {
+
+void CSSLLogger::stopLogging() {
     for (auto it = loggers.cbegin(); it != loggers.cend(); /* no increment */) {
         ILoggable *logger = it->second;
         if (logger) delete logger;
@@ -54,7 +60,7 @@ void SSLLogger::stopLogging() {
 }
 
 
-void SSLLogger::log(LoggingPriority priority, std::string message) {
+void CSSLLogger::log(LoggingPriority priority, std::string message) {
     // Current Time
     auto now = std::chrono::system_clock::now();
     std::time_t time_t_now = std::chrono::system_clock::to_time_t(now);
@@ -74,13 +80,13 @@ void SSLLogger::log(LoggingPriority priority, std::string message) {
 }
 
 
-void SSLLogger::logSSLError(std::string message, long errorCode) {
+void CSSLLogger::logSSLError(std::string message, long errorCode) {
     std::string errMsg = message + std::string(": ") + ERR_error_string(errorCode, NULL);
-    SSLLogger::log(ERROR, errMsg);
+    CSSLLogger::log(ERROR, errMsg);
 }
 
 
-void SSLLogger::logERRNO(std::string message) {
+void CSSLLogger::logERRNO(std::string message) {
     std::string errorMsg = message + std::string(": ") + strerror(errno);
-    SSLLogger::log(ERROR, errorMsg);
+    CSSLLogger::log(ERROR, errorMsg);
 }

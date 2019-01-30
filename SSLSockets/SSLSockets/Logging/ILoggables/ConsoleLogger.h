@@ -6,8 +6,8 @@
 //  Copyright © 2019 SoftServe. All rights reserved.
 //
 
-#ifndef ConsoleLogger_hpp
-#define ConsoleLogger_hpp
+#ifndef ConsoleLogger_h
+#define ConsoleLogger_h
 
 #include "ILoggable.h"
 
@@ -20,4 +20,4 @@ public:
     ~ConsoleLogger() override;
 };
 
-#endif /* ConsoleLogger_hpp */
+#endif /* ConsoleLogger_h */

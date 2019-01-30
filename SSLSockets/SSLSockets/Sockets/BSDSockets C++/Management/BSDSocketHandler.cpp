@@ -9,7 +9,7 @@
 #include "unistd.h"
 #include <sys/socket.h>
 #include <openssl/err.h>
-#include "SSLLogger.h"
+#include "CSSLLogger.h"
 #include "Constants.h"
 #include "BSDSocketHandler.h"
 
@@ -26,7 +26,7 @@ int getLength(std::string data) {
 
 
 const SSL *BSDSocketHandler::getSSL() {
-    SSLLogger::log(LOG, "BSDSocketHandler -> ssl asked.");
+    CSSLLogger::log(LOG, "BSDSocketHandler -> ssl asked.");
     return ssl;
 }
 
@@ -38,11 +38,11 @@ bool BSDSocketHandler::isHandling() {
 
 void BSDSocketHandler::startHandling() {
     if (_isHandling) {
-        SSLLogger::log(WARNING, "BSDSocketHandler -> Cannot start becase it is already started.");
+        CSSLLogger::log(WARNING, "BSDSocketHandler -> Cannot start becase it is already started.");
         return;
     }
     _isHandling = true;
-    SSLLogger::log(LOG, "BSDSocketHandler -> started handling.");
+    CSSLLogger::log(LOG, "BSDSocketHandler -> started handling.");
     retainedThread = std::thread(&BSDSocketHandler::startReading, this);
 }
 
@@ -51,30 +51,30 @@ void BSDSocketHandler::stopHandling() {
     if (!_isHandling) return;
     _isHandling = false;
     
-    SSLLogger::log(LOG, "BSDSocketHandler -> will stop handling.");
+    CSSLLogger::log(LOG, "BSDSocketHandler -> will stop handling.");
     if (shutdown(descriptor, SHUT_RDWR) == FAIL_CODE) {
-        SSLLogger::logERRNO("BSDSocketHandler -> shutdown failed");
+        CSSLLogger::logERRNO("BSDSocketHandler -> shutdown failed");
     }
     
     if (close(descriptor) == FAIL_CODE) {
-        SSLLogger::logERRNO("BSDSocketHandler -> close failed");
+        CSSLLogger::logERRNO("BSDSocketHandler -> close failed");
     }
     
-    SSLLogger::log(LOG, "BSDSocketHandler -> freeing his ssl.");
+    CSSLLogger::log(LOG, "BSDSocketHandler -> freeing his ssl.");
     SSL_shutdown(ssl);
     SSL_free(ssl);
-    SSLLogger::log(LOG, "BSDSocketHandler -> will join retained thread.");
+    CSSLLogger::log(LOG, "BSDSocketHandler -> will join retained thread.");
     if (retainedThread.joinable()) retainedThread.join();
-    SSLLogger::log(LOG, "BSDSocketHandler -> joined retained thread.");
-    SSLLogger::log(LOG, "BSDSocketHandler -> will notify owner that it has stopped handling.");
+    CSSLLogger::log(LOG, "BSDSocketHandler -> joined retained thread.");
+    CSSLLogger::log(LOG, "BSDSocketHandler -> will notify owner that it has stopped handling.");
     if (manager) manager->didStopHandler(this);
-    SSLLogger::log(LOG, "BSDSocketHandler -> stopped handling.");
+    CSSLLogger::log(LOG, "BSDSocketHandler -> stopped handling.");
 }
 
 
 bool BSDSocketHandler::send(const char *data) {
     if (!_isHandling) {
-        SSLLogger::log(ERROR, "BSDSocketHandler -> write failed because it's not handling.");
+        CSSLLogger::log(ERROR, "BSDSocketHandler -> write failed because it's not handling.");
         return false;
     }
     
@@ -104,21 +104,21 @@ bool BSDSocketHandler::send(const char *data) {
     int len = (int)SSL_write(ssl, packet, packet_length);
     if (len <= 0 ) {
         int errorCode = SSL_get_error(ssl, len);
-        SSLLogger::logSSLError("BSDSocketHandler -> write failed", errorCode);
+        CSSLLogger::logSSLError("BSDSocketHandler -> write failed", errorCode);
     }
     
     free(packet);
     free(size_buff);
     free(data_length_char);
     
-    SSLLogger::log(LOG, "BSDSocketHandler -> successfully sent message.");
+    CSSLLogger::log(LOG, "BSDSocketHandler -> successfully sent message.");
     return true;
 }
 
 
 
 const std::vector<std::string> BSDSocketHandler::getReceivedInfo() {
-    SSLLogger::log(LOG, "BSDSocketHandler -> receivedInfo asked.");
+    CSSLLogger::log(LOG, "BSDSocketHandler -> receivedInfo asked.");
     return receivedInfo;
 }
 
@@ -130,26 +130,26 @@ void BSDSocketHandler::startReading() {
         int bytes = (int)SSL_read(ssl, &buf, BufSize);
         
         if (bytes > 0) {
-            SSLLogger::log(LOG, "BSDSocketHandler -> received message.");
+            CSSLLogger::log(LOG, "BSDSocketHandler -> received message.");
             if ((int)*buf == STXSymbolCode) {
-                SSLLogger::log(LOG, "BSDSocketHandler -> message has supported protocol, reading it.");
+                CSSLLogger::log(LOG, "BSDSocketHandler -> message has supported protocol, reading it.");
                 char *receivedData = readData();
                 std::string receivedMessage(receivedData);
                 receivedInfo.push_back(receivedMessage);
-                SSLLogger::log(LOG, "BSDSocketHandler -> redirecting received message to C++ delegate.");
+                CSSLLogger::log(LOG, "BSDSocketHandler -> redirecting received message to C++ delegate.");
                 if (delegate) delegate->didReceiveMessage(receivedMessage, ssl);
             } else {
-                SSLLogger::log(ERROR, "BSDSocketHandler -> message has unsupported protocol.");
+                CSSLLogger::log(ERROR, "BSDSocketHandler -> message has unsupported protocol.");
             }
         }
         
         else if (bytes < 0) {
             int errorCode = SSL_get_error(ssl, bytes);
-            SSLLogger::logSSLError("BSDSocketHandler -> read failed", errorCode);
+            CSSLLogger::logSSLError("BSDSocketHandler -> read failed", errorCode);
         }
         
         else if (bytes == 0) {
-            SSLLogger::log(LOG, "BSDSocketHandler -> Socket disconnected.");
+            CSSLLogger::log(LOG, "BSDSocketHandler -> Socket disconnected.");
             break;
         }
     }
@@ -162,19 +162,19 @@ char *BSDSocketHandler::readData() {
     std::string buff_length;
     char buf[BufSize];
     SSL_read(ssl, &buf, BufSize);
-    SSLLogger::log(LOG, "BSDSocketHandler -> reading message size.");
+    CSSLLogger::log(LOG, "BSDSocketHandler -> reading message size.");
     while ((int)*buf != EOTSymbolCode) {
         buff_length.append(CharSize, (char)(int)*buf);
         SSL_read(ssl, &buf, BufSize);
     }
-     SSLLogger::log(LOG, "BSDSocketHandler -> message size has been read.");
+     CSSLLogger::log(LOG, "BSDSocketHandler -> message size has been read.");
     
     int data_length = getLength(buff_length);
     data_buff=(char *)malloc(data_length*sizeof(char));
     ssize_t byte_read = 0;
     ssize_t byte_offset = 0;
     
-    SSLLogger::log(LOG, "BSDSocketHandler -> reading message content.");
+    CSSLLogger::log(LOG, "BSDSocketHandler -> reading message content.");
     while (byte_offset<data_length) {
         byte_read = SSL_read(ssl, data_buff+byte_offset, BufferSize);
         byte_offset+=byte_read;
@@ -185,7 +185,7 @@ char *BSDSocketHandler::readData() {
         }
     }
     
-    SSLLogger::log(LOG, "BSDSocketHandler -> message content has been successfully read.");
+    CSSLLogger::log(LOG, "BSDSocketHandler -> message content has been successfully read.");
     return data_buff;
 }
 
@@ -197,11 +197,11 @@ BSDSocketHandler::BSDSocketHandler(SSL *ssl, int descriptor, BSDSocketDelegate *
     this->manager = manager;
     this->delegate = delegate;
     this->descriptor = descriptor;
-    SSLLogger::log(LOG, "BSDSocketHandler -> instance created.");
+    CSSLLogger::log(LOG, "BSDSocketHandler -> instance created.");
 }
 
 
 BSDSocketHandler::~BSDSocketHandler() {
     this->stopHandling();
-    SSLLogger::log(LOG, "BSDSocketHandler -> instance destructor called.");
+    CSSLLogger::log(LOG, "BSDSocketHandler -> instance destructor called.");
 }

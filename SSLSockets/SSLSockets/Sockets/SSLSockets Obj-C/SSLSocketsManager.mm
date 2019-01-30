@@ -6,7 +6,7 @@
 //  Copyright © 2019 SoftServe. All rights reserved.
 //
 
-#import "SSLLogger.h"
+#import "CSSLLogger.h"
 #import "FileLogger.h"
 #import "ConsoleLogger.h"
 #import "LoggingPriorities.h"
@@ -38,7 +38,7 @@
     std::string lidentifier([identifier UTF8String]);
     std::string filename([name UTF8String]);
     FileLogger *logger = new FileLogger(lpriority, filename);
-    SSLLogger::addLogger(logger, lidentifier);
+    CSSLLogger::addLogger(logger, lidentifier);
     logger->startLogging();
 }
 
@@ -47,24 +47,24 @@
     LoggingPriority lpriority = LoggingPriority(priority);
     std::string lidentifier([identifier UTF8String]);
     ConsoleLogger *logger = new ConsoleLogger(lpriority);
-    SSLLogger::addLogger(logger, lidentifier);
+    CSSLLogger::addLogger(logger, lidentifier);
 }
 
 
 + (void)removeLoggerWithIdentifier:(NSString *)identifier {
     std::string lidentifier([identifier UTF8String]);
-    SSLLogger::removeLoggerWithIdentifier(lidentifier);
+    CSSLLogger::removeLoggerWithIdentifier(lidentifier);
 }
 
 
 + (void)removeLoggersWithClassIdentifier:(NSString *)identifier {
     std::string lidentifier([identifier UTF8String]);
-    SSLLogger::removeLoggersWithClassIdentifier(lidentifier);
+    CSSLLogger::removeLoggersWithClassIdentifier(lidentifier);
 }
 
 
 + (void)stopLogging {
-    SSLLogger::stopLogging();
+    CSSLLogger::stopLogging();
 }
 
 @end

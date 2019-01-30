@@ -6,8 +6,8 @@
 //  Copyright © 2019 SoftServe. All rights reserved.
 //
 
-#ifndef FileLogger_hpp
-#define FileLogger_hpp
+#ifndef FileLogger_h
+#define FileLogger_h
 
 #include <thread>
 #include <vector>
@@ -30,7 +30,8 @@ public:
     void log(LoggingPriority priority, std::string message) override;
     
     FileLogger(LoggingPriority minPriority, std::string filename);
+    FileLogger(LoggingPriority minPriority, FILE *logfile);
     ~FileLogger() override;
 };
 
-#endif /* FileLogger_hpp */
+#endif /* FileLogger_h */

@@ -7,10 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5609C1C921F8874800B80D56 /* SSLLogger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5609C1C721F8874800B80D56 /* SSLLogger.cpp */; };
-		5609C1CA21F8874800B80D56 /* SSLLogger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5609C1C721F8874800B80D56 /* SSLLogger.cpp */; };
-		5609C1CB21F8874800B80D56 /* SSLLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 5609C1C821F8874800B80D56 /* SSLLogger.h */; };
-		5609C1CC21F8874800B80D56 /* SSLLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 5609C1C821F8874800B80D56 /* SSLLogger.h */; };
+		5609C1C921F8874800B80D56 /* CSSLLogger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5609C1C721F8874800B80D56 /* CSSLLogger.cpp */; };
+		5609C1CA21F8874800B80D56 /* CSSLLogger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5609C1C721F8874800B80D56 /* CSSLLogger.cpp */; };
+		5609C1CB21F8874800B80D56 /* CSSLLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 5609C1C821F8874800B80D56 /* CSSLLogger.h */; };
+		5609C1CC21F8874800B80D56 /* CSSLLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 5609C1C821F8874800B80D56 /* CSSLLogger.h */; };
+		5616C4402201C0C3001DDDB5 /* SSLLoggable.h in Headers */ = {isa = PBXBuildFile; fileRef = 5616C43F2201C0C3001DDDB5 /* SSLLoggable.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5616C4412201C0C3001DDDB5 /* SSLLoggable.h in Headers */ = {isa = PBXBuildFile; fileRef = 5616C43F2201C0C3001DDDB5 /* SSLLoggable.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5616C4442201C2F5001DDDB5 /* SSLLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 5616C4422201C2F5001DDDB5 /* SSLLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5616C4452201C2F5001DDDB5 /* SSLLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 5616C4422201C2F5001DDDB5 /* SSLLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5616C4462201C2F5001DDDB5 /* SSLLogger.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5616C4432201C2F5001DDDB5 /* SSLLogger.mm */; };
+		5616C4472201C2F5001DDDB5 /* SSLLogger.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5616C4432201C2F5001DDDB5 /* SSLLogger.mm */; };
+		5616C44D2201DA2E001DDDB5 /* HighLevelLogger.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5616C44B2201DA2E001DDDB5 /* HighLevelLogger.mm */; };
+		5616C44E2201DA2E001DDDB5 /* HighLevelLogger.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5616C44B2201DA2E001DDDB5 /* HighLevelLogger.mm */; };
+		5616C44F2201DA2E001DDDB5 /* HighLevelLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 5616C44C2201DA2E001DDDB5 /* HighLevelLogger.h */; };
+		5616C4502201DA2E001DDDB5 /* HighLevelLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 5616C44C2201DA2E001DDDB5 /* HighLevelLogger.h */; };
 		565EF34321F71CEC00AC36B3 /* SSLSockets.h in Headers */ = {isa = PBXBuildFile; fileRef = 565EF34121F71CEC00AC36B3 /* SSLSockets.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		565EF3ED21F71E6400AC36B3 /* SSLSocketHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 565EF35921F71E6400AC36B3 /* SSLSocketHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		565EF3EE21F71E6400AC36B3 /* SSLSocketHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 565EF35921F71E6400AC36B3 /* SSLSocketHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -320,12 +330,17 @@
 /* Begin PBXFileReference section */
 		5609C1BD21F8822B00B80D56 /* ILoggable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ILoggable.h; sourceTree = "<group>"; };
 		5609C1BE21F8848F00B80D56 /* LoggingPriorities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoggingPriorities.h; sourceTree = "<group>"; };
-		5609C1C721F8874800B80D56 /* SSLLogger.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SSLLogger.cpp; sourceTree = "<group>"; };
-		5609C1C821F8874800B80D56 /* SSLLogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSLLogger.h; sourceTree = "<group>"; };
+		5609C1C721F8874800B80D56 /* CSSLLogger.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CSSLLogger.cpp; sourceTree = "<group>"; };
+		5609C1C821F8874800B80D56 /* CSSLLogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CSSLLogger.h; sourceTree = "<group>"; };
 		5609C1CE21F888F800B80D56 /* ConsoleLogger.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ConsoleLogger.cpp; sourceTree = "<group>"; };
 		5609C1CF21F888F800B80D56 /* ConsoleLogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConsoleLogger.h; sourceTree = "<group>"; };
 		5609C1D421F88CCE00B80D56 /* FileLogger.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = FileLogger.cpp; sourceTree = "<group>"; };
 		5609C1D521F88CCE00B80D56 /* FileLogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FileLogger.h; sourceTree = "<group>"; };
+		5616C43F2201C0C3001DDDB5 /* SSLLoggable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSLLoggable.h; sourceTree = "<group>"; };
+		5616C4422201C2F5001DDDB5 /* SSLLogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSLLogger.h; sourceTree = "<group>"; };
+		5616C4432201C2F5001DDDB5 /* SSLLogger.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SSLLogger.mm; sourceTree = "<group>"; };
+		5616C44B2201DA2E001DDDB5 /* HighLevelLogger.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = HighLevelLogger.mm; sourceTree = "<group>"; };
+		5616C44C2201DA2E001DDDB5 /* HighLevelLogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HighLevelLogger.h; sourceTree = "<group>"; };
 		565EF33E21F71CEC00AC36B3 /* SSLSockets.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SSLSockets.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		565EF34121F71CEC00AC36B3 /* SSLSockets.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSLSockets.h; sourceTree = "<group>"; };
 		565EF34221F71CEC00AC36B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -510,8 +525,9 @@
 			children = (
 				5609C1CD21F888C900B80D56 /* ILoggables */,
 				5609C1BE21F8848F00B80D56 /* LoggingPriorities.h */,
-				5609C1C821F8874800B80D56 /* SSLLogger.h */,
-				5609C1C721F8874800B80D56 /* SSLLogger.cpp */,
+				5609C1C821F8874800B80D56 /* CSSLLogger.h */,
+				5609C1C721F8874800B80D56 /* CSSLLogger.cpp */,
+				5616C4432201C2F5001DDDB5 /* SSLLogger.mm */,
 			);
 			path = Logging;
 			sourceTree = "<group>";
@@ -524,6 +540,8 @@
 				5609C1D421F88CCE00B80D56 /* FileLogger.cpp */,
 				5609C1CF21F888F800B80D56 /* ConsoleLogger.h */,
 				5609C1CE21F888F800B80D56 /* ConsoleLogger.cpp */,
+				5616C44C2201DA2E001DDDB5 /* HighLevelLogger.h */,
+				5616C44B2201DA2E001DDDB5 /* HighLevelLogger.mm */,
 			);
 			path = ILoggables;
 			sourceTree = "<group>";
@@ -821,6 +839,8 @@
 				565EF36921F71E6400AC36B3 /* SSLSocketsManager.h */,
 				565EF35921F71E6400AC36B3 /* SSLSocketHandler.h */,
 				565EF36521F71E6400AC36B3 /* SSLSocketDelegate.h */,
+				5616C4422201C2F5001DDDB5 /* SSLLogger.h */,
+				5616C43F2201C0C3001DDDB5 /* SSLLoggable.h */,
 			);
 			path = "Public Headers";
 			sourceTree = "<group>";
@@ -852,6 +872,7 @@
 				565EF48121F71E6400AC36B3 /* pkcs12.h in Headers */,
 				565EF4F121F71E6400AC36B3 /* ebcdic.h in Headers */,
 				565EF46521F71E6400AC36B3 /* rand_drbg.h in Headers */,
+				5616C4442201C2F5001DDDB5 /* SSLLogger.h in Headers */,
 				565EF42521F71E6400AC36B3 /* BSDSocketDelegate.h in Headers */,
 				565EF45921F71E6400AC36B3 /* opensslconf.h in Headers */,
 				565EF44921F71E6400AC36B3 /* objectserr.h in Headers */,
@@ -891,9 +912,11 @@
 				565EF4A521F71E6400AC36B3 /* engineerr.h in Headers */,
 				56B406D621F89DA5001BA320 /* FileLogger.h in Headers */,
 				565EF4B721F71E6400AC36B3 /* ecdh.h in Headers */,
+				5616C44F2201DA2E001DDDB5 /* HighLevelLogger.h in Headers */,
 				565EF48521F71E6400AC36B3 /* opensslv.h in Headers */,
 				565EF4C321F71E6400AC36B3 /* buffererr.h in Headers */,
 				565EF4DF21F71E6400AC36B3 /* pkcs7err.h in Headers */,
+				5616C4402201C0C3001DDDB5 /* SSLLoggable.h in Headers */,
 				565EF46B21F71E6400AC36B3 /* x509_vfy.h in Headers */,
 				565EF49F21F71E6400AC36B3 /* md4.h in Headers */,
 				565EF43D21F71E6400AC36B3 /* blowfish.h in Headers */,
@@ -912,7 +935,7 @@
 				565EF4BB21F71E6400AC36B3 /* ecerr.h in Headers */,
 				565EF47D21F71E6400AC36B3 /* x509v3err.h in Headers */,
 				565EF40521F71E6400AC36B3 /* SSLSocketDelegate+Protected.h in Headers */,
-				5609C1CB21F8874800B80D56 /* SSLLogger.h in Headers */,
+				5609C1CB21F8874800B80D56 /* CSSLLogger.h in Headers */,
 				565EF4A321F71E6400AC36B3 /* aes.h in Headers */,
 				565EF4AF21F71E6400AC36B3 /* stack.h in Headers */,
 				565EF46921F71E6400AC36B3 /* pemerr.h in Headers */,
@@ -987,6 +1010,7 @@
 				565EF4AC21F71E6400AC36B3 /* cast.h in Headers */,
 				565EF45A21F71E6400AC36B3 /* opensslconf.h in Headers */,
 				565EF43221F71E6400AC36B3 /* md2.h in Headers */,
+				5616C4452201C2F5001DDDB5 /* SSLLogger.h in Headers */,
 				565EF47421F71E6400AC36B3 /* safestack.h in Headers */,
 				565EF3F021F71E6400AC36B3 /* SSLSocketHandler+Protected.h in Headers */,
 				565EF44821F71E6400AC36B3 /* asn1_mac.h in Headers */,
@@ -1026,9 +1050,11 @@
 				565EF4CE21F71E6400AC36B3 /* rsa.h in Headers */,
 				56B406DC21F89DA7001BA320 /* FileLogger.h in Headers */,
 				565EF44421F71E6400AC36B3 /* conf_api.h in Headers */,
+				5616C4502201DA2E001DDDB5 /* HighLevelLogger.h in Headers */,
 				565EF48A21F71E6400AC36B3 /* pkcs7.h in Headers */,
 				565EF48621F71E6400AC36B3 /* opensslv.h in Headers */,
 				565EF42621F71E6400AC36B3 /* BSDSocketDelegate.h in Headers */,
+				5616C4412201C0C3001DDDB5 /* SSLLoggable.h in Headers */,
 				565EF3F421F71E6400AC36B3 /* SSLServerSocket.h in Headers */,
 				565EF41621F71E6400AC36B3 /* BSDServerSocket.h in Headers */,
 				565EF4B621F71E6400AC36B3 /* ec.h in Headers */,
@@ -1047,7 +1073,7 @@
 				565EF43621F71E6400AC36B3 /* ossl_typ.h in Headers */,
 				565EF45221F71E6400AC36B3 /* sha.h in Headers */,
 				565EF44621F71E6400AC36B3 /* x509.h in Headers */,
-				5609C1CC21F8874800B80D56 /* SSLLogger.h in Headers */,
+				5609C1CC21F8874800B80D56 /* CSSLLogger.h in Headers */,
 				565EF4FF21F71F2500AC36B3 /* SSLSockets.h in Headers */,
 				565EF49421F71E6400AC36B3 /* ssl.h in Headers */,
 				565EF45421F71E6400AC36B3 /* symhacks.h in Headers */,
@@ -1258,6 +1284,7 @@
 			files = (
 				56B406D921F89DA5001BA320 /* ConsoleLogger.cpp in Sources */,
 				565EF40F21F71E6400AC36B3 /* SSLSigningManager.mm in Sources */,
+				5616C4462201C2F5001DDDB5 /* SSLLogger.mm in Sources */,
 				565EF41D21F71E6400AC36B3 /* BSDSocketHandler.cpp in Sources */,
 				565EF3F521F71E6400AC36B3 /* SSLServerSocket.mm in Sources */,
 				565EF3FB21F71E6400AC36B3 /* SSLClientSocket.mm in Sources */,
@@ -1268,11 +1295,12 @@
 				56B406CF21F89D94001BA320 /* FileManagement.mm in Sources */,
 				565EF42321F71E6400AC36B3 /* BSDSocketDelegate.mm in Sources */,
 				565EF40B21F71E6400AC36B3 /* Constants.m in Sources */,
-				5609C1C921F8874800B80D56 /* SSLLogger.cpp in Sources */,
+				5609C1C921F8874800B80D56 /* CSSLLogger.cpp in Sources */,
 				565EF41921F71E6400AC36B3 /* BSDServerSocket.cpp in Sources */,
 				565EF41721F71E6400AC36B3 /* BSDClientSocket.cpp in Sources */,
 				565EF3FD21F71E6400AC36B3 /* SSLSocket.mm in Sources */,
 				56B406D721F89DA5001BA320 /* FileLogger.cpp in Sources */,
+				5616C44D2201DA2E001DDDB5 /* HighLevelLogger.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1282,6 +1310,7 @@
 			files = (
 				56B406DF21F89DA7001BA320 /* ConsoleLogger.cpp in Sources */,
 				565EF41021F71E6400AC36B3 /* SSLSigningManager.mm in Sources */,
+				5616C4472201C2F5001DDDB5 /* SSLLogger.mm in Sources */,
 				565EF41E21F71E6400AC36B3 /* BSDSocketHandler.cpp in Sources */,
 				565EF3F621F71E6400AC36B3 /* SSLServerSocket.mm in Sources */,
 				565EF3FC21F71E6400AC36B3 /* SSLClientSocket.mm in Sources */,
@@ -1292,11 +1321,12 @@
 				56B406D021F89D94001BA320 /* FileManagement.mm in Sources */,
 				565EF42421F71E6400AC36B3 /* BSDSocketDelegate.mm in Sources */,
 				565EF40C21F71E6400AC36B3 /* Constants.m in Sources */,
-				5609C1CA21F8874800B80D56 /* SSLLogger.cpp in Sources */,
+				5609C1CA21F8874800B80D56 /* CSSLLogger.cpp in Sources */,
 				565EF41A21F71E6400AC36B3 /* BSDServerSocket.cpp in Sources */,
 				565EF41821F71E6400AC36B3 /* BSDClientSocket.cpp in Sources */,
 				565EF3FE21F71E6400AC36B3 /* SSLSocket.mm in Sources */,
 				56B406DD21F89DA7001BA320 /* FileLogger.cpp in Sources */,
+				5616C44E2201DA2E001DDDB5 /* HighLevelLogger.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

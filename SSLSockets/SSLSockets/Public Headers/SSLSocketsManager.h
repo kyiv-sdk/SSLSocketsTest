@@ -6,16 +6,10 @@
 //  Copyright © 2019 SoftServe. All rights reserved.
 //
 
+#import "SSLLoggable.h"
 #import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
-
-typedef NS_ENUM(NSUInteger, SSLLoggingPriority) {
-    SSLLoggingPriorityLog,
-    SSLLoggingPriorityWarning,
-    SSLLoggingPriorityError,
-    SSLLoggingPriorityFatalError
-};
 
 @interface SSLSocketsManager : NSObject
 

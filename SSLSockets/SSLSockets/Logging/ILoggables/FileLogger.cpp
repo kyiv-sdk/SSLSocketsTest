@@ -38,11 +38,14 @@ void FileLogger::log(LoggingPriority priority, std::string message) {
 
 
 
-FileLogger::FileLogger(LoggingPriority minPriority, std::string filename) {
+FileLogger::FileLogger(LoggingPriority minPriority, std::string filename) : FileLogger(minPriority, iosfopen(filename.c_str(), "a+")) { }
+
+
+FileLogger::FileLogger(LoggingPriority minPriority, FILE *logfile) {
     isLogging = false;
+    this->logfile = logfile;
     this->classIdentifier = "FileLogger";
     this->minPriority = minPriority;
-    logfile = iosfopen(filename.c_str(), "a+");
     if (logfile) {
         std::string message = "\n ********** NEW SESSION STARTED ********** ";
         fprintf(logfile, "%s\n", message.c_str());
@@ -50,7 +53,6 @@ FileLogger::FileLogger(LoggingPriority minPriority, std::string filename) {
         printf("Cannot open file for logging.\n");
     }
 }
-
 
 FileLogger::~FileLogger() {
     printf("~FileLogger destructor\n");

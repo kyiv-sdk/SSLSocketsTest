@@ -12,8 +12,8 @@
 typedef enum {
     LOG         = 0,
     WARNING     = 1,
-    ERROR       = 3,
-    FATAL_ERROR = 4
+    ERROR       = 2,
+    FATAL_ERROR = 3
 } LoggingPriority;
 
 #endif /* LoggingPriorities_h */

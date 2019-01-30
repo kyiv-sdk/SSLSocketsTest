@@ -53,4 +53,4 @@ public:
     
 };
 
-#endif /* SSLSigningManager_hpp */
+#endif /* SSLSigningManager_h */
