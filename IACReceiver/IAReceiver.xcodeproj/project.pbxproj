@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5616C46322020879001DDDB5 /* SSLUILogger.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5616C46222020879001DDDB5 /* SSLUILogger.mm */; };
+		5616C46922020F78001DDDB5 /* LogsViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5616C46822020F78001DDDB5 /* LogsViewController.mm */; };
 		5649804321F5ED1B00905409 /* NSString+ProjectAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5649803F21F5ED1B00905409 /* NSString+ProjectAdditions.m */; };
 		5649804421F5ED1B00905409 /* NSDate+ProjectAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5649804221F5ED1B00905409 /* NSDate+ProjectAdditions.m */; };
 		568D0DD521F7505700A9E165 /* SSLSockets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 568D0DC721F7504300A9E165 /* SSLSockets.framework */; };
@@ -29,6 +31,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		5616C4582201F9C6001DDDB5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 568D0DC121F7504300A9E165 /* SSLSockets.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 567C57CE2200872B00B6A9F9;
+			remoteInfo = SSLSocketsIOSTests;
+		};
 		568D0DC621F7504300A9E165 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 568D0DC121F7504300A9E165 /* SSLSockets.xcodeproj */;
@@ -66,6 +75,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5616C46122020879001DDDB5 /* SSLUILogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSLUILogger.h; sourceTree = "<group>"; };
+		5616C46222020879001DDDB5 /* SSLUILogger.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SSLUILogger.mm; sourceTree = "<group>"; };
+		5616C46722020F78001DDDB5 /* LogsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LogsViewController.h; sourceTree = "<group>"; };
+		5616C46822020F78001DDDB5 /* LogsViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = LogsViewController.mm; sourceTree = "<group>"; };
 		5649803F21F5ED1B00905409 /* NSString+ProjectAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+ProjectAdditions.m"; sourceTree = "<group>"; };
 		5649804021F5ED1B00905409 /* NSDate+ProjectAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+ProjectAdditions.h"; sourceTree = "<group>"; };
 		5649804121F5ED1B00905409 /* NSString+ProjectAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+ProjectAdditions.h"; sourceTree = "<group>"; };
@@ -132,6 +145,7 @@
 			children = (
 				568D0DC721F7504300A9E165 /* SSLSockets.framework */,
 				568D0DC921F7504300A9E165 /* SSLSockets.framework */,
+				5616C4592201F9C6001DDDB5 /* SSLSocketsIOSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -181,6 +195,8 @@
 				56B7B95B21E4FB4D00EDAB1D /* SendViewController.mm */,
 				56B7B95D21E4FC0600EDAB1D /* ReceivedTableViewController.h */,
 				56B7B95E21E4FC0600EDAB1D /* ReceivedTableViewController.mm */,
+				5616C46722020F78001DDDB5 /* LogsViewController.h */,
+				5616C46822020F78001DDDB5 /* LogsViewController.mm */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -197,6 +213,8 @@
 		56B7B97021E4FF8700EDAB1D /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				5616C46122020879001DDDB5 /* SSLUILogger.h */,
+				5616C46222020879001DDDB5 /* SSLUILogger.mm */,
 				56DC639421F0BFE400331A6F /* Networking */,
 				56DC639521F0BFEE00331A6F /* CoreData */,
 				5649803E21F5ED1B00905409 /* Categories */,
@@ -307,6 +325,13 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		5616C4592201F9C6001DDDB5 /* SSLSocketsIOSTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = SSLSocketsIOSTests.xctest;
+			remoteRef = 5616C4582201F9C6001DDDB5 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		568D0DC721F7504300A9E165 /* SSLSockets.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -343,6 +368,8 @@
 			files = (
 				5649804421F5ED1B00905409 /* NSDate+ProjectAdditions.m in Sources */,
 				56DC63A221F0D7B300331A6F /* WebSite+CoreDataProperties.m in Sources */,
+				5616C46322020879001DDDB5 /* SSLUILogger.mm in Sources */,
+				5616C46922020F78001DDDB5 /* LogsViewController.mm in Sources */,
 				56B7B95C21E4FB4D00EDAB1D /* SendViewController.mm in Sources */,
 				56B7B94B21E4F76000EDAB1D /* IACReceiver.xcdatamodeld in Sources */,
 				56DC639C21F0D5CF00331A6F /* URLsocketDelegate.mm in Sources */,

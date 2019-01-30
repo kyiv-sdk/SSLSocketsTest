@@ -29,6 +29,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		5616C45D220207BD001DDDB5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 568D0DCA21F7504700A9E165 /* SSLSockets.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 567C57CE2200872B00B6A9F9;
+			remoteInfo = SSLSocketsIOSTests;
+		};
 		568D0DCF21F7504700A9E165 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 568D0DCA21F7504700A9E165 /* SSLSockets.xcodeproj */;
@@ -132,6 +139,7 @@
 			children = (
 				568D0DD021F7504700A9E165 /* SSLSockets.framework */,
 				568D0DD221F7504700A9E165 /* SSLSockets.framework */,
+				5616C45E220207BD001DDDB5 /* SSLSocketsIOSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -307,6 +315,13 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		5616C45E220207BD001DDDB5 /* SSLSocketsIOSTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = SSLSocketsIOSTests.xctest;
+			remoteRef = 5616C45D220207BD001DDDB5 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		568D0DD021F7504700A9E165 /* SSLSockets.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;

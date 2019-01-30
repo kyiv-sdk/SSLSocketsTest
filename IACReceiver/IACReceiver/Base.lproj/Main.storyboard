@@ -40,6 +40,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VDS-ts-nFw">
+                                <rect key="frame" x="158.66666666666666" y="520" width="97" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Show Logs"/>
+                                <connections>
+                                    <segue destination="bvd-Mr-xyF" kind="show" id="gPE-jk-vQq"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -47,7 +55,9 @@
                             <constraint firstItem="U9C-Nc-1mJ" firstAttribute="centerX" secondItem="W4l-T4-Aon" secondAttribute="centerX" id="GFH-kc-o49"/>
                             <constraint firstItem="Oye-DO-YZc" firstAttribute="centerY" secondItem="W4l-T4-Aon" secondAttribute="centerY" constant="-30" id="Icy-Hl-F36"/>
                             <constraint firstItem="lLH-br-h35" firstAttribute="centerX" secondItem="W4l-T4-Aon" secondAttribute="centerX" id="IpT-ix-pql"/>
+                            <constraint firstItem="VDS-ts-nFw" firstAttribute="centerX" secondItem="W4l-T4-Aon" secondAttribute="centerX" id="fGi-09-D6S"/>
                             <constraint firstItem="U9C-Nc-1mJ" firstAttribute="bottom" secondItem="mh9-5P-7J6" secondAttribute="bottom" id="fUB-P6-1aO"/>
+                            <constraint firstItem="VDS-ts-nFw" firstAttribute="top" secondItem="lLH-br-h35" secondAttribute="bottom" constant="24" id="jkv-34-KSA"/>
                             <constraint firstItem="Oye-DO-YZc" firstAttribute="centerX" secondItem="W4l-T4-Aon" secondAttribute="centerX" id="lPN-xG-Fzh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="mh9-5P-7J6"/>
@@ -57,6 +67,45 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AF1-9L-fMM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="991.20000000000005" y="374.66266866566718"/>
+        </scene>
+        <!--Logs-->
+        <scene sceneID="eDX-sk-FdH">
+            <objects>
+                <viewController title="Logs" id="bvd-Mr-xyF" customClass="LogsViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="iYI-nO-QIW">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="498-ge-GHP">
+                                <rect key="frame" x="5" y="93" width="404" height="764"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="caT-ep-4r1" firstAttribute="trailing" secondItem="498-ge-GHP" secondAttribute="trailing" constant="5" id="AWY-wQ-LOv"/>
+                            <constraint firstItem="498-ge-GHP" firstAttribute="top" secondItem="caT-ep-4r1" secondAttribute="top" constant="5" id="Kch-bH-vd0"/>
+                            <constraint firstItem="498-ge-GHP" firstAttribute="leading" secondItem="caT-ep-4r1" secondAttribute="leading" constant="5" id="Rfg-Se-UeN"/>
+                            <constraint firstItem="caT-ep-4r1" firstAttribute="bottom" secondItem="498-ge-GHP" secondAttribute="bottom" constant="5" id="e99-FL-2cK"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="caT-ep-4r1"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Logs" id="gD4-Fn-o2H">
+                        <barButtonItem key="rightBarButtonItem" title="Clear" id="Rdg-8R-XAj">
+                            <connections>
+                                <action selector="clearLogsButtonPressed:" destination="bvd-Mr-xyF" id="BM2-F9-1Ui"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="logsContainer" destination="498-ge-GHP" id="l6M-aX-F3Z"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ni7-hN-PBs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1872" y="924"/>
         </scene>
         <!--Received-->
         <scene sceneID="bjs-Bq-F77">
@@ -152,10 +201,17 @@
                             <outlet property="delegate" destination="XOU-eD-ZpM" id="SHS-aX-1a0"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Received URLs" id="5U0-mJ-s1J">
+                        <barButtonItem key="rightBarButtonItem" title="Logs" id="7Yy-UJ-ZrU">
+                            <connections>
+                                <segue destination="bvd-Mr-xyF" kind="show" id="lFK-EL-OKS"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qu2-X8-3or" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1872.8" y="728.18590704647681"/>
+            <point key="canvasLocation" x="2852" y="374"/>
         </scene>
         <!--Send-->
         <scene sceneID="EqU-3X-ngd">
@@ -252,4 +308,7 @@
             <point key="canvasLocation" x="52" y="374.66266866566718"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="lFK-EL-OKS"/>
+    </inferredMetricsTieBreakers>
 </document>

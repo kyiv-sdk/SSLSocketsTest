@@ -6,6 +6,7 @@
 //  Copyright © 2019 SoftServe. All rights reserved.
 //
 
+#import "SSLUILogger.h"
 #import "AppDelegate.h"
 #import "NetworkManager.h"
 #import "ProjectConstants.h"
@@ -23,6 +24,7 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [SSLLogger addLoggingDestination:[SSLUILogger sharedInstance]];
     return YES;
 }
 

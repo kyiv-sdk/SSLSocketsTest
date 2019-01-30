@@ -14,6 +14,8 @@ FOUNDATION_EXPORT double SSLSocketsVersionNumber;
 //! Project version string for SSLSockets.
 FOUNDATION_EXPORT const unsigned char SSLSocketsVersionString[];
 
+#import "SSLLogger.h"
+#import "SSLLoggable.h"
 #import "SSLServerSocket.h"
 #import "SSLClientSocket.h"
 #import "SSLSocketHandler.h"
