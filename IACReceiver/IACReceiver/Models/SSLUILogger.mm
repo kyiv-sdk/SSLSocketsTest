@@ -11,6 +11,7 @@
 @interface SSLUILogger ()
 
 @property (strong, nonatomic) NSMutableArray *logsHistory;
+@property (strong, nonatomic) dispatch_queue_t serialThread;
 
 @end
 
@@ -22,13 +23,18 @@
 }
 
 - (void)logMessage:(NSString *)message withPriority:(SSLLoggingPriority)priority {
-    @synchronized (self) {
+    dispatch_async(self.serialThread, ^{
         [self.logsHistory addObject:message];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            NSString *newLogs = [self.logsContainer.text stringByAppendingString:message];
-            [self.logsContainer setText:newLogs];
-        });
-    }
+        [self updateLogsWithMessage:message];
+    });
+}
+
+- (void)updateLogsWithMessage:(NSString *)message {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSString *newLog = [@"\n" stringByAppendingString:message];
+        NSString *newLogs = [self.logsContainer.text stringByAppendingString:newLog];
+        [self.logsContainer setText:newLogs];
+    });
 }
 
 - (void)clearLogsHistory {
@@ -50,6 +56,7 @@
     self = [super init];
     if (self) {
         self.logsHistory = [[NSMutableArray alloc] init];
+        self.serialThread = dispatch_queue_create("com.o9e6y.SSLUILogger", DISPATCH_QUEUE_SERIAL);
     }
     return self;
 }
