@@ -10,6 +10,7 @@
 #include "BSDSocket.h"
 #include "SSLSigningManager.h"
 
+#pragma mark - Getters
 const bool BSDSocket::isReady() {
     return _isReady;
 }
@@ -19,7 +20,7 @@ const bool BSDSocket::isRunning() {
     return _isRunning;
 }
 
-
+#pragma mark - Constructor
 BSDSocket::BSDSocket(std::string address, const int port, BSDSocketDelegate *delegate) : port(port), address(address) {
     _isReady = true;
     _isRunning = false;

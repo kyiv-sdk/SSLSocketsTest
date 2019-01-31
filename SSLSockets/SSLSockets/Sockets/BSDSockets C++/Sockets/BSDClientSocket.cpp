@@ -14,6 +14,13 @@
 #include "Constants.h"
 #include "BSDClientSocket.h"
 
+#pragma mark - Getters
+const std::vector<std::string> BSDClientSocket::getReceivedInfo() {
+    CSSLLogger::log(LOG, "BSDClientSocket -> receivedInfo asked.");
+    return handler->getReceivedInfo();
+}
+
+#pragma mark - Methods
 bool BSDClientSocket::startSocket() {
     if (_isRunning) {
         CSSLLogger::log(WARNING, "BSDClientSocket -> cannot start socket. It has already started.");
@@ -29,7 +36,6 @@ bool BSDClientSocket::startSocket() {
     return true;
 }
 
-
 void BSDClientSocket::stopSocket() {
     CSSLLogger::log(LOG, "BSDClientSocket -> socket will stopped.");
     _isRunning = false;
@@ -42,7 +48,6 @@ void BSDClientSocket::stopSocket() {
     CSSLLogger::log(LOG, "BSDClientSocket -> socket has stopped.");
 }
 
-
 bool BSDClientSocket::sendData(const char *data) {
     if (!_isRunning) {
         CSSLLogger::log(WARNING, "BSDClientSocket -> cannot send message. Socket isn't running.");
@@ -52,14 +57,7 @@ bool BSDClientSocket::sendData(const char *data) {
     return handler->send(data);
 }
 
-
-const std::vector<std::string> BSDClientSocket::getReceivedInfo() {
-    CSSLLogger::log(LOG, "BSDClientSocket -> receivedInfo asked.");
-    return handler->getReceivedInfo();
-}
-
-
-
+#pragma mark - Constructor
 BSDClientSocket::BSDClientSocket(int port) : BSDClientSocket("127.0.0.1", port, NULL) { }
 BSDClientSocket::BSDClientSocket(int port, BSDSocketDelegate *delegate) : BSDClientSocket("127.0.0.1", port, delegate) { }
 BSDClientSocket::BSDClientSocket(std::string address, int port, BSDSocketDelegate *delegate) : BSDSocket(address, port, delegate) {
@@ -116,7 +114,7 @@ BSDClientSocket::BSDClientSocket(std::string address, int port, BSDSocketDelegat
     }
 }
 
-
+#pragma mark - Destructor
 BSDClientSocket::~BSDClientSocket() {
     CSSLLogger::log(LOG, "BSDClientSocket -> destructor called.");
     this->stopSocket();

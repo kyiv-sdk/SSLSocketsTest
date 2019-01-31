@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
     @brief Returns a Boolean value indicating handler status.
- @discussion Value YES returns in case of connection and being ready to send/receive data, value NO returns in case of socket is disconnected and cannot send/receive data. Use 'stopHandling' method to change state.
+    @discussion Value YES returns in case of connection and being ready to send/receive data, value NO returns in case of socket is disconnected and cannot send/receive data. Use 'stopHandling' method to change state.
  */
 @property (assign, nonatomic, readonly) BOOL isHandling;
 

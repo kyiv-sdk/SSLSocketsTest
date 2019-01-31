@@ -10,6 +10,7 @@
 #include "SSLSocketDelegate.h"
 #include "BSDSocketDelegate.h"
 
+#pragma mark - Methods
 void BSDSocketDelegate::didReceiveMessage(std::string message, SSL *ssl) {
     const char *msg = message.c_str();
     NSStringEncoding encoding = [NSString defaultCStringEncoding];
@@ -18,7 +19,7 @@ void BSDSocketDelegate::didReceiveMessage(std::string message, SSL *ssl) {
     [(__bridge SSLSocketDelegate *)objcDelegate didReceiveMessage: receivedMessage fromSSL:ssl];
 }
 
-
+#pragma mark - Constructor
 BSDSocketDelegate::BSDSocketDelegate(void *objcDelegate) {
     this->objcDelegate = objcDelegate;
     CSSLLogger::log(LOG, "BSDSocketDelegate -> instance created.");

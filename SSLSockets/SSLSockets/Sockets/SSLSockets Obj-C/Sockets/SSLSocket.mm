@@ -12,6 +12,7 @@
 
 @implementation SSLSocket
 
+#pragma mark - Getters
 - (BOOL)isReady {
     return self.socket->isReady();
 }
@@ -41,8 +42,7 @@
     
 }
 
-
-
+#pragma mark - Methods
 - (BOOL)startSocket {
     return self.socket->startSocket();
 }

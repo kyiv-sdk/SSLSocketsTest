@@ -15,71 +15,7 @@
 #include "BSDServerSocket.h"
 #include "SSLSigningManager.h"
 
-bool BSDServerSocket::startSocket() {
-    if (_isRunning) {
-        CSSLLogger::log(WARNING, "BSDServerSocket -> cannot start socket. It has already started.");
-        return true;
-    }
-    
-    if (sslContext) {
-        _isRunning = true;
-        CSSLLogger::log(LOG, "BSDServerSocket -> socket started.");
-        retainedThread = std::thread(&BSDServerSocket::waitForConnections, this);
-        return true;
-    }
-    
-    CSSLLogger::log(ERROR, "BSDServerSocket -> cannot be started because sslContext == NULL.");
-    _isReady = false;
-    return false;
-}
-
-
-void BSDServerSocket::stopSocket() {
-    if (!_isRunning) return;
-    
-    CSSLLogger::log(LOG, "BSDServerSocket -> stopSocket called.");
-    _isRunning = false;
-    if (sslContext && SSL_CTX_ct_is_enabled(sslContext)) {
-        CSSLLogger::log(LOG, "BSDServerSocket -> freeing sslContext.");
-        SSL_CTX_free(sslContext);
-    }
-    
-    CSSLLogger::log(LOG, "BSDServerSocket -> socket wil close");
-    if (close(socketDescriptor) == FAIL_CODE) {
-        CSSLLogger::logERRNO("BSDServerSocket -> close failed");
-    } else {
-        CSSLLogger::log(LOG, "BSDServerSocket -> socket successfully closed");
-    }
-    
-    CSSLLogger::log(LOG, "BSDServerSocket -> will delete accepted sockets pool.");
-    
-    long size = acceptedSockets.size();
-    for (long i = size-1; i >= 0; i--) {
-        BSDSocketHandler *handler = acceptedSockets.at(i);
-        if (handler) delete handler;
-    }
-    
-    CSSLLogger::log(LOG, "BSDServerSocket -> will join retained thread.");
-    if (retainedThread.joinable()) retainedThread.join();
-    CSSLLogger::log(LOG, "BSDServerSocket -> joined retained thread.");
-}
-
-
-bool BSDServerSocket::sendData(const char *data, SSL const *ssl) {
-    CSSLLogger::log(LOG, "BSDServerSocket -> will find accepted socket to send message.");
-    for (BSDSocketHandler *handler : acceptedSockets) {
-        if (handler->getSSL() == ssl) {
-            handler->send(data);
-            CSSLLogger::log(LOG, "BSDServerSocket -> have found accepted socket to send message.");
-            return true;
-        }
-    }
-    
-    CSSLLogger::log(ERROR, "BSDServerSocket -> haven't found accepted socket to send message.");
-    return false;
-}
-
-
+#pragma mark - Getters
 const std::vector<std::string> BSDServerSocket::getReceivedInfo() {
     std::vector<std::string> info;
     CSSLLogger::log(LOG, "BSDServerSocket -> will return received info from all accepted sockets.");
@@ -93,12 +29,65 @@ const std::vector<std::string> BSDServerSocket::getReceivedInfo() {
     return info;
 }
 
-
 const std::vector<BSDSocketHandler *> BSDServerSocket::getAcceptedSockets() {
     CSSLLogger::log(LOG, "BSDServerSocket -> accepted sockets asked.");
     return acceptedSockets;
 }
 
+#pragma mark - Methods
+bool BSDServerSocket::startSocket() {
+    if (_isRunning) {
+        CSSLLogger::log(WARNING, "BSDServerSocket -> cannot start socket. It has already started.");
+        return true;
+    }
+    if (sslContext) {
+        _isRunning = true;
+        CSSLLogger::log(LOG, "BSDServerSocket -> socket started.");
+        retainedThread = std::thread(&BSDServerSocket::waitForConnections, this);
+        return true;
+    }
+    CSSLLogger::log(ERROR, "BSDServerSocket -> cannot be started because sslContext == NULL.");
+    _isReady = false;
+    return false;
+}
+
+void BSDServerSocket::stopSocket() {
+    if (!_isRunning) return;
+    CSSLLogger::log(LOG, "BSDServerSocket -> stopSocket called.");
+    _isRunning = false;
+    if (sslContext && SSL_CTX_ct_is_enabled(sslContext)) {
+        CSSLLogger::log(LOG, "BSDServerSocket -> freeing sslContext.");
+        SSL_CTX_free(sslContext);
+    }
+    CSSLLogger::log(LOG, "BSDServerSocket -> socket wil close");
+    if (close(socketDescriptor) == FAIL_CODE) {
+        CSSLLogger::logERRNO("BSDServerSocket -> close failed");
+    } else {
+        CSSLLogger::log(LOG, "BSDServerSocket -> socket successfully closed");
+    }
+    CSSLLogger::log(LOG, "BSDServerSocket -> will delete accepted sockets pool.");
+    long size = acceptedSockets.size();
+    for (long i = size-1; i >= 0; i--) {
+        BSDSocketHandler *handler = acceptedSockets.at(i);
+        if (handler) delete handler;
+    }
+    CSSLLogger::log(LOG, "BSDServerSocket -> will join retained thread.");
+    if (retainedThread.joinable()) retainedThread.join();
+    CSSLLogger::log(LOG, "BSDServerSocket -> joined retained thread.");
+}
+
+bool BSDServerSocket::sendData(const char *data, SSL const *ssl) {
+    CSSLLogger::log(LOG, "BSDServerSocket -> will find accepted socket to send message.");
+    for (BSDSocketHandler *handler : acceptedSockets) {
+        if (handler->getSSL() == ssl) {
+            handler->send(data);
+            CSSLLogger::log(LOG, "BSDServerSocket -> have found accepted socket to send message.");
+            return true;
+        }
+    }
+    CSSLLogger::log(ERROR, "BSDServerSocket -> haven't found accepted socket to send message.");
+    return false;
+}
 
 void BSDServerSocket::waitForConnections() {
     _isRunning = true;
@@ -127,8 +116,7 @@ void BSDServerSocket::waitForConnections() {
     }
 }
 
-
-
+#pragma mark - IBSDHandlersManager confirming
 void BSDServerSocket::didStopHandler(BSDSocketHandler *handler) {
     CSSLLogger::log(LOG, "BSDServerSocket -> received notification that accepted socket (sender) stopped handling.");
     ptrdiff_t idx = find(acceptedSockets.begin(), acceptedSockets.end(), handler) - acceptedSockets.begin();
@@ -140,7 +128,7 @@ void BSDServerSocket::didStopHandler(BSDSocketHandler *handler) {
     }
 }
 
-
+#pragma mark - Constructors
 BSDServerSocket::BSDServerSocket(int port) : BSDServerSocket(port, NULL) { }
 BSDServerSocket::BSDServerSocket(int port, BSDSocketDelegate *delegate) : BSDSocket("127.0.0.1", port, delegate) {
     CSSLLogger::log(LOG, "BSDServerSocket -> constructor called.");
@@ -189,7 +177,7 @@ BSDServerSocket::BSDServerSocket(int port, BSDSocketDelegate *delegate) : BSDSoc
     }
 }
 
-
+#pragma mark - Destructor
 BSDServerSocket::~BSDServerSocket() {
     this->stopSocket();
 }

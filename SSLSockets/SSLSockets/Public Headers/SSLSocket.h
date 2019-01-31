@@ -52,13 +52,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic, readwrite) SSLSocketDelegate *delegate;
 
 
-
 /**
     @brief Starts Socket, makess it ready to send/receive messages.
     @return YES if the receiver was successfully configured and being started or NO if it is not.
  */
 - (BOOL)startSocket;
-
 
 /**
     @brief Closes Socket and frees memory, makes it impossible to reuse.

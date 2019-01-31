@@ -12,23 +12,22 @@
 
 @implementation SSLSocketHandler
 
+#pragma mark - Getters
 - (const SSL *)ssl {
     return self.handler->getSSL();
 }
 
-
+#pragma mark - Methods
 - (void)stopHandling {
     self.handler->stopHandling();
 }
-
 
 - (BOOL)sendData:(NSString *)data {
     const char *dataToSend = [data UTF8String];
     return self.handler->send(dataToSend);
 }
 
-
-
+#pragma mark - Constructor
 - (instancetype)initWithBSDSocketHandler:(BSDSocketHandler *)handler {
     self = [super init];
     if (self) {

@@ -10,16 +10,15 @@
 
 @implementation SSLSocketDelegate
 
+#pragma mark - Methods
 - (void)didReceiveMessage:(NSString *)message fromSSL:(SSL *)ssl {
     @throw [NSException exceptionWithName:NSInternalInconsistencyException
                                    reason:[NSString stringWithFormat:@"You must override %@ in a subclass", NSStringFromSelector(_cmd)]
                                  userInfo:nil];
 }
 
-
-
-- (instancetype)init
-{
+#pragma mark - Constructor
+- (instancetype)init {
     self = [super init];
     if (self) {
         self.cDelegate = new BSDSocketDelegate((__bridge void *)self);
@@ -27,7 +26,7 @@
     return self;
 }
 
-
+#pragma mark - Destructor
 - (void)dealloc {
     free(self.cDelegate);
 }

@@ -13,13 +13,14 @@
 
 @implementation SSLClientSocket
 
+#pragma mark - Mathods
 - (BOOL)sendData:(NSString *)data {
     const char *dataToSend = [data UTF8String];
     return ((BSDClientSocket *)self.socket)->sendData(dataToSend);
 }
 
 
-
+#pragma mark - Constructors
 - (instancetype)initWithPort:(int)port {
     return [self initWithAddress:@"127.0.0.1" port:port andDelegate:nil];
 }
@@ -37,7 +38,7 @@
     return self;
 }
 
-
+#pragma mark - Destructor
 - (void)dealloc {
     delete (BSDClientSocket *)self.socket;
 }

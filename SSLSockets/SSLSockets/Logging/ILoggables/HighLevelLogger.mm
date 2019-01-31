@@ -10,6 +10,7 @@
 #include "HighLevelLogger.h"
 #include <Foundation/Foundation.h>
 
+#pragma mark - Methods
 void HighLevelLogger::log(LoggingPriority priority, std::string message) {
     id<SSLLoggable> logger = (__bridge id<SSLLoggable>)loggerObj;
     
@@ -27,12 +28,13 @@ void HighLevelLogger::log(LoggingPriority priority, std::string message) {
     [logger logMessage:messageToLog withPriority:lpriority];
 }
 
-#pragma mark LifeCycle
+#pragma mark - Constructor
 HighLevelLogger::HighLevelLogger(void *logger, LoggingPriority minPriority) {
     this->loggerObj = logger;
     this->minPriority = minPriority;
 }
 
+#pragma mark - Destructor
 HighLevelLogger::~HighLevelLogger() {
     CFRelease(loggerObj);
 }

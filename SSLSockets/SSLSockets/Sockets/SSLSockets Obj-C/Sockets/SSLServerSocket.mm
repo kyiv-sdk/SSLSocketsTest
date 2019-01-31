@@ -15,6 +15,7 @@
 
 @implementation SSLServerSocket
 
+#pragma mark - Getters
 - (NSArray *)acceptedSockets {
     NSMutableArray *acceptedSockets = [[NSMutableArray alloc] init];
     const std::vector<BSDSocketHandler *> _acceptedSockets = ((BSDServerSocket *)self.socket)->getAcceptedSockets();
@@ -25,14 +26,13 @@
     return acceptedSockets;
 }
 
-
+#pragma mark - Methods
 - (BOOL)sendData:(NSString *)data toSSL:(SSL const *)ssl {
     const char *dataToSend = [data UTF8String];
     return ((BSDServerSocket *)self.socket)->sendData(dataToSend, ssl);
 }
 
-
-
+#pragma mark - Constructors
 - (instancetype)initWithPort:(int)port {
     return [self initWithPort:port andDelegate:nil];
 }
@@ -45,7 +45,7 @@
     return self;
 }
 
-
+#pragma mark - Destructor
 - (void)dealloc {
     delete (BSDServerSocket *)self.socket;
 }

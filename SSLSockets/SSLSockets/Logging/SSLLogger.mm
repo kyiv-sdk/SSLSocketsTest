@@ -13,14 +13,14 @@
 
 @implementation SSLLogger
 
-#pragma mark Logging
+#pragma mark - Logging
 + (void)logMessage:(NSString *)message withPriority:(SSLLoggingPriority)priority {
     LoggingPriority lpriority = LoggingPriority(priority);
     std::string lmessage([message UTF8String]);
     CSSLLogger::log(lpriority, lmessage);
 }
 
-#pragma mark Loggers Management Methods
+#pragma mark - Loggers Management Methods
 + (void)addLoggingDestination:(id<SSLLoggable>)destination {
     NSString *objectHash = [NSString stringWithFormat:@"%li", [destination hash]];
     LoggingPriority lpriority = LoggingPriority(destination.minPriority);

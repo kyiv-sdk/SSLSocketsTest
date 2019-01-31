@@ -20,7 +20,6 @@ NS_ASSUME_NONNULL_BEGIN
 - (BOOL)sendData:(NSString *)data;
 
 
-
 /**
     @brief Convenience initializer, creates and configures SSLClientSocket.
     @discussion Calls designated initializer, creates and configures SSL Client Socket for local SSLServerSocket with given port, will not have delegate (received messages will be ignored).

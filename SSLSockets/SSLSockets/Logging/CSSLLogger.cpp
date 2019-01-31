@@ -16,7 +16,7 @@
 
 std::map<std::string, ILoggable *> CSSLLogger::loggers;
 
-#pragma mark Loggers Management Methods
+#pragma mark - Loggers Management Methods
 void CSSLLogger::addLogger(ILoggable *logger, std::string key) {
     ILoggable *oldLogger = loggers[key];
     if (oldLogger) delete oldLogger;
@@ -39,7 +39,7 @@ void CSSLLogger::removeAllLoggers() {
     }
 }
 
-#pragma mark Logging Methods
+#pragma mark - Logging Methods
 void CSSLLogger::log(LoggingPriority priority, std::string message) {
     // Current Time
     auto now = std::chrono::system_clock::now();
@@ -59,12 +59,10 @@ void CSSLLogger::log(LoggingPriority priority, std::string message) {
     }
 }
 
-
 void CSSLLogger::logSSLError(std::string message, long errorCode) {
     std::string errMsg = message + std::string(": ") + ERR_error_string(errorCode, NULL);
     CSSLLogger::log(ERROR, errMsg);
 }
-
 
 void CSSLLogger::logERRNO(std::string message) {
     std::string errorMsg = message + std::string(": ") + strerror(errno);

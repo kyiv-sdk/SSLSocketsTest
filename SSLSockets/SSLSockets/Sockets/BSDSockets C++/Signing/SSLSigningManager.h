@@ -34,7 +34,6 @@ private:
     static std::mutex mtxSingletone;
     static bool isCertificateGenerated;
     static SSLSigningManager *_sharedInstance;
-
     
     SSLSigningManager();
     
