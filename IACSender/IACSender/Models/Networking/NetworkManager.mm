@@ -25,7 +25,21 @@
     return (AppDelegate *)[self.application delegate];
 }
 
-
+- (void)sendLogMessage:(NSString *)message withPriority:(NSNumber *)priority toRemoteServerWithURL:(NSURL *)url {
+    NSDictionary *json = @{ @"priority": priority, @"message": message };
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:json options:NSJSONWritingPrettyPrinted error:nil];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    [request setURL:url];
+    [request setHTTPMethod:@"POST"];
+    [request setValue:@"application/json; charset=UTF-8" forHTTPHeaderField:@"Content-Type"];
+    [request setHTTPBody:jsonData];
+    dispatch_group_t group = dispatch_group_create();
+    dispatch_group_enter(group);
+    [[[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        dispatch_group_leave(group);
+    }] resume];
+    dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
+}
 
 - (void)getTitleOfWebSiteWithURL:(NSURL *)url completionHandler:(void (^)(NSString * _Nullable))handler {
     [[[NSURLSession sharedSession] dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {

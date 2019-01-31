@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "NetworkManager.h"
 #import "ProjectConstants.h"
+#import "RemoteServerLogger.h"
 #import <SSLSockets/SSLSockets.h>
 #import "ReceivedTableViewController.h"
 
@@ -23,6 +24,7 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [SSLLogger addLoggingDestination:[RemoteServerLogger sharedInstance]];
     return YES;
 }
 

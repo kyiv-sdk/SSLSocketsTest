@@ -55,6 +55,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
+        self.minPriority = SSLLoggingPriorityLog;
         self.logsHistory = [[NSMutableArray alloc] init];
         self.serialThread = dispatch_queue_create("com.o9e6y.SSLUILogger", DISPATCH_QUEUE_SERIAL);
     }

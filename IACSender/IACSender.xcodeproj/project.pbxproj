@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5616C47F22032A21001DDDB5 /* RemoteServerLogger.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5616C47E22032A21001DDDB5 /* RemoteServerLogger.mm */; };
 		5649804A21F5ED2E00905409 /* NSString+ProjectAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5649804621F5ED2E00905409 /* NSString+ProjectAdditions.m */; };
 		5649804B21F5ED2E00905409 /* NSDate+ProjectAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5649804921F5ED2E00905409 /* NSDate+ProjectAdditions.m */; };
 		568D0DD821F7507F00A9E165 /* SSLSockets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 568D0DD021F7504700A9E165 /* SSLSockets.framework */; };
@@ -73,6 +74,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5616C47D22032A21001DDDB5 /* RemoteServerLogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RemoteServerLogger.h; sourceTree = "<group>"; };
+		5616C47E22032A21001DDDB5 /* RemoteServerLogger.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = RemoteServerLogger.mm; sourceTree = "<group>"; };
 		5649804621F5ED2E00905409 /* NSString+ProjectAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+ProjectAdditions.m"; sourceTree = "<group>"; };
 		5649804721F5ED2E00905409 /* NSDate+ProjectAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+ProjectAdditions.h"; sourceTree = "<group>"; };
 		5649804821F5ED2E00905409 /* NSString+ProjectAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+ProjectAdditions.h"; sourceTree = "<group>"; };
@@ -205,6 +208,8 @@
 		56B7B97021E4FF8700EDAB1D /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				5616C47D22032A21001DDDB5 /* RemoteServerLogger.h */,
+				5616C47E22032A21001DDDB5 /* RemoteServerLogger.mm */,
 				56DC639421F0BFE400331A6F /* Networking */,
 				56DC639521F0BFEE00331A6F /* CoreData */,
 				5649804521F5ED2E00905409 /* Categories */,
@@ -361,6 +366,7 @@
 				56B7B95C21E4FB4D00EDAB1D /* SendViewController.mm in Sources */,
 				56B7B94B21E4F76000EDAB1D /* IACSender.xcdatamodeld in Sources */,
 				56DC639C21F0D5CF00331A6F /* URLsocketDelegate.mm in Sources */,
+				5616C47F22032A21001DDDB5 /* RemoteServerLogger.mm in Sources */,
 				56B7B95321E4F76100EDAB1D /* main.mm in Sources */,
 				5649804A21F5ED2E00905409 /* NSString+ProjectAdditions.m in Sources */,
 				56DC639821F0D03500331A6F /* ProjectConstants.m in Sources */,
