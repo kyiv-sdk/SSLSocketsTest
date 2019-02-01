@@ -18,7 +18,10 @@
 
 
 - (NSString *)receivedURLFormat {
-    return [NSDate stringDate:self withFormat:@"MMM d, yyyy at HH:mm"];
+    NSString *fistPart =  [NSDate stringDate:self withFormat:@"MMM d, yyyy"];
+    NSString *secondPart = [NSDate stringDate:self withFormat:@"HH:mm"];
+    NSString *result = [NSString stringWithFormat:@"%@ at %@", fistPart, secondPart];
+    return result;
 }
 
 @end

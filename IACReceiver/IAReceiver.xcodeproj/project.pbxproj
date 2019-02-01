@@ -11,6 +11,7 @@
 		5616C46922020F78001DDDB5 /* LogsViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5616C46822020F78001DDDB5 /* LogsViewController.mm */; };
 		5649804321F5ED1B00905409 /* NSString+ProjectAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5649803F21F5ED1B00905409 /* NSString+ProjectAdditions.m */; };
 		5649804421F5ED1B00905409 /* NSDate+ProjectAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5649804221F5ED1B00905409 /* NSDate+ProjectAdditions.m */; };
+		567FDDC522034D7900CC5BD5 /* SSLSockets.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 568D0DC721F7504300A9E165 /* SSLSockets.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		568D0DD521F7505700A9E165 /* SSLSockets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 568D0DC721F7504300A9E165 /* SSLSockets.framework */; };
 		56B7B94221E4F76000EDAB1D /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 56B7B94121E4F76000EDAB1D /* AppDelegate.mm */; };
 		56B7B94821E4F76000EDAB1D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56B7B94621E4F76000EDAB1D /* Main.storyboard */; };
@@ -37,6 +38,13 @@
 			proxyType = 2;
 			remoteGlobalIDString = 567C57CE2200872B00B6A9F9;
 			remoteInfo = SSLSocketsIOSTests;
+		};
+		567FDDC622034D7900CC5BD5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 568D0DC121F7504300A9E165 /* SSLSockets.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 565EF33D21F71CEC00AC36B3;
+			remoteInfo = "iOS SSLSockets";
 		};
 		568D0DC621F7504300A9E165 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -68,6 +76,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				567FDDC522034D7900CC5BD5 /* SSLSockets.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -280,6 +289,7 @@
 			);
 			dependencies = (
 				568D0DD421F7504F00A9E165 /* PBXTargetDependency */,
+				567FDDC722034D7900CC5BD5 /* PBXTargetDependency */,
 			);
 			name = IAReceiver;
 			productName = IACSender;
@@ -388,6 +398,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		567FDDC722034D7900CC5BD5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "iOS SSLSockets";
+			targetProxy = 567FDDC622034D7900CC5BD5 /* PBXContainerItemProxy */;
+		};
 		568D0DD421F7504F00A9E165 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "iOS SSLSockets";
