@@ -21,17 +21,16 @@
 
 @implementation CoreDataManager
 
+#pragma mark - Getters
 - (NSManagedObjectContext *)context {
     return ((AppDelegate *)[[UIApplication sharedApplication] delegate]).persistentContainer.viewContext;
 }
-
-
 
 - (void)saveChanges {
     [((AppDelegate *)[[UIApplication sharedApplication] delegate]) saveContext];
 }
 
-
+#pragma makr - Methods
 - (NSArray *)getWebSites {
     NSError *error = nil;
     NSFetchRequest *request = [WebSite fetchRequest];
@@ -41,7 +40,6 @@
     }
     return results;
 }
-
 
 - (WebSite *)addNewWebSiteWithURL:(NSString *)url {
     NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"WebSite" inManagedObjectContext:self.context];
@@ -68,7 +66,7 @@
     }
 }
 
-
+#pragma mark - Singletone
 + (instancetype)sharedManager {
     static id sharedInstance;
     static dispatch_once_t onceToken;

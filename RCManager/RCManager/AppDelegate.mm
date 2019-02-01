@@ -7,8 +7,13 @@
 //
 
 #import "AppDelegate.h"
+#import "RCSocketDelegate.h"
+#import "ProjectConstants.h"
+#import <SSLSockets/SSLSockets.h>
 
 @interface AppDelegate ()
+
+@property (strong, nonatomic) SSLServerSocket *RCServerSocket;
 
 @end
 
@@ -16,7 +21,15 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    [SSLSocketsManager configureCertificatesWithCountry:@"UA"
+                                                  state:@"Kyiv"
+                                               location:@"Kyiv"
+                                           organization:@"SoftServe"
+                                       organizationUnit:@"RemoteControl"
+                                             commonName:@"com.softserve.remotecontrol"
+                                           emailAddress:@"ohord2@softserveinc.com"];
+    
+    self.RCServerSocket = [[SSLServerSocket alloc] initWithPort:RCServerSocketPort andDelegate:[RCSocketDelegate sharedInstance]];
     return YES;
 }
 

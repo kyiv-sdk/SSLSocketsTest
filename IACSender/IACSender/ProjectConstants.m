@@ -16,4 +16,4 @@ NSString *OpenedSocketCallback = @"openedsocket";
 
 NSString *URLKey = @"url";
 
-NSString * SSLLoggerFileName = @"SSSLLoggerDestintion.txt";
+NSString *SSLLoggerFileName = @"SSSLLoggerDestintion.txt";
