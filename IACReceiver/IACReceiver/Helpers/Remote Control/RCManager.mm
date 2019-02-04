@@ -29,7 +29,7 @@
 
 - (void)stopSession {
     [self.RCSocket sendData:[NSString RCDisconnectionMessage]];
-    [self.RCSocket startSocket];
+    [self.RCSocket stopSocket];
 }
 
 #pragma mark - Singletone

@@ -22,7 +22,6 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [[RCApplicationStorage sharedInstance] setPresenter:self];
-    
 }
 
 #pragma mark - Methods
