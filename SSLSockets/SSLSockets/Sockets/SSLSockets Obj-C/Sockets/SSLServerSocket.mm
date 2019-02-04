@@ -11,7 +11,7 @@
 #import "SSLSocket+Protected.h"
 #import "SSLSocketHandler.h"
 #import "SSLSocketHandler+Protected.h"
-#import "SSLSocketDelegate+Protected.h"
+#import <Foundation/Foundation.h>
 
 @implementation SSLServerSocket
 
@@ -37,10 +37,11 @@
     return [self initWithPort:port andDelegate:nil];
 }
 
-- (instancetype)initWithPort:(int)port andDelegate:(SSLSocketDelegate *)delegate {
+- (instancetype)initWithPort:(int)port andDelegate:(id <SSLSocketDelegate>)delegate {
     self = [super init];
     if (self) {
-        self.socket = new BSDServerSocket(port, delegate.cDelegate);
+        BSDSocketDelegate *cDelegate = new BSDSocketDelegate((void *)CFBridgingRetain(delegate));
+        self.socket = new BSDServerSocket(port, cDelegate);
     }
     return self;
 }

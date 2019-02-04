@@ -13,22 +13,22 @@
 @implementation NSDictionary (ProjectAdditions)
 
 + (NSDictionary *)RCConnectionJSON {
-    NSDictionary *json = [[NSDictionary alloc] initWithDictionary:[NSDictionary applicationInfo]];
-    [json setValue:kRCActionConnect forKey:kRCActionKey];
+    NSMutableDictionary *json = [[NSMutableDictionary alloc] initWithDictionary:[NSDictionary applicationInfo]];
+    [json setObject:kRCActionConnect forKey:kRCActionKey];
     return json;
 }
 
 + (NSDictionary *)RCDisconnectionsJSON {
-    NSDictionary *json = [[NSDictionary alloc] initWithDictionary:[NSDictionary applicationInfo]];
-    [json setValue:kRCActionDisconnect forKey:kRCActionKey];
+    NSMutableDictionary *json = [[NSMutableDictionary alloc] initWithDictionary:[NSDictionary applicationInfo]];
+    [json setObject:kRCActionDisconnect forKey:kRCActionKey];
     return json;
 }
 
 + (NSDictionary *)applicationInfo {
-    NSDictionary *info = [[NSDictionary alloc] init];
-    [info setValue:[NSString applicationName] forKey:kRCAppNameKey];
-    [info setValue:[NSString applicationBundleId] forKey:kRCAppBundleID];
-    [info setValue:[NSString deviceId] forKey:kRCDeviceID];
+    NSMutableDictionary *info = [[NSMutableDictionary alloc] init];
+    [info setObject:[NSString applicationName] forKey:kRCAppNameKey];
+    [info setObject:[NSString applicationBundleId] forKey:kRCAppBundleID];
+    [info setObject:[NSString deviceId] forKey:kRCDeviceID];
     return info;
 }
 

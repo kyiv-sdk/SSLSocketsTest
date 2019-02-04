@@ -118,4 +118,5 @@ BSDClientSocket::BSDClientSocket(std::string address, int port, BSDSocketDelegat
 BSDClientSocket::~BSDClientSocket() {
     CSSLLogger::log(LOG, "BSDClientSocket -> destructor called.");
     this->stopSocket();
+    if (delegate) delete delegate;
 }

@@ -45,7 +45,7 @@ NS_ASSUME_NONNULL_BEGIN
     @param delegate - will manage received messages. Notification will send to delegate when Socket will receive new message.
     @return SSLServerSocket, configured with given port.
  */
-- (instancetype)initWithPort:(int)port andDelegate:(nullable SSLSocketDelegate *)delegate;
+- (instancetype)initWithPort:(int)port andDelegate:(nullable id <SSLSocketDelegate>)delegate;
 
 @end
 

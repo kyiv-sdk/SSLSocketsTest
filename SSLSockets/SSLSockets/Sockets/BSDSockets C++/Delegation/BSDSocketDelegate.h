@@ -20,6 +20,7 @@ public:
     void didReceiveMessage(std::string message, SSL* ssl);
     
     BSDSocketDelegate(void *objcDelegate);
+    ~BSDSocketDelegate();
     
 };
 

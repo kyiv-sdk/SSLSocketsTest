@@ -35,7 +35,7 @@ NS_ASSUME_NONNULL_BEGIN
     @param delegate - will manage received messages. Notification will send to delegate when Socket will receive new message.
     @return SSLClientSocket, configured for local SSLServerSocket with given port and delegate.
  */
-- (instancetype)initWithPort:(int)port andDelegate:(SSLSocketDelegate *)delegate;
+- (instancetype)initWithPort:(int)port andDelegate:(id <SSLSocketDelegate>)delegate;
 
 /**
     @brief Designated initializer, creates and configures SSLClientSocket.
@@ -48,7 +48,7 @@ NS_ASSUME_NONNULL_BEGIN
     @param delegate - will manage received messages. Notification will send to delegate when Socket will receive new message.
     @return SSLClientSocket, configured with given address, port and delegate.
  */
-- (instancetype)initWithAddress:(NSString *)address port:(int)port andDelegate:(nullable SSLSocketDelegate *)delegate;
+- (instancetype)initWithAddress:(NSString *)address port:(int)port andDelegate:(nullable id <SSLSocketDelegate>)delegate;
 
 @end
 

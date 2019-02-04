@@ -44,10 +44,6 @@
 		565EF40021F71E6400AC36B3 /* SSLSocket+Protected.h in Headers */ = {isa = PBXBuildFile; fileRef = 565EF36321F71E6400AC36B3 /* SSLSocket+Protected.h */; };
 		565EF40121F71E6400AC36B3 /* SSLSocketDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 565EF36521F71E6400AC36B3 /* SSLSocketDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		565EF40221F71E6400AC36B3 /* SSLSocketDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 565EF36521F71E6400AC36B3 /* SSLSocketDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		565EF40321F71E6400AC36B3 /* SSLSocketDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 565EF36621F71E6400AC36B3 /* SSLSocketDelegate.mm */; };
-		565EF40421F71E6400AC36B3 /* SSLSocketDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 565EF36621F71E6400AC36B3 /* SSLSocketDelegate.mm */; };
-		565EF40521F71E6400AC36B3 /* SSLSocketDelegate+Protected.h in Headers */ = {isa = PBXBuildFile; fileRef = 565EF36721F71E6400AC36B3 /* SSLSocketDelegate+Protected.h */; };
-		565EF40621F71E6400AC36B3 /* SSLSocketDelegate+Protected.h in Headers */ = {isa = PBXBuildFile; fileRef = 565EF36721F71E6400AC36B3 /* SSLSocketDelegate+Protected.h */; };
 		565EF40721F71E6400AC36B3 /* SSLSocketsManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 565EF36821F71E6400AC36B3 /* SSLSocketsManager.mm */; };
 		565EF40821F71E6400AC36B3 /* SSLSocketsManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 565EF36821F71E6400AC36B3 /* SSLSocketsManager.mm */; };
 		565EF40921F71E6400AC36B3 /* SSLSocketsManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 565EF36921F71E6400AC36B3 /* SSLSocketsManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -356,8 +352,6 @@
 		565EF36221F71E6400AC36B3 /* SSLSocket.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SSLSocket.mm; sourceTree = "<group>"; };
 		565EF36321F71E6400AC36B3 /* SSLSocket+Protected.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SSLSocket+Protected.h"; sourceTree = "<group>"; };
 		565EF36521F71E6400AC36B3 /* SSLSocketDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSLSocketDelegate.h; sourceTree = "<group>"; };
-		565EF36621F71E6400AC36B3 /* SSLSocketDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SSLSocketDelegate.mm; sourceTree = "<group>"; };
-		565EF36721F71E6400AC36B3 /* SSLSocketDelegate+Protected.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SSLSocketDelegate+Protected.h"; sourceTree = "<group>"; };
 		565EF36821F71E6400AC36B3 /* SSLSocketsManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SSLSocketsManager.mm; sourceTree = "<group>"; };
 		565EF36921F71E6400AC36B3 /* SSLSocketsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSLSocketsManager.h; sourceTree = "<group>"; };
 		565EF36B21F71E6400AC36B3 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
@@ -595,7 +589,6 @@
 				565EF36821F71E6400AC36B3 /* SSLSocketsManager.mm */,
 				565EF35C21F71E6400AC36B3 /* Sockets */,
 				565EF35821F71E6400AC36B3 /* Handling */,
-				565EF36421F71E6400AC36B3 /* Delegation */,
 			);
 			path = "SSLSockets Obj-C";
 			sourceTree = "<group>";
@@ -618,15 +611,6 @@
 				565EF36121F71E6400AC36B3 /* SSLClientSocket.mm */,
 			);
 			path = Sockets;
-			sourceTree = "<group>";
-		};
-		565EF36421F71E6400AC36B3 /* Delegation */ = {
-			isa = PBXGroup;
-			children = (
-				565EF36721F71E6400AC36B3 /* SSLSocketDelegate+Protected.h */,
-				565EF36621F71E6400AC36B3 /* SSLSocketDelegate.mm */,
-			);
-			path = Delegation;
 			sourceTree = "<group>";
 		};
 		565EF36A21F71E6400AC36B3 /* BSDSockets C++ */ = {
@@ -934,7 +918,6 @@
 				565EF4D321F71E6400AC36B3 /* tls1.h in Headers */,
 				565EF4BB21F71E6400AC36B3 /* ecerr.h in Headers */,
 				565EF47D21F71E6400AC36B3 /* x509v3err.h in Headers */,
-				565EF40521F71E6400AC36B3 /* SSLSocketDelegate+Protected.h in Headers */,
 				5609C1CB21F8874800B80D56 /* CSSLLogger.h in Headers */,
 				565EF4A321F71E6400AC36B3 /* aes.h in Headers */,
 				565EF4AF21F71E6400AC36B3 /* stack.h in Headers */,
@@ -1102,7 +1085,6 @@
 				565EF46821F71E6400AC36B3 /* md5.h in Headers */,
 				565EF47A21F71E6400AC36B3 /* rc5.h in Headers */,
 				565EF44A21F71E6400AC36B3 /* objectserr.h in Headers */,
-				565EF40621F71E6400AC36B3 /* SSLSocketDelegate+Protected.h in Headers */,
 				565EF48821F71E6400AC36B3 /* evperr.h in Headers */,
 				565EF4B221F71E6400AC36B3 /* des.h in Headers */,
 				565EF46421F71E6400AC36B3 /* conf.h in Headers */,
@@ -1291,7 +1273,6 @@
 				565EF3F121F71E6400AC36B3 /* SSLSocketHandler.mm in Sources */,
 				565EF41B21F71E6400AC36B3 /* BSDSocket.cpp in Sources */,
 				565EF40721F71E6400AC36B3 /* SSLSocketsManager.mm in Sources */,
-				565EF40321F71E6400AC36B3 /* SSLSocketDelegate.mm in Sources */,
 				56B406CF21F89D94001BA320 /* FileManagement.mm in Sources */,
 				565EF42321F71E6400AC36B3 /* BSDSocketDelegate.mm in Sources */,
 				565EF40B21F71E6400AC36B3 /* Constants.m in Sources */,
@@ -1317,7 +1298,6 @@
 				565EF3F221F71E6400AC36B3 /* SSLSocketHandler.mm in Sources */,
 				565EF41C21F71E6400AC36B3 /* BSDSocket.cpp in Sources */,
 				565EF40821F71E6400AC36B3 /* SSLSocketsManager.mm in Sources */,
-				565EF40421F71E6400AC36B3 /* SSLSocketDelegate.mm in Sources */,
 				56B406D021F89D94001BA320 /* FileManagement.mm in Sources */,
 				565EF42421F71E6400AC36B3 /* BSDSocketDelegate.mm in Sources */,
 				565EF40C21F71E6400AC36B3 /* Constants.m in Sources */,

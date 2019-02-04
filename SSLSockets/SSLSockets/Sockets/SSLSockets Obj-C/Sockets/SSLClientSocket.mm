@@ -9,7 +9,6 @@
 #import "SSLClientSocket.h"
 #import "BSDClientSocket.h"
 #import "SSLSocket+Protected.h"
-#import "SSLSocketDelegate+Protected.h"
 
 @implementation SSLClientSocket
 
@@ -25,15 +24,16 @@
     return [self initWithAddress:@"127.0.0.1" port:port andDelegate:nil];
 }
 
-- (instancetype)initWithPort:(int)port andDelegate:(SSLSocketDelegate *)delegate {
+- (instancetype)initWithPort:(int)port andDelegate:(id <SSLSocketDelegate>)delegate {
     return [self initWithAddress:@"127.0.0.1" port:port andDelegate:delegate];
 }
 
-- (instancetype)initWithAddress:(NSString *)address port:(int)port andDelegate:(SSLSocketDelegate *)delegate {
+- (instancetype)initWithAddress:(NSString *)address port:(int)port andDelegate:(id <SSLSocketDelegate>)delegate {
     self = [super init];
     if (self) {
         std::string addr = std::string([address UTF8String]);
-        self.socket = new BSDClientSocket(addr, port, delegate.cDelegate);
+        BSDSocketDelegate *cDelegate = new BSDSocketDelegate((void *)CFBridgingRetain(delegate));
+        self.socket = new BSDClientSocket(addr, port, cDelegate);
     }
     return self;
 }

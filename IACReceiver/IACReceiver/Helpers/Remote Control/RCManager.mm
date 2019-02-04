@@ -45,8 +45,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        SSLSocketDelegate *delegate = [RCSocketDelegate sharedInstance];
-        self.RCSocket = [[SSLClientSocket alloc] initWithAddress:RCServerSocketAddress port:RCServerSocketPort andDelegate:delegate];
+        self.RCSocket = [[SSLClientSocket alloc] initWithAddress:RCServerSocketAddress port:RCServerSocketPort andDelegate:[RCSocketDelegate sharedInstance]];
     }
     return self;
 }

@@ -13,7 +13,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface URLSocketDelegate : SSLSocketDelegate
+@interface URLSocketDelegate : NSObject <SSLSocketDelegate>
 
 @property (weak, nonatomic) id <ReceivedWebSiteHandler> webSiteHandler;
 

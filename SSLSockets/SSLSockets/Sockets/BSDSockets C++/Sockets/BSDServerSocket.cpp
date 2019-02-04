@@ -180,4 +180,5 @@ BSDServerSocket::BSDServerSocket(int port, BSDSocketDelegate *delegate) : BSDSoc
 #pragma mark - Destructor
 BSDServerSocket::~BSDServerSocket() {
     this->stopSocket();
+    if (delegate) delete delegate;
 }

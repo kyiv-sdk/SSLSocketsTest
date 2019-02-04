@@ -11,7 +11,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface SSLSocketDelegate : NSObject
+@protocol SSLSocketDelegate
 
 /**
     @brief Method that will be called each time Socket will receive message.
@@ -19,8 +19,6 @@ NS_ASSUME_NONNULL_BEGIN
     @param message - NSString *representation of info, received by Socket.
  */
 - (void)didReceiveMessage:(NSString *)message fromSSL:(SSL *)ssl;
-
-- (instancetype)init;
 
 @end
 

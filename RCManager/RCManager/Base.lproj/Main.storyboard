@@ -50,7 +50,7 @@
                             <outlet property="delegate" destination="WBC-OJ-fa2" id="xsh-HP-5jw"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Acive Clients" id="Oaf-u5-cMq"/>
+                    <navigationItem key="navigationItem" title="Active Clients" id="Oaf-u5-cMq"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5A2-Gr-lbJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

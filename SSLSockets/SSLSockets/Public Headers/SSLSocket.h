@@ -49,7 +49,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
     @brief Manages received messages. Notification will send to delegate when Socket will receive new message.
  */
-@property (weak, nonatomic, readwrite) SSLSocketDelegate *delegate;
+@property (weak, nonatomic, readwrite) id <SSLSocketDelegate> delegate;
 
 
 /**

@@ -16,11 +16,17 @@ void BSDSocketDelegate::didReceiveMessage(std::string message, SSL *ssl) {
     NSStringEncoding encoding = [NSString defaultCStringEncoding];
     NSString *receivedMessage = [NSString stringWithCString:msg encoding:encoding];
     CSSLLogger::log(LOG, "BSDSocketDelegate -> received message, redirected to Objective-C Delegate.");
-    [(__bridge SSLSocketDelegate *)objcDelegate didReceiveMessage: receivedMessage fromSSL:ssl];
+    [(__bridge id <SSLSocketDelegate>)objcDelegate didReceiveMessage: receivedMessage fromSSL:ssl];
 }
 
 #pragma mark - Constructor
 BSDSocketDelegate::BSDSocketDelegate(void *objcDelegate) {
     this->objcDelegate = objcDelegate;
     CSSLLogger::log(LOG, "BSDSocketDelegate -> instance created.");
+}
+
+#pragma mark - Destructor
+BSDSocketDelegate::~BSDSocketDelegate() {
+    CFBridgingRelease(objcDelegate);
+    printf("~BSDSocketDelegate\n");
 }
