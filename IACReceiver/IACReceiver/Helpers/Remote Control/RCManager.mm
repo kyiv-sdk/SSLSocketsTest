@@ -9,7 +9,7 @@
 #import "RCManager.h"
 #import "ProjectConstants.h"
 #import "RCSocketDelegate.h"
-#import "NSString+ProjectAdditions.h"
+#import "NSDictionary+ProjectAdditions.h"
 
 @interface RCManager ()
 
@@ -24,12 +24,13 @@
 #pragma mark - Methods
 - (void)startSession {
     [self.RCSocket startSocket];
-    [self.RCSocket sendData:[NSString RCConnectionMesage]];
+    NSString *message = [[NSDictionary RCConnectionJSON] convertToString];
+    [self.RCSocket sendData:message];
 }
 
 - (void)stopSession {
-    [self.RCSocket sendData:[NSString RCDisconnectionMessage]];
-    [self.RCSocket stopSocket];
+    NSString *message = [[NSDictionary RCDisconnectionJSON] convertToString];
+    [self.RCSocket sendData:message];
 }
 
 #pragma mark - Singletone
@@ -45,7 +46,8 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.RCSocket = [[SSLClientSocket alloc] initWithAddress:RCServerSocketAddress port:RCServerSocketPort andDelegate:[RCSocketDelegate sharedInstance]];
+        RCSocketDelegate *delegate = [[RCSocketDelegate alloc] init];
+        self.RCSocket = [[SSLClientSocket alloc] initWithAddress:RCServerSocketAddress port:RCServerSocketPort andDelegate: delegate];
     }
     return self;
 }

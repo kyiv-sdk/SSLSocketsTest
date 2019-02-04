@@ -6,13 +6,23 @@
 //  Copyright © 2019 SoftServe. All rights reserved.
 //
 
+#import "RCManager.h"
 #import "RCSocketHandler.h"
+#import "ProjectConstants.h"
 
 @implementation RCSocketHandler
 
 #pragma mark - Methods
 - (void)handleJSON:(NSDictionary *)json {
-    
+    NSString *action = [json objectForKey:kRCActionKey];
+    if ([action isEqualToString:kRCTerminateApplication]) {
+        [self terminateApplication];
+    }
+}
+
+- (void)terminateApplication {
+    [[RCManager sharedInstance] stopSession];
+    exit(RCServerSocketPort);
 }
 
 #pragma mark - Singletone

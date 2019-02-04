@@ -168,6 +168,11 @@
 			children = (
 				567FDE61220853BD00CC5BD5 /* Remote Control */,
 				5649803E21F5ED1B00905409 /* Categories */,
+				56B7B9EA21E6104D00EDAB1D /* CoreDataManager.h */,
+				56B7B9EB21E6104D00EDAB1D /* CoreDataManager.mm */,
+				56B7B97521E5EBE900EDAB1D /* NetworkManager.h */,
+				56B7B97621E5EBE900EDAB1D /* NetworkManager.mm */,
+				56DC639621F0C06200331A6F /* SocketConnectionDelegate.h */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -259,13 +264,12 @@
 		56B7B97021E4FF8700EDAB1D /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				56DC63BE21F2097D00331A6F /* CDModels */,
+				56DC63A621F0DF7700331A6F /* ReceivedWebSiteHandler.h */,
 				5616C46122020879001DDDB5 /* SSLUILogger.h */,
 				5616C46222020879001DDDB5 /* SSLUILogger.mm */,
-				56DC639421F0BFE400331A6F /* Networking */,
-				56DC639521F0BFEE00331A6F /* CoreData */,
 				56DC639A21F0D5CF00331A6F /* URLSocketDelegate.h */,
 				56DC639B21F0D5CF00331A6F /* URLsocketDelegate.mm */,
-				56DC63A621F0DF7700331A6F /* ReceivedWebSiteHandler.h */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -276,26 +280,6 @@
 				56B7B97321E50B5700EDAB1D /* CoreData.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		56DC639421F0BFE400331A6F /* Networking */ = {
-			isa = PBXGroup;
-			children = (
-				56B7B97521E5EBE900EDAB1D /* NetworkManager.h */,
-				56B7B97621E5EBE900EDAB1D /* NetworkManager.mm */,
-				56DC639621F0C06200331A6F /* SocketConnectionDelegate.h */,
-			);
-			path = Networking;
-			sourceTree = "<group>";
-		};
-		56DC639521F0BFEE00331A6F /* CoreData */ = {
-			isa = PBXGroup;
-			children = (
-				56B7B9EA21E6104D00EDAB1D /* CoreDataManager.h */,
-				56B7B9EB21E6104D00EDAB1D /* CoreDataManager.mm */,
-				56DC63BE21F2097D00331A6F /* CDModels */,
-			);
-			path = CoreData;
 			sourceTree = "<group>";
 		};
 		56DC63BE21F2097D00331A6F /* CDModels */ = {

@@ -16,7 +16,7 @@ void BSDSocketDelegate::didReceiveMessage(std::string message, SSL *ssl) {
     NSStringEncoding encoding = [NSString defaultCStringEncoding];
     NSString *receivedMessage = [NSString stringWithCString:msg encoding:encoding];
     CSSLLogger::log(LOG, "BSDSocketDelegate -> received message, redirected to Objective-C Delegate.");
-    [(__bridge id <SSLSocketDelegate>)objcDelegate didReceiveMessage: receivedMessage fromSSL:ssl];
+    [(__bridge id <SSLSocketDelegate>)(objcDelegate) didReceiveMessage:receivedMessage fromSSL:ssl];
 }
 
 #pragma mark - Constructor
@@ -27,6 +27,7 @@ BSDSocketDelegate::BSDSocketDelegate(void *objcDelegate) {
 
 #pragma mark - Destructor
 BSDSocketDelegate::~BSDSocketDelegate() {
+    CSSLLogger::log(LOG, "BSDSocketDelegate -> destructor called.");
     CFBridgingRelease(objcDelegate);
-    printf("~BSDSocketDelegate\n");
+    CSSLLogger::log(LOG, "BSDSocketDelegate -> destroyed.");
 }

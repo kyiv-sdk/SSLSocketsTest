@@ -17,7 +17,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (strong, nonatomic) NSMutableArray *webSites;
 @property (strong, nonatomic) SSLServerSocket *socket;
-@property (strong, nonatomic) URLSocketDelegate *socketDelegate;
 
 - (int)openServerSocket;
 - (void)didReceiveWebSite:(WebSite *)webSite;

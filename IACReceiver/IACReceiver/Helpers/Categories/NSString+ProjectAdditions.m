@@ -24,16 +24,6 @@
 }
 
 #pragma mark - Static Methods
-+ (NSString *)RCConnectionMesage {
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:[NSDictionary RCConnectionJSON] options:NSJSONWritingPrettyPrinted error:nil];
-    return [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-}
-
-+ (NSString *)RCDisconnectionMessage {
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:[NSDictionary RCDisconnectionsJSON] options:NSJSONWritingPrettyPrinted error:nil];
-    return [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-}
-
 + (NSString *)applicationName {
     return [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleDisplayName"];
 }

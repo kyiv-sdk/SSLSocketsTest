@@ -13,6 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface RCSocketDelegate : NSObject <SSLSocketDelegate>
 
+- (void)didReceiveMessage:(NSString *)message fromSSL:(SSL *)ssl;
+
 + (instancetype)sharedInstance;
 
 @end

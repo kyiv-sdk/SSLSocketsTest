@@ -29,3 +29,4 @@ extern NSString * const kRCDeviceID;
 #pragma mark RCSocket Values
 extern NSString * const kRCActionConnect;
 extern NSString * const kRCActionDisconnect;
+extern NSString * const kRCTerminateApplication;

@@ -27,14 +27,14 @@
 }
 
 #pragma mark - Singletone
-+ (instancetype)sharedInstance {
-    static id _sharedInstance;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        _sharedInstance = [[RCSocketDelegate alloc] init];
-    });
-    return self;
-}
+//+ (instancetype)sharedInstance {
+//    static id _sharedInstance;
+//    static dispatch_once_t onceToken;
+//    dispatch_once(&onceToken, ^{
+//        _sharedInstance = [[RCSocketDelegate alloc] init];
+//    });
+//    return self;
+//}
 
 - (instancetype)init {
     self = [super init];

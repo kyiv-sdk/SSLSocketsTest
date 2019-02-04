@@ -15,8 +15,6 @@ NS_ASSUME_NONNULL_BEGIN
 - (BOOL)isPotentialURL;
 - (NSString *)cleanTitle;
 
-+ (NSString *)RCConnectionMesage;
-+ (NSString *)RCDisconnectionMessage;
 + (NSString *)applicationName;
 + (NSString *)applicationBundleId;
 + (NSString *)deviceId;

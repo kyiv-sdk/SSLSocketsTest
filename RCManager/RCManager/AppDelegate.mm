@@ -6,31 +6,14 @@
 //  Copyright © 2019 SoftServe. All rights reserved.
 //
 
+#import "RCManager.h"
 #import "AppDelegate.h"
-#import "RCSocketDelegate.h"
-#import "ProjectConstants.h"
-#import <SSLSockets/SSLSockets.h>
-
-@interface AppDelegate ()
-
-@property (strong, nonatomic) SSLServerSocket *RCServerSocket;
-
-@end
 
 @implementation AppDelegate
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [SSLSocketsManager configureCertificatesWithCountry:@"UA"
-                                                  state:@"Kyiv"
-                                               location:@"Kyiv"
-                                           organization:@"SoftServe"
-                                       organizationUnit:@"RemoteControl"
-                                             commonName:@"com.softserve.remotecontrol"
-                                           emailAddress:@"ohord2@softserveinc.com"];
-    
-    self.RCServerSocket = [[SSLServerSocket alloc] initWithPort:RCServerSocketPort andDelegate:[RCSocketDelegate sharedInstance]];
-    [self.RCServerSocket startSocket];
+    [[RCManager sharedInstance] startSession];
     return YES;
 }
 
@@ -59,7 +42,7 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     // Saves changes in the application's managed object context before the application terminates.
-    [self.RCServerSocket stopSocket];
+    [[RCManager sharedInstance] stopSession];
     [self saveContext];
 }
 

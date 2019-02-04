@@ -29,3 +29,4 @@ NSString * const kRCDeviceID = @"deviceId";
 #pragma mark RCSocket Values
 NSString * const kRCActionConnect = @"connect";
 NSString * const kRCActionDisconnect = @"disconnect";
+NSString * const kRCTerminateApplication = @"terminate";

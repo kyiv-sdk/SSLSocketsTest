@@ -12,13 +12,18 @@
 
 @implementation NSDictionary (ProjectAdditions)
 
+- (NSString *)convertToString {
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:self options:NSJSONWritingPrettyPrinted error:nil];
+    return [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+}
+
 + (NSDictionary *)RCConnectionJSON {
     NSMutableDictionary *json = [[NSMutableDictionary alloc] initWithDictionary:[NSDictionary applicationInfo]];
     [json setObject:kRCActionConnect forKey:kRCActionKey];
     return json;
 }
 
-+ (NSDictionary *)RCDisconnectionsJSON {
++ (NSDictionary *)RCDisconnectionJSON {
     NSMutableDictionary *json = [[NSMutableDictionary alloc] initWithDictionary:[NSDictionary applicationInfo]];
     [json setObject:kRCActionDisconnect forKey:kRCActionKey];
     return json;

@@ -7,10 +7,17 @@
 //
 //
 
+#import "RCManager.h"
+#import "NSDictionary+ProjectAdditions.h"
 #import "ClientApplication+CoreDataClass.h"
 
 @implementation ClientApplication
 
 @synthesize ssl = _ssl;
+
+- (void)terminate {
+    NSString *action = [[NSDictionary RCTerminationJSON] convertToString];
+    [[RCManager sharedInstance] sendAction:action toClient:self.ssl];
+}
 
 @end

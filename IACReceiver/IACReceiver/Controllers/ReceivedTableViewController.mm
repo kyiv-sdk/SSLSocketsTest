@@ -29,10 +29,10 @@
     if ([self.socket isRunning]) return self.socket.port;
     
     int port;
-    self.socketDelegate = [[URLSocketDelegate alloc] initWithWebSiteHandler:self];
+    URLSocketDelegate *socketDelegate = [[URLSocketDelegate alloc] initWithWebSiteHandler:self];
     do {
         port = 1+ arc4random_uniform(65534);
-        self.socket = [[SSLServerSocket alloc] initWithPort:port andDelegate:self.socketDelegate];
+        self.socket = [[SSLServerSocket alloc] initWithPort:port andDelegate:socketDelegate];
         [self.socket startSocket];
     } while (![self.socket isRunning]);
     return port;
@@ -53,7 +53,7 @@
 - (void)updateTitleForWebSite:(WebSite *)webSite {
     __block ReceivedTableViewController *weakSelf = self;
     [[CoreDataManager sharedManager] setTitleForWebSite:webSite comletionHandler:^{
-        NSInteger idx = [self.webSites indexOfObject:webSite];
+        NSInteger idx = [weakSelf.webSites indexOfObject:webSite];
         if (idx != NSNotFound) {
             NSIndexPath *indexPath = [NSIndexPath indexPathForRow:idx inSection:0];
             [weakSelf.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
@@ -106,5 +106,9 @@
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:selectedWebSite.url] options:@{} completionHandler:nil];
 }
 
+#pragma mark - Destructor
+- (void)dealloc {
+    [self.socket stopSocket];
+}
 
 @end

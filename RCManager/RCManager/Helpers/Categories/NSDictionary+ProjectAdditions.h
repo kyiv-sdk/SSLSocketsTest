@@ -1,6 +1,6 @@
 //
 //  NSDictionary+ProjectAdditions.h
-//  IAReceiver
+//  RCManager
 //
 //  Created by Oleksandr Hordiienko on 2/4/19.
 //  Copyright © 2019 SoftServe. All rights reserved.
@@ -13,8 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface NSDictionary (ProjectAdditions)
 
 - (NSString *)convertToString;
-+ (NSDictionary *)RCConnectionJSON;
-+ (NSDictionary *)RCDisconnectionJSON;
+
++ (NSDictionary *)RCTerminationJSON;
 
 @end
 
