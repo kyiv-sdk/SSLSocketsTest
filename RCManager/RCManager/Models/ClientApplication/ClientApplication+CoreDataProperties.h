@@ -2,7 +2,7 @@
 //  ClientApplication+CoreDataProperties.h
 //  RCManager
 //
-//  Created by Oleksandr Hordiienko on 2/1/19.
+//  Created by Oleksandr Hordiienko on 2/4/19.
 //  Copyright © 2019 SoftServe. All rights reserved.
 //
 //
@@ -16,8 +16,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (NSFetchRequest<ClientApplication *> *)fetchRequest;
 
-@property (nullable, nonatomic, copy) NSString *identifier;
+@property (nullable, nonatomic, copy) NSString *name;
 @property (nullable, nonatomic, copy) NSDate *lastConnection;
+@property (nullable, nonatomic, copy) NSString *deviceID;
+@property (nullable, nonatomic, copy) NSString *bundleID;
 @property (nullable, nonatomic, retain) NSSet<ClientAction *> *acions;
 
 @end

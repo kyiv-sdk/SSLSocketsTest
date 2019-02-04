@@ -8,9 +8,17 @@
 
 #import "ProjectConstants.h"
 
-int RCServerSocketPort = 1666;
+#pragma mark - ProjectConstants
+NSString * const kActiveApplicationCellName = @"ActiveApplicationCell";
 
+#pragma mark - RCSocket
+int RCServerSocketPort = 1666;
+#pragma mark RCSocket Keys
 NSString * const kRCActionKey = @"action";
-NSString * const kRCIdentifierKey = @"identitfier";
+NSString * const kRCAppNameKey = @"appName";
+NSString * const kRCAppBundleID = @"appBundleId";
+NSString * const kRCDeviceID = @"deviceId";
+#pragma mark RCSocket Values
 NSString * const kRCActionConnect = @"connect";
 NSString * const kRCActionDisconnect = @"disconnect";
+

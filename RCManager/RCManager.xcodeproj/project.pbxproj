@@ -18,11 +18,13 @@
 		567FDE1022042F8600CC5BD5 /* RCSocketHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 567FDE0F22042F8600CC5BD5 /* RCSocketHandler.m */; };
 		567FDE282204358D00CC5BD5 /* ClientAction+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 567FDE222204358D00CC5BD5 /* ClientAction+CoreDataClass.m */; };
 		567FDE292204358D00CC5BD5 /* ClientAction+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 567FDE232204358D00CC5BD5 /* ClientAction+CoreDataProperties.m */; };
-		567FDE2A2204358D00CC5BD5 /* ClientApplication+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 567FDE262204358D00CC5BD5 /* ClientApplication+CoreDataClass.m */; };
-		567FDE2B2204358D00CC5BD5 /* ClientApplication+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 567FDE272204358D00CC5BD5 /* ClientApplication+CoreDataProperties.m */; };
 		567FDE37220437C600CC5BD5 /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 567FDE36220437C600CC5BD5 /* CoreDataManager.m */; };
 		567FDE3F2204709500CC5BD5 /* RCApplicationStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 567FDE3E2204709500CC5BD5 /* RCApplicationStorage.m */; };
 		567FDE43220485EC00CC5BD5 /* ActiveClientsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 567FDE42220485EC00CC5BD5 /* ActiveClientsViewController.m */; };
+		567FDE4722082E2E00CC5BD5 /* ActiveApplicationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 567FDE4522082E2E00CC5BD5 /* ActiveApplicationCell.m */; };
+		567FDE4822082E2E00CC5BD5 /* ActiveApplicationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 567FDE4622082E2E00CC5BD5 /* ActiveApplicationCell.xib */; };
+		567FDE5922084F1800CC5BD5 /* ClientApplication+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 567FDE5722084F1800CC5BD5 /* ClientApplication+CoreDataClass.m */; };
+		567FDE5A22084F1800CC5BD5 /* ClientApplication+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 567FDE5822084F1800CC5BD5 /* ClientApplication+CoreDataProperties.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,10 +79,6 @@
 		567FDE212204358D00CC5BD5 /* ClientAction+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ClientAction+CoreDataClass.h"; sourceTree = "<group>"; };
 		567FDE222204358D00CC5BD5 /* ClientAction+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "ClientAction+CoreDataClass.m"; sourceTree = "<group>"; };
 		567FDE232204358D00CC5BD5 /* ClientAction+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "ClientAction+CoreDataProperties.m"; sourceTree = "<group>"; };
-		567FDE242204358D00CC5BD5 /* ClientApplication+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ClientApplication+CoreDataProperties.h"; sourceTree = "<group>"; };
-		567FDE252204358D00CC5BD5 /* ClientApplication+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ClientApplication+CoreDataClass.h"; sourceTree = "<group>"; };
-		567FDE262204358D00CC5BD5 /* ClientApplication+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "ClientApplication+CoreDataClass.m"; sourceTree = "<group>"; };
-		567FDE272204358D00CC5BD5 /* ClientApplication+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "ClientApplication+CoreDataProperties.m"; sourceTree = "<group>"; };
 		567FDE35220437C600CC5BD5 /* CoreDataManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreDataManager.h; sourceTree = "<group>"; };
 		567FDE36220437C600CC5BD5 /* CoreDataManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoreDataManager.m; sourceTree = "<group>"; };
 		567FDE3D2204709500CC5BD5 /* RCApplicationStorage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCApplicationStorage.h; sourceTree = "<group>"; };
@@ -88,6 +86,13 @@
 		567FDE402204847D00CC5BD5 /* RCApplicationsPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCApplicationsPresenter.h; sourceTree = "<group>"; };
 		567FDE41220485EC00CC5BD5 /* ActiveClientsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ActiveClientsViewController.h; sourceTree = "<group>"; };
 		567FDE42220485EC00CC5BD5 /* ActiveClientsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ActiveClientsViewController.m; sourceTree = "<group>"; };
+		567FDE4422082E2E00CC5BD5 /* ActiveApplicationCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ActiveApplicationCell.h; sourceTree = "<group>"; };
+		567FDE4522082E2E00CC5BD5 /* ActiveApplicationCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ActiveApplicationCell.m; sourceTree = "<group>"; };
+		567FDE4622082E2E00CC5BD5 /* ActiveApplicationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActiveApplicationCell.xib; sourceTree = "<group>"; };
+		567FDE5522084F1800CC5BD5 /* ClientApplication+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ClientApplication+CoreDataProperties.h"; sourceTree = "<group>"; };
+		567FDE5622084F1800CC5BD5 /* ClientApplication+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ClientApplication+CoreDataClass.h"; sourceTree = "<group>"; };
+		567FDE5722084F1800CC5BD5 /* ClientApplication+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "ClientApplication+CoreDataClass.m"; sourceTree = "<group>"; };
+		567FDE5822084F1800CC5BD5 /* ClientApplication+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "ClientApplication+CoreDataProperties.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +167,9 @@
 		567FDE0922042A1300CC5BD5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				567FDE4622082E2E00CC5BD5 /* ActiveApplicationCell.xib */,
+				567FDE4422082E2E00CC5BD5 /* ActiveApplicationCell.h */,
+				567FDE4522082E2E00CC5BD5 /* ActiveApplicationCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -201,10 +209,10 @@
 		567FDE2E2204359A00CC5BD5 /* ClientApplication */ = {
 			isa = PBXGroup;
 			children = (
-				567FDE252204358D00CC5BD5 /* ClientApplication+CoreDataClass.h */,
-				567FDE262204358D00CC5BD5 /* ClientApplication+CoreDataClass.m */,
-				567FDE242204358D00CC5BD5 /* ClientApplication+CoreDataProperties.h */,
-				567FDE272204358D00CC5BD5 /* ClientApplication+CoreDataProperties.m */,
+				567FDE5622084F1800CC5BD5 /* ClientApplication+CoreDataClass.h */,
+				567FDE5722084F1800CC5BD5 /* ClientApplication+CoreDataClass.m */,
+				567FDE5522084F1800CC5BD5 /* ClientApplication+CoreDataProperties.h */,
+				567FDE5822084F1800CC5BD5 /* ClientApplication+CoreDataProperties.m */,
 			);
 			path = ClientApplication;
 			sourceTree = "<group>";
@@ -310,6 +318,7 @@
 			files = (
 				567FDDEC2204276700CC5BD5 /* LaunchScreen.storyboard in Resources */,
 				567FDDE92204276700CC5BD5 /* Assets.xcassets in Resources */,
+				567FDE4822082E2E00CC5BD5 /* ActiveApplicationCell.xib in Resources */,
 				567FDDE42204276600CC5BD5 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -328,12 +337,13 @@
 				567FDDDE2204276600CC5BD5 /* AppDelegate.mm in Sources */,
 				567FDDEF2204276700CC5BD5 /* main.m in Sources */,
 				567FDE37220437C600CC5BD5 /* CoreDataManager.m in Sources */,
+				567FDE5A22084F1800CC5BD5 /* ClientApplication+CoreDataProperties.m in Sources */,
 				567FDE062204290C00CC5BD5 /* ProjectConstants.m in Sources */,
 				567FDDE72204276600CC5BD5 /* RCManager.xcdatamodeld in Sources */,
 				567FDE0D22042B1800CC5BD5 /* RCSocketDelegate.mm in Sources */,
+				567FDE4722082E2E00CC5BD5 /* ActiveApplicationCell.m in Sources */,
 				567FDE43220485EC00CC5BD5 /* ActiveClientsViewController.m in Sources */,
-				567FDE2B2204358D00CC5BD5 /* ClientApplication+CoreDataProperties.m in Sources */,
-				567FDE2A2204358D00CC5BD5 /* ClientApplication+CoreDataClass.m in Sources */,
+				567FDE5922084F1800CC5BD5 /* ClientApplication+CoreDataClass.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

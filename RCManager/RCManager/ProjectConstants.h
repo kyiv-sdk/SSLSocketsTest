@@ -8,10 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
-extern int RCServerSocketPort;
+#pragma mark - ProjectConstants
+extern NSString * const kActiveApplicationCellName;
 
-// RCSocket keys
+#pragma mark - RCSocket
+extern int RCServerSocketPort;
+#pragma mark RCSocket Keys
 extern NSString * const kRCActionKey;
-extern NSString * const kRCIdentifierKey;
+extern NSString * const kRCAppNameKey;
+extern NSString * const kRCAppBundleID;
+extern NSString * const kRCDeviceID;
+#pragma mark RCSocket Values
 extern NSString * const kRCActionConnect;
 extern NSString * const kRCActionDisconnect;

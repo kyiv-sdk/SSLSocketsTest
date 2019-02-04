@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface CoreDataManager : NSObject
 
 - (void)updateLastConnectionForApplication:(ClientApplication *)application;
-- (void)getApplicationWithIdentifier:(NSString *)identifier completion:(void (^)(ClientApplication *application))handler;
+- (void)getApplicationWithInfo:(NSDictionary *)info completion:(void (^)(ClientApplication *application))handler;
 
 + (instancetype)sharedInstance;
 

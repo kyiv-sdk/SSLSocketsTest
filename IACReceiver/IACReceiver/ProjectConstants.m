@@ -17,3 +17,15 @@ NSString *OpenedSocketCallback = @"openedsocket";
 NSString *URLKey = @"url";
 
 NSString * SSLLoggerFileName = @"RSSLLoggerDestintion.txt";
+
+#pragma mark - RCSocket
+int RCServerSocketPort = 1666;
+NSString * const RCServerSocketAddress = @"127.0.0.1";
+#pragma mark RCSocket Keys
+NSString * const kRCActionKey = @"action";
+NSString * const kRCAppNameKey = @"appName";
+NSString * const kRCAppBundleID = @"appBundleId";
+NSString * const kRCDeviceID = @"deviceId";
+#pragma mark RCSocket Values
+NSString * const kRCActionConnect = @"connect";
+NSString * const kRCActionDisconnect = @"disconnect";

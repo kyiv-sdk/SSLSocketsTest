@@ -2,7 +2,7 @@
 //  ClientApplication+CoreDataClass.h
 //  RCManager
 //
-//  Created by Oleksandr Hordiienko on 2/1/19.
+//  Created by Oleksandr Hordiienko on 2/4/19.
 //  Copyright © 2019 SoftServe. All rights reserved.
 //
 //
@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ClientApplication : NSManagedObject
 
-@property (unsafe_unretained, nonatomic, readonly) SSL const *ssl;
+@property (unsafe_unretained, nonatomic) SSL *ssl;
 
 @end
 

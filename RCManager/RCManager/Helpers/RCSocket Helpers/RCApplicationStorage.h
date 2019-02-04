@@ -15,12 +15,12 @@ NS_ASSUME_NONNULL_BEGIN
 @interface RCApplicationStorage : NSObject
 
 @property (assign, nonatomic, readonly) NSUInteger activeClientsCount;
-@property (copy, nonatomic, readonly) NSSet<ClientApplication *> *applications;
+@property (copy, nonatomic, readonly) NSArray<ClientApplication *> *applications;
 @property (weak, nonatomic) id <RCApplicationsPresenter> presenter;
 
-- (void)addClientApplication:(ClientApplication *)application;
-- (nullable ClientApplication *)removeApplicationWithIdentifier:(NSString *)identifier;
-- (nullable ClientApplication *)getApplicationWithIdentifier:(NSString *)identifier;
+- (void)addApplication:(ClientApplication *)application;
+- (void)removeApplication:(ClientApplication *)application;
+- (ClientApplication *)applicationAtIndex:(NSUInteger)index;
 
 + (instancetype)sharedInstance;
 

@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "CoreDataManager.h"
+#import "ProjectConstants.h"
 
 @interface CoreDataManager ()
 
@@ -41,10 +42,13 @@
     });
 }
 
-
-- (void)getApplicationWithIdentifier:(NSString *)identifier completion:(void (^)(ClientApplication *application))handler {
+- (void)getApplicationWithInfo:(NSDictionary *)info completion:(void (^)(ClientApplication * _Nonnull))handler {
+    NSString *appName = [info valueForKey:kRCAppNameKey];
+    NSString *bundleId = [info valueForKey:kRCAppBundleID];
+    NSString *deviceId = [info valueForKey:kRCDeviceID];
+    
     NSEntityDescription *clientAppEntityDescription = [self clienApplicationEntityDescription];
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"identifier == %@", identifier];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"bundleID == %@ AND deviceID == %@", bundleId, deviceId];
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     [request setEntity:clientAppEntityDescription];
     [request setPredicate:predicate];
@@ -52,8 +56,11 @@
     [self executeRequest:request completion:^(NSArray * _Nullable results) {
         ClientApplication *app = [results firstObject];
         if (!app) {
+            NSLog(@"Creating new app");
             app = [[ClientApplication alloc] initWithEntity:clientAppEntityDescription insertIntoManagedObjectContext:self.context];
-            [app setIdentifier:identifier];
+            [app setName:appName];
+            [app setBundleID:bundleId];
+            [app setDeviceID:deviceId];
         }
         [self updateLastConnectionForApplication:app];
         handler(app);

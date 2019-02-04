@@ -6,6 +6,7 @@
 //  Copyright © 2019 SoftServe. All rights reserved.
 //
 
+#import "RCManager.h"
 #import "SSLUILogger.h"
 #import "AppDelegate.h"
 #import "NetworkManager.h"
@@ -25,6 +26,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [SSLLogger addLoggingDestination:[SSLUILogger sharedInstance]];
+    //[[RCManager sharedInstance] startSession];
     return YES;
 }
 
@@ -53,6 +55,7 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     // Saves changes in the application's managed object context before the application terminates.
+    //[[RCManager sharedInstance] startSession];
     [self saveContext];
 }
 

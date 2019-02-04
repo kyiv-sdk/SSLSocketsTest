@@ -22,28 +22,28 @@
 @implementation RCSocketHandler
 
 - (void)handleJSON:(NSDictionary *)json fromClient:(nonnull SSL *)client {
-    NSString *identifier = [json valueForKey:kRCIdentifierKey];
     NSString *action = [json valueForKey:kRCActionKey];
     if ([action isEqualToString:kRCActionConnect]) {
-        return [self didConnectClient:client withIdentifier:identifier];
+        return [self didConnectClient:client withInfo:json];
     } else if ([action isEqualToString:kRCActionDisconnect]) {
-        return [self didDisconnectClient:client withIdentifier:identifier];
+        return [self didDisconnectClient:client withInfo:json];
+    } else {
+        NSLog(@"UnexpectedKey = %@", action);
     }
 }
 
-- (void)didConnectClient:(SSL *)clientSSL withIdentifier:(NSString *)identifier {
-    [[CoreDataManager sharedInstance] getApplicationWithIdentifier:identifier completion:^(ClientApplication * _Nonnull application) {
-        [[RCApplicationStorage sharedInstance] addClientApplication:application];
+- (void)didConnectClient:(SSL *)clientSSL withInfo:(NSDictionary *)info {
+    [[CoreDataManager sharedInstance] getApplicationWithInfo:info completion:^(ClientApplication * _Nonnull application) {
+        [application setSsl:clientSSL];
+        [[RCApplicationStorage sharedInstance] addApplication:application];
     }];
 }
 
-- (void)didDisconnectClient:(SSL *)clientSSL withIdentifier:(NSString *)identifier {
-    ClientApplication *app = [[RCApplicationStorage sharedInstance] removeApplicationWithIdentifier:identifier];
-    if (app) {
-        [[CoreDataManager sharedInstance] updateLastConnectionForApplication:app];
-    }
+- (void)didDisconnectClient:(SSL *)clientSSL withInfo:(NSDictionary *)info {
+    [[CoreDataManager sharedInstance] getApplicationWithInfo:info completion:^(ClientApplication * _Nonnull application) {
+        [[RCApplicationStorage sharedInstance] removeApplication:application];
+    }];
 }
-
 
 #pragma mark - Constructor
 + (instancetype)sharedInstance {

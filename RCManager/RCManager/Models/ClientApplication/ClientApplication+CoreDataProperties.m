@@ -2,7 +2,7 @@
 //  ClientApplication+CoreDataProperties.m
 //  RCManager
 //
-//  Created by Oleksandr Hordiienko on 2/1/19.
+//  Created by Oleksandr Hordiienko on 2/4/19.
 //  Copyright © 2019 SoftServe. All rights reserved.
 //
 //
@@ -15,8 +15,10 @@
 	return [NSFetchRequest fetchRequestWithEntityName:@"ClientApplication"];
 }
 
-@dynamic identifier;
+@dynamic name;
 @dynamic lastConnection;
+@dynamic deviceID;
+@dynamic bundleID;
 @dynamic acions;
 
 @end
