@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -41,10 +42,44 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Active Clients" id="Oaf-u5-cMq"/>
+                    <connections>
+                        <segue destination="Wmd-pC-pZe" kind="show" identifier="ShowRemoteControlController" id="AdN-hO-vWk"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5A2-Gr-lbJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="521" y="41"/>
+        </scene>
+        <!--RemoteControl-->
+        <scene sceneID="Qyz-bU-Vzc">
+            <objects>
+                <viewController storyboardIdentifier="RemoteControlController" id="Wmd-pC-pZe" customClass="RemoteControlController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Zsu-rS-b3A">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="q1H-K1-ULr">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="q1H-K1-ULr" firstAttribute="leading" secondItem="Pyy-tx-Hf1" secondAttribute="leading" id="EIS-y5-mQM"/>
+                            <constraint firstItem="Pyy-tx-Hf1" firstAttribute="bottom" secondItem="q1H-K1-ULr" secondAttribute="bottom" id="LC1-Tf-ZE1"/>
+                            <constraint firstItem="q1H-K1-ULr" firstAttribute="centerX" secondItem="Zsu-rS-b3A" secondAttribute="centerX" id="YOQ-iR-1no"/>
+                            <constraint firstItem="q1H-K1-ULr" firstAttribute="top" secondItem="Pyy-tx-Hf1" secondAttribute="top" id="dwx-rs-85Y"/>
+                            <constraint firstItem="Pyy-tx-Hf1" firstAttribute="trailing" secondItem="q1H-K1-ULr" secondAttribute="trailing" id="oXA-ll-3V4"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Pyy-tx-Hf1"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="RemoteControl" id="2uA-gB-fZT"/>
+                    <connections>
+                        <outlet property="remoteDisplay" destination="q1H-K1-ULr" id="tIB-jf-JXn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2TG-zF-Ql2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1630" y="41"/>
         </scene>
     </scenes>
 </document>

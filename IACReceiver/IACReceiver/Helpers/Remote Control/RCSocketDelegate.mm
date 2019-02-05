@@ -11,7 +11,7 @@
 
 @interface RCSocketDelegate ()
 
-@property (strong, nonatomic) RCSocketHandler *handler;
+@property (strong, nonatomic) id<RCSocketHandler> handler;
 
 @end
 
@@ -26,20 +26,11 @@
     [self.handler handleJSON:json];
 }
 
-#pragma mark - Singletone
-//+ (instancetype)sharedInstance {
-//    static id _sharedInstance;
-//    static dispatch_once_t onceToken;
-//    dispatch_once(&onceToken, ^{
-//        _sharedInstance = [[RCSocketDelegate alloc] init];
-//    });
-//    return self;
-//}
-
-- (instancetype)init {
+#pragma mark - Constructior
+- (instancetype)initWithHandler:(id<RCSocketHandler>)handler {
     self = [super init];
     if (self) {
-        self.handler = [RCSocketHandler sharedInstance];
+        self.handler = handler;
     }
     return self;
 }

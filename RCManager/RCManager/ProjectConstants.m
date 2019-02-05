@@ -10,6 +10,7 @@
 
 #pragma mark - ProjectConstants
 NSString * const kActiveApplicationCellName = @"ActiveApplicationCell";
+NSString * const kRemoteControlControllerSegueIdentifier = @"ShowRemoteControlController";
 
 #pragma mark - RCSocket
 int RCServerSocketPort = 1666;
@@ -23,3 +24,8 @@ NSString * const kRCActionConnect = @"connect";
 NSString * const kRCActionDisconnect = @"disconnect";
 NSString * const kRCTerminateApplication = @"terminate";
 NSString * const kRCWipeApplicationStorage = @"wipe";
+#pragma mark RCSharing
+NSString * const kRCActionScreenSharing = @"screenSharing";
+NSString * const kRCActionStopScreenSharing = @"stopScreenSharing";
+NSString * const kRCSharingPortKey = @"sharingPort";
+NSString * const kRCScreenshotKey = @"screenshot";

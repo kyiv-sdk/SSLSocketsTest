@@ -1,5 +1,5 @@
 //
-//  RCSocketDelegate.h
+//  RCSocketAcionsHandler.h
 //  RCManager
 //
 //  Created by Oleksandr Hordiienko on 2/1/19.
@@ -11,11 +11,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface RCSocketDelegate : NSObject <SSLSocketDelegate>
+@interface RCSocketAcionsHandler : NSObject <RCSocketHandler>
 
-- (void)didReceiveMessage:(NSString *)message fromSSL:(SSL *)ssl;
-
-- (instancetype)initWithHandler:(id <RCSocketHandler>)handler;
+- (instancetype)init;
 
 @end
 

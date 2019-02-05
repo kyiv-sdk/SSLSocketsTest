@@ -16,12 +16,22 @@
 @synthesize ssl = _ssl;
 
 - (void)terminate {
-    NSString *action = [[NSDictionary RCTerminationJSON] convertToString];
+    NSString *action = [[NSDictionary RCTerminationJSON] convertedToString];
     [[RCManager sharedInstance] sendAction:action toClient:self.ssl];
 }
 
 - (void)wipeStorage {
-    NSString *action = [[NSDictionary RCWipingJSON] convertToString];
+    NSString *action = [[NSDictionary RCWipingJSON] convertedToString];
+    [[RCManager sharedInstance] sendAction:action toClient:self.ssl];
+}
+
+- (void)shareScreenToPort:(int)port {
+    NSString *action = [[NSDictionary RCSharingJSONWithPort:port] convertedToString];
+    [[RCManager sharedInstance] sendAction:action toClient:self.ssl];
+}
+
+- (void)stopSharingScreen {
+    NSString *action = [[NSDictionary RCStopSharingJSONWithPort] convertedToString];
     [[RCManager sharedInstance] sendAction:action toClient:self.ssl];
 }
 

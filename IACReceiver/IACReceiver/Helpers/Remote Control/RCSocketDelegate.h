@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RCSocketHandler.h"
 #import <SSLSockets/SSLSockets.h>
 
 NS_ASSUME_NONNULL_BEGIN
@@ -15,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)didReceiveMessage:(NSString *)message fromSSL:(SSL *)ssl;
 
-- (instancetype)init;
+- (instancetype)initWithHandler:(id<RCSocketHandler>)handler;
 
 @end
 

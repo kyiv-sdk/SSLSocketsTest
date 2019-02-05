@@ -6,15 +6,17 @@
 //  Copyright © 2019 SoftServe. All rights reserved.
 //
 
+#import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NSDictionary (ProjectAdditions)
 
-- (NSString *)convertToString;
+- (NSString *)convertedToString;
 + (NSDictionary *)RCConnectionJSON;
 + (NSDictionary *)RCDisconnectionJSON;
++ (NSDictionary *)RCSharingJSONWithScreenshot:(UIImage *)screenshot;
 
 @end
 

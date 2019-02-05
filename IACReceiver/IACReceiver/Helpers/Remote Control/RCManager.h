@@ -14,6 +14,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)startSession;
 - (void)stopSession;
+- (void)shareScreenToPort:(int)port;
+- (void)stopSharingScreen;
+
 
 + (instancetype) sharedInstance;
 

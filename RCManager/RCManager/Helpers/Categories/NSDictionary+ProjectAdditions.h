@@ -12,10 +12,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NSDictionary (ProjectAdditions)
 
-- (NSString *)convertToString;
+- (NSString *)convertedToString;
 
 + (NSDictionary *)RCWipingJSON;
 + (NSDictionary *)RCTerminationJSON;
++ (NSDictionary *)RCSharingJSONWithPort:(int)port;
++ (NSDictionary *)RCStopSharingJSONWithPort;
 
 @end
 

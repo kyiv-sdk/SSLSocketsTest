@@ -9,6 +9,7 @@
 #import "RCManager.h"
 #import "RCSocketDelegate.h"
 #import "ProjectConstants.h"
+#import "RCSocketActionsHandler.h"
 
 @interface RCManager ()
 
@@ -52,7 +53,8 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        RCSocketDelegate *delegate = [[RCSocketDelegate alloc] init];
+        RCSocketAcionsHandler *handler = [[RCSocketAcionsHandler alloc] init];
+        RCSocketDelegate *delegate = [[RCSocketDelegate alloc] initWithHandler:handler];
         self.RCSocket = [[SSLServerSocket alloc] initWithPort:RCServerSocketPort andDelegate:delegate];
     }
     return self;

@@ -21,6 +21,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)terminate;
 - (void)wipeStorage;
+- (void)shareScreenToPort:(int)port;
+- (void)stopSharingScreen;
 
 @end
 

@@ -11,7 +11,7 @@
 
 @implementation NSDictionary (ProjectAdditions)
 
-- (NSString *)convertToString {
+- (NSString *)convertedToString {
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:self options:NSJSONWritingPrettyPrinted error:nil];
     return [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
 }
@@ -22,6 +22,14 @@
 
 + (NSDictionary *)RCTerminationJSON {
     return @{ kRCActionKey : kRCTerminateApplication };
+}
+
++ (NSDictionary *)RCSharingJSONWithPort:(int)port {
+    return @{ kRCActionKey : kRCActionScreenSharing, kRCSharingPortKey : [NSNumber numberWithInt:port] };
+}
+
++ (NSDictionary *)RCStopSharingJSONWithPort {
+    return @{ kRCActionKey : kRCActionStopScreenSharing };
 }
 
 @end

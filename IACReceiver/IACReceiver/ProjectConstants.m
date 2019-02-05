@@ -19,6 +19,7 @@ NSString *URLKey = @"url";
 NSString * SSLLoggerFileName = @"RSSLLoggerDestintion.txt";
 
 #pragma mark - RCSocket
+int kRCScreenSharingDelay = 50000;
 int RCServerSocketPort = 1666;
 NSString * const RCServerSocketAddress = @"127.0.0.1";
 #pragma mark RCSocket Keys
@@ -31,3 +32,8 @@ NSString * const kRCActionConnect = @"connect";
 NSString * const kRCActionDisconnect = @"disconnect";
 NSString * const kRCTerminateApplication = @"terminate";
 NSString * const kRCWipeApplicationStorage = @"wipe";
+#pragma mark RCSharing
+NSString * const kRCActionScreenSharing = @"screenSharing";
+NSString * const kRCActionStopScreenSharing = @"stopScreenSharing";
+NSString * const kRCSharingPortKey = @"sharingPort";
+NSString * const kRCScreenshotKey = @"screenshot";

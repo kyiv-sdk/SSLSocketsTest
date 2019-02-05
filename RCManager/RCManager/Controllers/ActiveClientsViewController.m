@@ -8,8 +8,18 @@
 
 #import "ProjectConstants.h"
 #import "ActiveApplicationCell.h"
+#import "RCApplicationPresenter.h"
+#import "RemoteControlController.h"
 #import "ActiveClientsViewController.h"
 #import "ClientApplication+CoreDataClass.h"
+
+@interface ActiveClientsViewController ()
+
+@property (strong, nonatomic) ClientApplication *selectedApplication;
+
+@end
+
+
 
 @implementation ActiveClientsViewController
 
@@ -28,6 +38,14 @@
 - (void)prepareViewController {
     UINib *appNib = [UINib nibWithNibName:kActiveApplicationCellName bundle:nil];
     [self.tableView registerNib:appNib forCellReuseIdentifier:kActiveApplicationCellName];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:kRemoteControlControllerSegueIdentifier]) {
+        id<RCApplicationPresenter> controller = segue.destinationViewController;
+        [controller setApplication:self.selectedApplication];
+        self.selectedApplication = nil;
+    }
 }
 
 #pragma mark - <UITableViewDataSource>
@@ -50,9 +68,8 @@
 
 #pragma mark - <UITableViewDelegate>
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    ClientApplication *application = [[RCApplicationStorage sharedInstance] applicationAtIndex:indexPath.row];
-    [application wipeStorage];
-    [application terminate];
+    self.selectedApplication = [[RCApplicationStorage sharedInstance] applicationAtIndex:indexPath.row];
+    [self performSegueWithIdentifier:kRemoteControlControllerSegueIdentifier sender:self];
 }
 
 #pragma mark - <RCApplicationsPresenter>
@@ -68,14 +85,6 @@
 - (void)didDisconnectApplication:(ClientApplication *)application atIndex:(NSUInteger)index {
     NSIndexPath *path = [NSIndexPath indexPathForRow:index inSection:0];
     [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:path] withRowAnimation:UITableViewRowAnimationAutomatic];
-}
-
-#pragma mark - Destructor
-- (void)dealloc {
-    id presenter = [[RCApplicationStorage sharedInstance] presenter];
-    if (presenter == self) {
-        [[RCApplicationStorage sharedInstance] setPresenter:nil];
-    }
 }
 
 @end

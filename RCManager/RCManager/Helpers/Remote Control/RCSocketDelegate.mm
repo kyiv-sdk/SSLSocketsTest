@@ -11,7 +11,7 @@
 
 @interface RCSocketDelegate ()
 
-@property (strong, nonatomic) RCSocketHandler *handler;
+@property (strong, nonatomic) id <RCSocketHandler> handler;
 
 @end
 
@@ -20,16 +20,17 @@
 @implementation RCSocketDelegate
 
 - (void)didReceiveMessage:(NSString *)message fromSSL:(SSL *)ssl {
+    NSLog(@"%@\n\n\n\n", message);
     NSData *data = [message dataUsingEncoding:NSUTF8StringEncoding];
-    id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+    id json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
     [self.handler handleJSON:json fromClient:ssl];
 }
 
 #pragma mark - Constructor
-- (instancetype)init {
+- (instancetype)initWithHandler:(id <RCSocketHandler>)handler {
     self = [super init];
     if (self) {
-        self.handler = [[RCSocketHandler alloc] init];
+        self.handler = handler;
     }
     return self;
 }

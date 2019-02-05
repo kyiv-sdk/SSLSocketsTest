@@ -2,7 +2,7 @@
 //  RCSocketHandler.h
 //  IAReceiver
 //
-//  Created by Oleksandr Hordiienko on 2/4/19.
+//  Created by Oleksandr Hordiienko on 2/5/19.
 //  Copyright © 2019 SoftServe. All rights reserved.
 //
 
@@ -10,11 +10,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface RCSocketHandler : NSObject
+@protocol RCSocketHandler <NSObject>
 
 - (void)handleJSON:(NSDictionary *)json;
-
-+ (instancetype)sharedInstance;
 
 @end
 

@@ -12,7 +12,7 @@
 
 @implementation NSDictionary (ProjectAdditions)
 
-- (NSString *)convertToString {
+- (NSString *)convertedToString {
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:self options:NSJSONWritingPrettyPrinted error:nil];
     return [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
 }
@@ -27,6 +27,11 @@
     NSMutableDictionary *json = [[NSMutableDictionary alloc] initWithDictionary:[NSDictionary applicationInfo]];
     [json setObject:kRCActionDisconnect forKey:kRCActionKey];
     return json;
+}
+
++ (NSDictionary *)RCSharingJSONWithScreenshot:(UIImage *)screenshot {
+    NSString *imageString = [UIImageJPEGRepresentation(screenshot, 0.5) base64EncodedStringWithOptions:0];
+    return @{ kRCActionKey : kRCActionScreenSharing, kRCScreenshotKey : imageString };
 }
 
 + (NSDictionary *)applicationInfo {

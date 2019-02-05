@@ -14,10 +14,11 @@
 		567FDDC522034D7900CC5BD5 /* SSLSockets.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 568D0DC721F7504300A9E165 /* SSLSockets.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		567FDE602208533300CC5BD5 /* RCManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 567FDE5F2208533300CC5BD5 /* RCManager.mm */; };
 		567FDE64220854AC00CC5BD5 /* RCSocketDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 567FDE63220854AC00CC5BD5 /* RCSocketDelegate.mm */; };
-		567FDE672208566300CC5BD5 /* RCSocketHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 567FDE662208566300CC5BD5 /* RCSocketHandler.m */; };
+		567FDE672208566300CC5BD5 /* RCSocketActionsHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 567FDE662208566300CC5BD5 /* RCSocketActionsHandler.m */; };
 		567FDE702208590E00CC5BD5 /* NSDictionary+ProjectAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 567FDE6F2208590E00CC5BD5 /* NSDictionary+ProjectAdditions.m */; };
 		567FDE83220972EE00CC5BD5 /* WebSite+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 567FDE81220972EE00CC5BD5 /* WebSite+CoreDataClass.m */; };
 		567FDE84220972EE00CC5BD5 /* WebSite+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 567FDE82220972EE00CC5BD5 /* WebSite+CoreDataProperties.m */; };
+		567FDE982209B26200CC5BD5 /* RCSocketSharingHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 567FDE972209B26200CC5BD5 /* RCSocketSharingHandler.m */; };
 		568D0DD521F7505700A9E165 /* SSLSockets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 568D0DC721F7504300A9E165 /* SSLSockets.framework */; };
 		56B7B94221E4F76000EDAB1D /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 56B7B94121E4F76000EDAB1D /* AppDelegate.mm */; };
 		56B7B94821E4F76000EDAB1D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56B7B94621E4F76000EDAB1D /* Main.storyboard */; };
@@ -100,8 +101,8 @@
 		567FDE5F2208533300CC5BD5 /* RCManager.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = RCManager.mm; sourceTree = "<group>"; };
 		567FDE62220854AC00CC5BD5 /* RCSocketDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCSocketDelegate.h; sourceTree = "<group>"; };
 		567FDE63220854AC00CC5BD5 /* RCSocketDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = RCSocketDelegate.mm; sourceTree = "<group>"; };
-		567FDE652208566300CC5BD5 /* RCSocketHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCSocketHandler.h; sourceTree = "<group>"; };
-		567FDE662208566300CC5BD5 /* RCSocketHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RCSocketHandler.m; sourceTree = "<group>"; };
+		567FDE652208566300CC5BD5 /* RCSocketActionsHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCSocketActionsHandler.h; sourceTree = "<group>"; };
+		567FDE662208566300CC5BD5 /* RCSocketActionsHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RCSocketActionsHandler.m; sourceTree = "<group>"; };
 		567FDE6E2208590E00CC5BD5 /* NSDictionary+ProjectAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+ProjectAdditions.h"; sourceTree = "<group>"; };
 		567FDE6F2208590E00CC5BD5 /* NSDictionary+ProjectAdditions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+ProjectAdditions.m"; sourceTree = "<group>"; };
 		567FDE7C2209687200CC5BD5 /* CoreDataManager+Protected.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CoreDataManager+Protected.h"; sourceTree = "<group>"; };
@@ -109,6 +110,9 @@
 		567FDE80220972EE00CC5BD5 /* WebSite+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WebSite+CoreDataClass.h"; sourceTree = "<group>"; };
 		567FDE81220972EE00CC5BD5 /* WebSite+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "WebSite+CoreDataClass.m"; sourceTree = "<group>"; };
 		567FDE82220972EE00CC5BD5 /* WebSite+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "WebSite+CoreDataProperties.m"; sourceTree = "<group>"; };
+		567FDE952209B1A800CC5BD5 /* RCSocketHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCSocketHandler.h; sourceTree = "<group>"; };
+		567FDE962209B26200CC5BD5 /* RCSocketSharingHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCSocketSharingHandler.h; sourceTree = "<group>"; };
+		567FDE972209B26200CC5BD5 /* RCSocketSharingHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RCSocketSharingHandler.m; sourceTree = "<group>"; };
 		568D0DC121F7504300A9E165 /* SSLSockets.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SSLSockets.xcodeproj; path = ../SSLSockets/SSLSockets.xcodeproj; sourceTree = "<group>"; };
 		56B7B93D21E4F76000EDAB1D /* IAReceiver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IAReceiver.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56B7B94021E4F76000EDAB1D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -182,14 +186,25 @@
 		567FDE61220853BD00CC5BD5 /* Remote Control */ = {
 			isa = PBXGroup;
 			children = (
+				567FDE942209B13300CC5BD5 /* Handlers */,
 				567FDE5E2208533300CC5BD5 /* RCManager.h */,
 				567FDE5F2208533300CC5BD5 /* RCManager.mm */,
-				567FDE652208566300CC5BD5 /* RCSocketHandler.h */,
-				567FDE662208566300CC5BD5 /* RCSocketHandler.m */,
 				567FDE62220854AC00CC5BD5 /* RCSocketDelegate.h */,
 				567FDE63220854AC00CC5BD5 /* RCSocketDelegate.mm */,
 			);
 			path = "Remote Control";
+			sourceTree = "<group>";
+		};
+		567FDE942209B13300CC5BD5 /* Handlers */ = {
+			isa = PBXGroup;
+			children = (
+				567FDE952209B1A800CC5BD5 /* RCSocketHandler.h */,
+				567FDE652208566300CC5BD5 /* RCSocketActionsHandler.h */,
+				567FDE662208566300CC5BD5 /* RCSocketActionsHandler.m */,
+				567FDE962209B26200CC5BD5 /* RCSocketSharingHandler.h */,
+				567FDE972209B26200CC5BD5 /* RCSocketSharingHandler.m */,
+			);
+			path = Handlers;
 			sourceTree = "<group>";
 		};
 		568D0DC221F7504300A9E165 /* Products */ = {
@@ -409,12 +424,13 @@
 				5649804321F5ED1B00905409 /* NSString+ProjectAdditions.m in Sources */,
 				56DC639821F0D03500331A6F /* ProjectConstants.m in Sources */,
 				56B7B94221E4F76000EDAB1D /* AppDelegate.mm in Sources */,
+				567FDE982209B26200CC5BD5 /* RCSocketSharingHandler.m in Sources */,
 				56B7B9EC21E6104D00EDAB1D /* CoreDataManager.mm in Sources */,
 				567FDE702208590E00CC5BD5 /* NSDictionary+ProjectAdditions.m in Sources */,
 				567FDE84220972EE00CC5BD5 /* WebSite+CoreDataProperties.m in Sources */,
 				56B7B96321E4FC5100EDAB1D /* ReceivedURLCell.m in Sources */,
 				56B7B97721E5EBE900EDAB1D /* NetworkManager.mm in Sources */,
-				567FDE672208566300CC5BD5 /* RCSocketHandler.m in Sources */,
+				567FDE672208566300CC5BD5 /* RCSocketActionsHandler.m in Sources */,
 				56B7B95F21E4FC0600EDAB1D /* ReceivedTableViewController.mm in Sources */,
 				567FDE602208533300CC5BD5 /* RCManager.mm in Sources */,
 				567FDE83220972EE00CC5BD5 /* WebSite+CoreDataClass.m in Sources */,
