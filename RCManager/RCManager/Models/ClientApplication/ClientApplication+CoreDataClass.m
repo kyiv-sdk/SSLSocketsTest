@@ -20,4 +20,9 @@
     [[RCManager sharedInstance] sendAction:action toClient:self.ssl];
 }
 
+- (void)wipeStorage {
+    NSString *action = [[NSDictionary RCWipingJSON] convertToString];
+    [[RCManager sharedInstance] sendAction:action toClient:self.ssl];
+}
+
 @end

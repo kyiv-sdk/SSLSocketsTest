@@ -7,7 +7,7 @@
 //
 
 #import "NetworkManager.h"
-#import "CoreDataManager.h"
+#import "CoreDataManager+Protected.h"
 
 @interface CoreDataManager ()
 
@@ -30,20 +30,27 @@
     [((AppDelegate *)[[UIApplication sharedApplication] delegate]) saveContext];
 }
 
-#pragma makr - Methods
+- (NSEntityDescription *)wipableEntities {
+    return [NSEntityDescription entityForName:@"Wipable" inManagedObjectContext:self.context];
+}
+
+- (NSEntityDescription *)webSiteEntityDescription {
+    return [NSEntityDescription entityForName:@"WebSite" inManagedObjectContext:self.context];
+}
+
+#pragma mark - Methods
 - (NSArray *)getWebSites {
     NSError *error = nil;
     NSFetchRequest *request = [WebSite fetchRequest];
     NSArray *results = [self.context executeFetchRequest:request error:&error];
     if (error) {
-        NSLog(@"Error fetching Employee objects: %@ -> %@", [error localizedDescription], [error userInfo]);
+        NSLog(@"Error fetching WebSites objects: %@ -> %@", [error localizedDescription], [error userInfo]);
     }
     return results;
 }
 
 - (WebSite *)addNewWebSiteWithURL:(NSString *)url {
-    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"WebSite" inManagedObjectContext:self.context];
-    WebSite *webSite = [[WebSite alloc] initWithEntity:entityDescription insertIntoManagedObjectContext:self.context];
+    WebSite *webSite = [[WebSite alloc] initWithEntity:[self webSiteEntityDescription] insertIntoManagedObjectContext:self.context];
     webSite.date = [NSDate date];
     webSite.url = url;
     [self saveChanges];
@@ -63,6 +70,29 @@
         [webSite setTitle:@"Invalid URL"];
         [self saveChanges];
         handler();
+    }
+}
+
+#pragma mark - Protected
+- (void)wipeStorage {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self wipeTableWithEnitity:[self wipableEntities]];
+        [self saveChanges];
+    });
+}
+
+- (void)wipeTableWithEnitity:(NSEntityDescription *)entityDescription {
+    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:entityDescription.name];
+    request.returnsObjectsAsFaults = false;
+    
+    NSError *error = nil;
+    NSArray *results = [self.context executeFetchRequest:request error:&error];
+    if (!error) {
+        for (NSManagedObject *object in results) {
+            [self.context deleteObject:object];
+        }
+    } else {
+        NSLog(@"Error fetching %@ objects: %@ -> %@", entityDescription.name, [error localizedDescription], [error userInfo]);
     }
 }
 

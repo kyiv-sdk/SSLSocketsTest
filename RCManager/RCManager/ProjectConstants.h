@@ -22,3 +22,4 @@ extern NSString * const kRCDeviceID;
 extern NSString * const kRCActionConnect;
 extern NSString * const kRCActionDisconnect;
 extern NSString * const kRCTerminateApplication;
+extern NSString * const kRCWipeApplicationStorage;

@@ -46,15 +46,6 @@
 }
 
 #pragma mark - Constructor
-+ (instancetype)sharedInstance {
-    static id _sharedInstance;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        _sharedInstance = [[self alloc] init];
-    });
-    return _sharedInstance;
-}
-
 - (instancetype)init {
     self = [super init];
     if (self) {

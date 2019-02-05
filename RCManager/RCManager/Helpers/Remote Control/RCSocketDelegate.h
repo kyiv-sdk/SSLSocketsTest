@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)didReceiveMessage:(NSString *)message fromSSL:(SSL *)ssl;
 
-+ (instancetype)sharedInstance;
+- (instancetype)init;
 
 @end
 

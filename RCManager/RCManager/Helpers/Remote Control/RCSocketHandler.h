@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)handleJSON:(NSDictionary *)json fromClient:(SSL *)client;
 
-+ (instancetype)sharedInstance;
+- (instancetype)init;
 
 @end
 

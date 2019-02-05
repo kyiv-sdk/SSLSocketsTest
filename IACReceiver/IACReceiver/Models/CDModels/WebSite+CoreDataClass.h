@@ -1,18 +1,18 @@
 //
 //  WebSite+CoreDataClass.h
-//  IACSender
+//  IAReceiver
 //
-//  Created by Oleksandr Hordiienko on 1/17/19.
+//  Created by Oleksandr Hordiienko on 2/5/19.
 //  Copyright © 2019 SoftServe. All rights reserved.
 //
 //
 
 #import <Foundation/Foundation.h>
-#import <CoreData/CoreData.h>
+#import "Wipable+CoreDataClass.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface WebSite : NSManagedObject
+@interface WebSite : Wipable
 
 @end
 

@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="18C54" minimumToolsVersion="Automatic" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
-    <entity name="WebSite" representedClassName="WebSite" syncable="YES">
+    <entity name="WebSite" representedClassName="WebSite" parentEntity="Wipable" syncable="YES">
         <attribute name="date" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="url" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="Wipable" representedClassName="Wipable" isAbstract="YES" syncable="YES" codeGenerationType="class"/>
     <elements>
         <element name="WebSite" positionX="-63" positionY="-18" width="128" height="90"/>
+        <element name="Wipable" positionX="-45" positionY="27" width="128" height="45"/>
     </elements>
 </model>

@@ -51,6 +51,7 @@
 #pragma mark - <UITableViewDelegate>
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     ClientApplication *application = [[RCApplicationStorage sharedInstance] applicationAtIndex:indexPath.row];
+    [application wipeStorage];
     [application terminate];
 }
 

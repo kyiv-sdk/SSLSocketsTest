@@ -20,6 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (unsafe_unretained, nonatomic) SSL *ssl;
 
 - (void)terminate;
+- (void)wipeStorage;
 
 @end
 

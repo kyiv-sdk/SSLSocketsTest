@@ -1,8 +1,8 @@
 //
 //  WebSite+CoreDataProperties.h
-//  IACSender
+//  IAReceiver
 //
-//  Created by Oleksandr Hordiienko on 1/17/19.
+//  Created by Oleksandr Hordiienko on 2/5/19.
 //  Copyright © 2019 SoftServe. All rights reserved.
 //
 //
@@ -16,9 +16,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (NSFetchRequest<WebSite *> *)fetchRequest;
 
+@property (nullable, nonatomic, copy) NSDate *date;
 @property (nullable, nonatomic, copy) NSString *title;
 @property (nullable, nonatomic, copy) NSString *url;
-@property (nullable, nonatomic, copy) NSDate *date;
 
 @end
 

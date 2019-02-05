@@ -25,20 +25,11 @@
     [self.handler handleJSON:json fromClient:ssl];
 }
 
-#pragma mark - Singletone
-+ (instancetype)sharedInstance {
-    static id _sharedInstance;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        _sharedInstance = [[RCSocketDelegate alloc] init];
-    });
-    return _sharedInstance;
-}
-
+#pragma mark - Constructor
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.handler = [RCSocketHandler sharedInstance];
+        self.handler = [[RCSocketHandler alloc] init];
     }
     return self;
 }

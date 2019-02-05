@@ -9,6 +9,7 @@
 #import "RCManager.h"
 #import "RCSocketHandler.h"
 #import "ProjectConstants.h"
+#import "CoreDataManager+Protected.h"
 
 @implementation RCSocketHandler
 
@@ -17,12 +18,18 @@
     NSString *action = [json objectForKey:kRCActionKey];
     if ([action isEqualToString:kRCTerminateApplication]) {
         [self terminateApplication];
+    } else if ([action isEqualToString:kRCWipeApplicationStorage]) {
+        [self wipeStorage];
     }
 }
 
 - (void)terminateApplication {
     [[RCManager sharedInstance] stopSession];
     exit(RCServerSocketPort);
+}
+
+- (void)wipeStorage {
+    [[CoreDataManager sharedManager] wipeStorage];
 }
 
 #pragma mark - Singletone

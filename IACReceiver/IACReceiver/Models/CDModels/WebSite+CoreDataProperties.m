@@ -1,8 +1,8 @@
 //
 //  WebSite+CoreDataProperties.m
-//  IACSender
+//  IAReceiver
 //
-//  Created by Oleksandr Hordiienko on 1/17/19.
+//  Created by Oleksandr Hordiienko on 2/5/19.
 //  Copyright © 2019 SoftServe. All rights reserved.
 //
 //
@@ -15,8 +15,8 @@
 	return [NSFetchRequest fetchRequestWithEntityName:@"WebSite"];
 }
 
+@dynamic date;
 @dynamic title;
 @dynamic url;
-@dynamic date;
 
 @end

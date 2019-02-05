@@ -22,4 +22,4 @@ NSString * const kRCDeviceID = @"deviceId";
 NSString * const kRCActionConnect = @"connect";
 NSString * const kRCActionDisconnect = @"disconnect";
 NSString * const kRCTerminateApplication = @"terminate";
-
+NSString * const kRCWipeApplicationStorage = @"wipe";
