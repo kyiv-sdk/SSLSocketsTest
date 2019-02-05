@@ -27,6 +27,8 @@
 		567FDE5A22084F1800CC5BD5 /* ClientApplication+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 567FDE5822084F1800CC5BD5 /* ClientApplication+CoreDataProperties.m */; };
 		567FDE742208893D00CC5BD5 /* RCManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 567FDE732208893D00CC5BD5 /* RCManager.m */; };
 		567FDE7722088FDF00CC5BD5 /* NSDictionary+ProjectAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 567FDE7622088FDF00CC5BD5 /* NSDictionary+ProjectAdditions.m */; };
+		567FDE8522097C5C00CC5BD5 /* SSLSockets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 567FDDFE2204279000CC5BD5 /* SSLSockets.framework */; };
+		567FDE8622097C5C00CC5BD5 /* SSLSockets.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 567FDDFE2204279000CC5BD5 /* SSLSockets.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,7 +60,28 @@
 			remoteGlobalIDString = 565EF33D21F71CEC00AC36B3;
 			remoteInfo = "iOS SSLSockets";
 		};
+		567FDE8722097C5C00CC5BD5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 567FDDF72204279000CC5BD5 /* SSLSockets.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 565EF33D21F71CEC00AC36B3;
+			remoteInfo = "iOS SSLSockets";
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		567FDE8922097C5C00CC5BD5 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				567FDE8622097C5C00CC5BD5 /* SSLSockets.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		567FDDD92204276600CC5BD5 /* RCManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RCManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -106,6 +129,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				567FDE8522097C5C00CC5BD5 /* SSLSockets.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,11 +280,13 @@
 				567FDDD52204276600CC5BD5 /* Sources */,
 				567FDDD62204276600CC5BD5 /* Frameworks */,
 				567FDDD72204276600CC5BD5 /* Resources */,
+				567FDE8922097C5C00CC5BD5 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				567FDE042204279A00CC5BD5 /* PBXTargetDependency */,
+				567FDE8822097C5C00CC5BD5 /* PBXTargetDependency */,
 			);
 			name = RCManager;
 			productName = RCManager;
@@ -374,6 +400,11 @@
 			isa = PBXTargetDependency;
 			name = "iOS SSLSockets";
 			targetProxy = 567FDE032204279A00CC5BD5 /* PBXContainerItemProxy */;
+		};
+		567FDE8822097C5C00CC5BD5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "iOS SSLSockets";
+			targetProxy = 567FDE8722097C5C00CC5BD5 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
