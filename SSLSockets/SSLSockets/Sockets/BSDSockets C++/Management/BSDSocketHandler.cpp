@@ -154,7 +154,7 @@ char *BSDSocketHandler::readData() {
     while (byte_offset<data_length) {
         byte_read = SSL_read(ssl, data_buff+byte_offset, BufferSize);
         byte_offset+=byte_read;
-        if(byte_read < BufferSize) {
+        if(byte_read < BufferSize && byte_offset >= data_length) {
             data_buff[byte_offset] = NullTerminalSymbol;
             byte_offset += CharSize;
         }

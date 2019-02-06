@@ -19,7 +19,8 @@ NSString *URLKey = @"url";
 NSString * SSLLoggerFileName = @"RSSLLoggerDestintion.txt";
 
 #pragma mark - RCSocket
-int kRCScreenSharingDelay = 50000;
+int kRCScreenSharingDelay = 1000000;
+double kScreenshotCompressionQuality = 0.5;
 int RCServerSocketPort = 1666;
 NSString * const RCServerSocketAddress = @"127.0.0.1";
 #pragma mark RCSocket Keys

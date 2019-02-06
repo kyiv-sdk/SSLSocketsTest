@@ -20,7 +20,6 @@
 @implementation RCSocketDelegate
 
 - (void)didReceiveMessage:(NSString *)message fromSSL:(SSL *)ssl {
-    NSLog(@"%@\n\n\n\n", message);
     NSData *data = [message dataUsingEncoding:NSUTF8StringEncoding];
     id json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
     [self.handler handleJSON:json fromClient:ssl];

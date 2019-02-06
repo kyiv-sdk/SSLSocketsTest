@@ -64,9 +64,8 @@
             });
             dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
             
-            NSString *acion = [[NSDictionary RCSharingJSONWithScreenshot:image] convertedToString];
-            NSLog(@"%@\n\n\n\n", acion);
-            [weakSelf.screenSharingSocket sendData:acion];
+            NSString *action = [[NSDictionary RCSharingJSONWithScreenshot:image] convertedToString];
+            [weakSelf.screenSharingSocket sendData:action];
             usleep(kRCScreenSharingDelay);
         }
     });
@@ -74,7 +73,6 @@
 
 - (void)stopSharingScreen {
     [self.screenSharingSocket stopSocket];
-    NSLog(@"Stopped sharing");
 }
 
 #pragma mark - Singletone

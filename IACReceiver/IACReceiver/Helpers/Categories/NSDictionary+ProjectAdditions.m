@@ -30,7 +30,7 @@
 }
 
 + (NSDictionary *)RCSharingJSONWithScreenshot:(UIImage *)screenshot {
-    NSString *imageString = [UIImageJPEGRepresentation(screenshot, 0.5) base64EncodedStringWithOptions:0];
+    NSString *imageString = [UIImageJPEGRepresentation(screenshot, kScreenshotCompressionQuality) base64EncodedStringWithOptions:0];
     return @{ kRCActionKey : kRCActionScreenSharing, kRCScreenshotKey : imageString };
 }
 

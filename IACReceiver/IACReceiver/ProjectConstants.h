@@ -19,8 +19,9 @@ extern NSString * const URLKey;
 extern NSString * const SSLLoggerFileName;
 
 #pragma mark - RCSocket
-extern int kRCScreenSharingDelay;
-extern int RCServerSocketPort;
+extern const int kRCScreenSharingDelay;
+extern const double kScreenshotCompressionQuality;
+extern const int RCServerSocketPort;
 extern NSString * const RCServerSocketAddress;
 #pragma mark RCSocket Keys
 extern NSString * const kRCActionKey;
