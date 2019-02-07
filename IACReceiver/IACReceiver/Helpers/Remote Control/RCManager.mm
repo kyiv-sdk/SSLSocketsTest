@@ -37,7 +37,7 @@
     [self.RCSocket sendData:message];
 }
 
-#pragma mark ScreenSharing
+#pragma mark - ScreenSharing
 - (void)shareScreenToPort:(int)port {
     RCSocketSharingHandler *handler = [[RCSocketSharingHandler alloc] init];
     RCSocketDelegate *delegate = [[RCSocketDelegate alloc] initWithHandler:handler];
@@ -45,41 +45,53 @@
     [self startSharingScreen];
 }
 
-// TODO: optimize later. Takes a LOT of RAM....
 - (void)startSharingScreen {
     [self.screenSharingSocket startSocket];
     __block RCManager *weakSelf = self;
-    __block UIWindow *_weakWindow;
-    
+    __block UIWindow *weakWindow = [self startCapturing];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        while ([weakSelf.screenSharingSocket isRunning]) {
+            @autoreleasepool {
+                UIImage *screenshot = [self takeScreenShotOfView:weakWindow];
+                NSString *action = [[NSDictionary RCSharingJSONWithScreenshot:screenshot] convertedToString];
+                [weakSelf.screenSharingSocket sendData:action];
+            }
+            usleep(kRCScreenSharingDelay);
+        }
+        [self stopCapturing];
+    });
+}
+
+- (UIWindow *)startCapturing {
+    __block UIWindow *weakWindow;
     dispatch_group_t group = dispatch_group_create();
     dispatch_group_enter(group);
     dispatch_async(dispatch_get_main_queue(), ^{
-        _weakWindow = [[[UIApplication sharedApplication] delegate] window];
-        UIGraphicsBeginImageContext(_weakWindow.bounds.size);
+        weakWindow = [[[UIApplication sharedApplication] delegate] window];
+        UIGraphicsBeginImageContextWithOptions(weakWindow.frame.size, NO, 0.0);
         dispatch_group_leave(group);
     });
     dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
-    
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
-        while ([weakSelf.screenSharingSocket isRunning]) {
-            __block UIImage *image;
-            
-            dispatch_group_enter(group);
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [_weakWindow.layer renderInContext:UIGraphicsGetCurrentContext()];
-                image = UIGraphicsGetImageFromCurrentImageContext();
-                dispatch_group_leave(group);
-            });
-            dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
-            
-            NSString *action = [[NSDictionary RCSharingJSONWithScreenshot:image] convertedToString];
-            [weakSelf.screenSharingSocket sendData:action];
-            usleep(kRCScreenSharingDelay);
-        }
-        
-        UIGraphicsEndImageContext();
-    });
+    return weakWindow;
 }
+
+- (UIImage *)takeScreenShotOfView:(UIView *)view {
+    __block UIImage *screenshot;
+    dispatch_group_t group = dispatch_group_create();
+    dispatch_group_enter(group);
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [view.layer renderInContext:UIGraphicsGetCurrentContext()];
+        screenshot = UIGraphicsGetImageFromCurrentImageContext();
+        dispatch_group_leave(group);
+    });
+    dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
+    return screenshot;
+}
+
+- (void)stopCapturing {
+    UIGraphicsEndImageContext();
+}
+
 
 - (void)stopSharingScreen {
     [self.screenSharingSocket stopSocket];
