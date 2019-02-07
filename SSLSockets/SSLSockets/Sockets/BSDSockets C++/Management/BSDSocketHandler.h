@@ -25,7 +25,6 @@ private:
     std::thread retainedThread;
     IBSDHandlersManager *manager;
     BSDSocketDelegate *delegate;
-    std::vector<std::string> receivedInfo;
     
     void startReading();
     char *readData();

@@ -19,6 +19,7 @@
 		567FDE83220972EE00CC5BD5 /* WebSite+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 567FDE81220972EE00CC5BD5 /* WebSite+CoreDataClass.m */; };
 		567FDE84220972EE00CC5BD5 /* WebSite+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 567FDE82220972EE00CC5BD5 /* WebSite+CoreDataProperties.m */; };
 		567FDE982209B26200CC5BD5 /* RCSocketSharingHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 567FDE972209B26200CC5BD5 /* RCSocketSharingHandler.m */; };
+		567FDE9B220B1AF600CC5BD5 /* ControlledApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 567FDE9A220B1AF600CC5BD5 /* ControlledApplication.m */; };
 		568D0DD521F7505700A9E165 /* SSLSockets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 568D0DC721F7504300A9E165 /* SSLSockets.framework */; };
 		56B7B94221E4F76000EDAB1D /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 56B7B94121E4F76000EDAB1D /* AppDelegate.mm */; };
 		56B7B94821E4F76000EDAB1D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56B7B94621E4F76000EDAB1D /* Main.storyboard */; };
@@ -113,6 +114,8 @@
 		567FDE952209B1A800CC5BD5 /* RCSocketHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCSocketHandler.h; sourceTree = "<group>"; };
 		567FDE962209B26200CC5BD5 /* RCSocketSharingHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCSocketSharingHandler.h; sourceTree = "<group>"; };
 		567FDE972209B26200CC5BD5 /* RCSocketSharingHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RCSocketSharingHandler.m; sourceTree = "<group>"; };
+		567FDE99220B1AF600CC5BD5 /* ControlledApplication.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ControlledApplication.h; sourceTree = "<group>"; };
+		567FDE9A220B1AF600CC5BD5 /* ControlledApplication.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ControlledApplication.m; sourceTree = "<group>"; };
 		568D0DC121F7504300A9E165 /* SSLSockets.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SSLSockets.xcodeproj; path = ../SSLSockets/SSLSockets.xcodeproj; sourceTree = "<group>"; };
 		56B7B93D21E4F76000EDAB1D /* IAReceiver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IAReceiver.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56B7B94021E4F76000EDAB1D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -246,6 +249,8 @@
 				56B7B95921E4FB2400EDAB1D /* Controllers */,
 				56B7B94021E4F76000EDAB1D /* AppDelegate.h */,
 				56B7B94121E4F76000EDAB1D /* AppDelegate.mm */,
+				567FDE99220B1AF600CC5BD5 /* ControlledApplication.h */,
+				567FDE9A220B1AF600CC5BD5 /* ControlledApplication.m */,
 				56B7B95121E4F76100EDAB1D /* Info.plist */,
 				56B7B94C21E4F76000EDAB1D /* Assets.xcassets */,
 				56B7B94621E4F76000EDAB1D /* Main.storyboard */,
@@ -431,6 +436,7 @@
 				56B7B96321E4FC5100EDAB1D /* ReceivedURLCell.m in Sources */,
 				56B7B97721E5EBE900EDAB1D /* NetworkManager.mm in Sources */,
 				567FDE672208566300CC5BD5 /* RCSocketActionsHandler.m in Sources */,
+				567FDE9B220B1AF600CC5BD5 /* ControlledApplication.m in Sources */,
 				56B7B95F21E4FC0600EDAB1D /* ReceivedTableViewController.mm in Sources */,
 				567FDE602208533300CC5BD5 /* RCManager.mm in Sources */,
 				567FDE83220972EE00CC5BD5 /* WebSite+CoreDataClass.m in Sources */,

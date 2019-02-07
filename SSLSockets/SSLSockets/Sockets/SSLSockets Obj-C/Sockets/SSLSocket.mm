@@ -31,17 +31,6 @@
     return [NSString stringWithCString:address encoding:encoding];
 }
 
-- (NSArray *)receivedInfo {
-    NSMutableArray *receivedInfo = [[NSMutableArray alloc] init];
-    std::vector<std::string> info = self.socket->getReceivedInfo();
-    NSStringEncoding encoding = [NSString defaultCStringEncoding];
-    for (std::string message : info) {
-        [receivedInfo addObject:[NSString stringWithCString:message.c_str() encoding:encoding]];
-    }
-    return receivedInfo;
-    
-}
-
 #pragma mark - Methods
 - (BOOL)startSocket {
     return self.socket->startSocket();

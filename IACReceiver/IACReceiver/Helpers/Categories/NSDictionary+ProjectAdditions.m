@@ -31,14 +31,17 @@
 
 + (NSDictionary *)RCSharingJSONWithScreenshot:(UIImage *)screenshot {
     NSString *imageString = [UIImageJPEGRepresentation(screenshot, kScreenshotCompressionQuality) base64EncodedStringWithOptions:0];
-    return @{ kRCActionKey : kRCActionScreenSharing, kRCScreenshotKey : imageString };
+    return @{ kRCActionKey : kRCActionStartScreenSharing, kRCScreenshotKey : imageString };
 }
 
 + (NSDictionary *)applicationInfo {
+    CGSize screenSize = UIScreen.mainScreen.bounds.size;
     NSMutableDictionary *info = [[NSMutableDictionary alloc] init];
     [info setObject:[NSString applicationName] forKey:kRCAppNameKey];
     [info setObject:[NSString applicationBundleId] forKey:kRCAppBundleID];
     [info setObject:[NSString deviceId] forKey:kRCDeviceID];
+    [info setObject:[NSNumber numberWithFloat:screenSize.width] forKey:kRCDeviceScreenWidth];
+    [info setObject:[NSNumber numberWithFloat:screenSize.height] forKey:kRCDeviceScreenHeight];
     return info;
 }
 

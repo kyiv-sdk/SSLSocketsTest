@@ -28,13 +28,17 @@ NSString * const kRCActionKey = @"action";
 NSString * const kRCAppNameKey = @"appName";
 NSString * const kRCAppBundleID = @"appBundleId";
 NSString * const kRCDeviceID = @"deviceId";
+NSString * const kRCDeviceScreenWidth = @"deviceScreenWidth";
+NSString * const kRCDeviceScreenHeight = @"deviceScreenHeight";
 #pragma mark RCSocket Values
 NSString * const kRCActionConnect = @"connect";
 NSString * const kRCActionDisconnect = @"disconnect";
 NSString * const kRCTerminateApplication = @"terminate";
 NSString * const kRCWipeApplicationStorage = @"wipe";
 #pragma mark RCSharing
-NSString * const kRCActionScreenSharing = @"screenSharing";
+NSString * const kRCActionStartScreenSharing = @"startScreenSharing";
 NSString * const kRCActionStopScreenSharing = @"stopScreenSharing";
+NSString * const kRCActionScreenSharing = @"screenSharing";
 NSString * const kRCSharingPortKey = @"sharingPort";
 NSString * const kRCScreenshotKey = @"screenshot";
+NSString * const kRCGestureKey = @"gesture";

@@ -198,8 +198,8 @@
 			children = (
 				567FDE2E2204359A00CC5BD5 /* ClientApplication */,
 				567FDE2F220435A700CC5BD5 /* ClientAction */,
-				567FDE402204847D00CC5BD5 /* RCApplicationsPresenter.h */,
 				567FDE8D22099BF300CC5BD5 /* RCApplicationPresenter.h */,
+				567FDE402204847D00CC5BD5 /* RCApplicationsPresenter.h */,
 			);
 			path = Models;
 			sourceTree = "<group>";

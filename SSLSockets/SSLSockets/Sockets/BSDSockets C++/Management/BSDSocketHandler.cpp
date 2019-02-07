@@ -34,11 +34,6 @@ bool BSDSocketHandler::isHandling() {
     return _isHandling;
 }
 
-const std::vector<std::string> BSDSocketHandler::getReceivedInfo() {
-    CSSLLogger::log(LOG, "BSDSocketHandler -> receivedInfo asked.");
-    return receivedInfo;
-}
-
 #pragma mark - Mehods
 void BSDSocketHandler::startHandling() {
     if (_isHandling) {
@@ -116,10 +111,8 @@ void BSDSocketHandler::startReading() {
             if ((int)*buf == STXSymbolCode) {
                 CSSLLogger::log(LOG, "BSDSocketHandler -> message has supported protocol, reading it.");
                 char *receivedData = readData();
-                std::string receivedMessage(receivedData);
-                receivedInfo.push_back(receivedMessage);
                 CSSLLogger::log(LOG, "BSDSocketHandler -> redirecting received message to C++ delegate.");
-                if (delegate) delegate->didReceiveMessage(receivedMessage, ssl);
+                if (delegate) delegate->didReceiveMessage(receivedData, ssl);
             } else {
                 CSSLLogger::log(ERROR, "BSDSocketHandler -> message has unsupported protocol.");
             }

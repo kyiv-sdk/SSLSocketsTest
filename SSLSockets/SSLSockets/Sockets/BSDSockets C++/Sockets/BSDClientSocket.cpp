@@ -14,12 +14,6 @@
 #include "Constants.h"
 #include "BSDClientSocket.h"
 
-#pragma mark - Getters
-const std::vector<std::string> BSDClientSocket::getReceivedInfo() {
-    CSSLLogger::log(LOG, "BSDClientSocket -> receivedInfo asked.");
-    return handler->getReceivedInfo();
-}
-
 #pragma mark - Methods
 bool BSDClientSocket::startSocket() {
     if (_isRunning) {

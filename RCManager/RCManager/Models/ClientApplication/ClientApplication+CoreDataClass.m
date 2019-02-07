@@ -14,6 +14,11 @@
 @implementation ClientApplication
 
 @synthesize ssl = _ssl;
+@synthesize screenSize = _screenSize;
+
+- (CGFloat)screenAspectRatio {
+    return self.screenSize.width/self.screenSize.height;
+}
 
 - (void)terminate {
     NSString *action = [[NSDictionary RCTerminationJSON] convertedToString];
@@ -32,6 +37,11 @@
 
 - (void)stopSharingScreen {
     NSString *action = [[NSDictionary RCStopSharingJSONWithPort] convertedToString];
+    [[RCManager sharedInstance] sendAction:action toClient:self.ssl];
+}
+
+- (void)executeGesture:(NSArray *)gesture {
+    NSString *action = [[NSDictionary RCGesturingJSONWithGesture:gesture] convertedToString];
     [[RCManager sharedInstance] sendAction:action toClient:self.ssl];
 }
 

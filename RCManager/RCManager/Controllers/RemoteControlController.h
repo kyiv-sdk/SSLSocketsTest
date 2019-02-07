@@ -15,6 +15,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface RemoteControlController : UIViewController <RCApplicationPresenter, RCSharingPresenter>
 
 @property (weak, nonatomic) IBOutlet UIImageView *remoteDisplay;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *remoteDisplayWidth;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *remoteDisplayHeight;
+
 
 @end
 

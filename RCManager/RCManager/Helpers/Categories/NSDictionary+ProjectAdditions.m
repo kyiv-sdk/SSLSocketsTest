@@ -25,11 +25,15 @@
 }
 
 + (NSDictionary *)RCSharingJSONWithPort:(int)port {
-    return @{ kRCActionKey : kRCActionScreenSharing, kRCSharingPortKey : [NSNumber numberWithInt:port] };
+    return @{ kRCActionKey : kRCActionStartScreenSharing, kRCSharingPortKey : [NSNumber numberWithInt:port] };
 }
 
 + (NSDictionary *)RCStopSharingJSONWithPort {
     return @{ kRCActionKey : kRCActionStopScreenSharing };
+}
+
++ (NSDictionary *)RCGesturingJSONWithGesture:(NSArray *)gesture {
+    return @{ kRCActionKey : kRCActionScreenSharing, kRCGestureKey : gesture };
 }
 
 @end

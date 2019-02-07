@@ -24,9 +24,14 @@
         [self wipeStorage];
     }
     
-    else if ([action isEqualToString:kRCActionScreenSharing]) {
+    else if ([action isEqualToString:kRCActionStartScreenSharing]) {
         NSNumber *portNumber = [json objectForKey:kRCSharingPortKey];
         if (portNumber) [self shareScreenToPort:[portNumber intValue]];
+    }
+    
+    else if ([action isEqualToString:kRCActionScreenSharing]) {
+        NSArray *gesture = [json objectForKey:kRCGestureKey];
+        [self executeGesture:gesture];
     }
     
     else if ([action isEqualToString:kRCActionStopScreenSharing]) {
@@ -53,6 +58,19 @@
 
 - (void)stopSharingScreen {
     [[RCManager sharedInstance] stopSharingScreen];
+}
+
+- (void)executeGesture:(NSArray *)gesture {
+    NSLog(@"GESTURE:");
+    NSMutableArray *touches = [[NSMutableArray alloc] init];
+    for (NSDictionary *point in gesture) {
+        CGFloat x = [[point objectForKey:@"x"] floatValue];
+        CGFloat y = [[point objectForKey:@"y"] floatValue];
+        CGPoint _point = CGPointMake(x, y);
+        [touches addObject:[NSValue valueWithCGPoint:_point]];
+        NSLog(@"%f, %f", x, y);
+    }
+    NSLog(@"");
 }
 
 @end

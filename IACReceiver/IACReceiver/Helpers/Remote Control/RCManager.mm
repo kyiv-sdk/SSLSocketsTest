@@ -45,21 +45,29 @@
     [self startSharingScreen];
 }
 
+// TODO: optimize later. Takes a LOT of RAM....
 - (void)startSharingScreen {
     [self.screenSharingSocket startSocket];
     __block RCManager *weakSelf = self;
+    __block UIWindow *_weakWindow;
+    
+    dispatch_group_t group = dispatch_group_create();
+    dispatch_group_enter(group);
+    dispatch_async(dispatch_get_main_queue(), ^{
+        _weakWindow = [[[UIApplication sharedApplication] delegate] window];
+        UIGraphicsBeginImageContext(_weakWindow.bounds.size);
+        dispatch_group_leave(group);
+    });
+    dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
+    
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
         while ([weakSelf.screenSharingSocket isRunning]) {
             __block UIImage *image;
             
-            dispatch_group_t group = dispatch_group_create();
             dispatch_group_enter(group);
             dispatch_async(dispatch_get_main_queue(), ^{
-                UIWindow *window = [[[UIApplication sharedApplication] delegate] window];
-                UIGraphicsBeginImageContext(window.bounds.size);
-                [window.layer renderInContext:UIGraphicsGetCurrentContext()];
+                [_weakWindow.layer renderInContext:UIGraphicsGetCurrentContext()];
                 image = UIGraphicsGetImageFromCurrentImageContext();
-                UIGraphicsEndImageContext();
                 dispatch_group_leave(group);
             });
             dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
@@ -68,6 +76,8 @@
             [weakSelf.screenSharingSocket sendData:action];
             usleep(kRCScreenSharingDelay);
         }
+        
+        UIGraphicsEndImageContext();
     });
 }
 

@@ -11,10 +11,9 @@
 #include "BSDSocketDelegate.h"
 
 #pragma mark - Methods
-void BSDSocketDelegate::didReceiveMessage(std::string message, SSL *ssl) {
-    const char *msg = message.c_str();
+void BSDSocketDelegate::didReceiveMessage(char *message, SSL *ssl) {
     NSStringEncoding encoding = [NSString defaultCStringEncoding];
-    NSString *receivedMessage = [NSString stringWithCString:msg encoding:encoding];
+    NSString *receivedMessage = [NSString stringWithCString:message encoding:encoding];
     CSSLLogger::log(LOG, "BSDSocketDelegate -> received message, redirected to Objective-C Delegate.");
     [(__bridge id <SSLSocketDelegate>)(objcDelegate) didReceiveMessage:receivedMessage fromSSL:ssl];
 }

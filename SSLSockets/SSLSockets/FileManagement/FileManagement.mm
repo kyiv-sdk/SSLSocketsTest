@@ -24,7 +24,6 @@ const char *pathForFile(const char *filename) {
     
     NSString *fileString = [NSString stringWithCString:filename encoding:NSASCIIStringEncoding];
     NSString *path = [documentsDirectory stringByAppendingPathComponent:fileString];
-    printf("%s\n", [path UTF8String]);
     return [path cStringUsingEncoding:NSASCIIStringEncoding];
 }
 

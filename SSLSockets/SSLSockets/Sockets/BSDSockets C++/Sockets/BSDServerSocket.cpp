@@ -16,19 +16,6 @@
 #include "SSLSigningManager.h"
 
 #pragma mark - Getters
-const std::vector<std::string> BSDServerSocket::getReceivedInfo() {
-    std::vector<std::string> info;
-    CSSLLogger::log(LOG, "BSDServerSocket -> will return received info from all accepted sockets.");
-    for (BSDSocketHandler *handler : acceptedSockets) {
-        const std::vector<std::string> handlerInfo = handler->getReceivedInfo();
-        for (std::string message : handlerInfo) {
-            info.push_back(message);
-        }
-    }
-    CSSLLogger::log(LOG, "BSDServerSocket -> has returned received info from all accepted sockets.");
-    return info;
-}
-
 const std::vector<BSDSocketHandler *> BSDServerSocket::getAcceptedSockets() {
     CSSLLogger::log(LOG, "BSDServerSocket -> accepted sockets asked.");
     return acceptedSockets;

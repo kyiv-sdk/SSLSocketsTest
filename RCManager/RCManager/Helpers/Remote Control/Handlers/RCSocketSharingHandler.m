@@ -33,7 +33,7 @@
 - (void)handleJSON:(NSDictionary *)json fromClient:(SSL *)client {
     dispatch_async(self.serialThread, ^{
         NSString *action = [json objectForKey:kRCActionKey];
-        if ([action isEqualToString:kRCActionScreenSharing]) {
+        if ([action isEqualToString:kRCActionStartScreenSharing]) {
             NSString *imageString = [json objectForKey:kRCScreenshotKey];
             if (imageString) return [self handleBase64Image:imageString];
         }

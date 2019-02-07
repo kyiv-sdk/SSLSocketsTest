@@ -29,7 +29,6 @@ public:
 
     virtual bool startSocket() = 0;
     virtual void stopSocket() = 0;
-    virtual const std::vector<std::string> getReceivedInfo() = 0;
     
     BSDSocket(std::string address, int port, BSDSocketDelegate *delegate);
     

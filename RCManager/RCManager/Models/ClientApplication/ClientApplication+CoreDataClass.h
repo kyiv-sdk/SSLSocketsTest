@@ -18,10 +18,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface ClientApplication : NSManagedObject
 
 @property (unsafe_unretained, nonatomic) SSL *ssl;
+@property (assign, nonatomic) CGSize screenSize;
+@property (assign, nonatomic, readonly) CGFloat screenAspectRatio;
 
 - (void)terminate;
 - (void)wipeStorage;
 - (void)shareScreenToPort:(int)port;
+- (void)executeGesture:(NSArray *)gesture;
 - (void)stopSharingScreen;
 
 @end

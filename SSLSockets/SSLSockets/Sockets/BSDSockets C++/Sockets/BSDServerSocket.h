@@ -25,7 +25,6 @@ public:
     bool startSocket() override;
     void stopSocket() override;
     bool sendData(const char *data, SSL const *ssl);
-    const std::vector<std::string> getReceivedInfo() override;
     const std::vector<BSDSocketHandler *> getAcceptedSockets();
     
     void didStopHandler(BSDSocketHandler *handler) override;

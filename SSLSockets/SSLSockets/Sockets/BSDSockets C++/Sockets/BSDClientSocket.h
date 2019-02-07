@@ -21,7 +21,6 @@ public:
     bool startSocket() override;
     void stopSocket() override;
     bool sendData(const char *data);
-    const std::vector<std::string> getReceivedInfo() override;
     
     BSDClientSocket(int port);
     BSDClientSocket(int port, BSDSocketDelegate *delegate);

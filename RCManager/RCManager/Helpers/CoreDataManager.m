@@ -43,9 +43,12 @@
 }
 
 - (void)getApplicationWithInfo:(NSDictionary *)info completion:(void (^)(ClientApplication * _Nonnull))handler {
-    NSString *appName = [info valueForKey:kRCAppNameKey];
-    NSString *bundleId = [info valueForKey:kRCAppBundleID];
-    NSString *deviceId = [info valueForKey:kRCDeviceID];
+    NSString *appName = [info objectForKey:kRCAppNameKey];
+    NSString *bundleId = [info objectForKey:kRCAppBundleID];
+    NSString *deviceId = [info objectForKey:kRCDeviceID];
+    NSNumber *screenWidth = [info objectForKey:kRCDeviceScreenWidth];
+    NSNumber *screenHeight = [info objectForKey:kRCDeviceScreenHeight];
+    CGSize screenSize = CGSizeMake([screenWidth floatValue], [screenHeight floatValue]);
     
     NSEntityDescription *clientAppEntityDescription = [self clienApplicationEntityDescription];
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"bundleID == %@ AND deviceID == %@", bundleId, deviceId];
@@ -63,6 +66,7 @@
             [app setDeviceID:deviceId];
         }
         [self updateLastConnectionForApplication:app];
+        [app setScreenSize:screenSize];
         handler(app);
     }];
 }

@@ -17,7 +17,7 @@ class BSDSocketDelegate {
 public:
     void *objcDelegate;
     
-    void didReceiveMessage(std::string message, SSL* ssl);
+    void didReceiveMessage(char *message, SSL* ssl);
     
     BSDSocketDelegate(void *objcDelegate);
     ~BSDSocketDelegate();

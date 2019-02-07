@@ -18,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSDictionary *)RCTerminationJSON;
 + (NSDictionary *)RCSharingJSONWithPort:(int)port;
 + (NSDictionary *)RCStopSharingJSONWithPort;
++ (NSDictionary *)RCGesturingJSONWithGesture:(NSArray *)gesture;
 
 @end
 

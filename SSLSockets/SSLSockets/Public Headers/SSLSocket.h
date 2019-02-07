@@ -42,11 +42,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic, readonly) NSString *address;
 
 /**
-    @brief Storage of received messages.
- */
-@property (strong, nonatomic, readonly) NSArray *receivedInfo;
-
-/**
     @brief Manages received messages. Notification will send to delegate when Socket will receive new message.
  */
 @property (weak, nonatomic, readwrite) id <SSLSocketDelegate> delegate;
