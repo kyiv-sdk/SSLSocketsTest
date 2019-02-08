@@ -6,6 +6,7 @@
 //  Copyright © 2019 SoftServe. All rights reserved.
 //
 
+#import "RCManager.h"
 #import "RCSocketDelegate.h"
 #import <SSLSockets/SSLSockets.h>
 #import "RCSocketSharingHandler.h"
@@ -74,6 +75,8 @@
         self.screenSharingSocket = [[SSLServerSocket alloc] initWithPort:port andDelegate:delegate];
         [self.screenSharingSocket startSocket];
     } while (![self.screenSharingSocket isRunning]);
+    
+    [[RCManager sharedInstance] receiveSharingFromSocket:self.screenSharingSocket];
     return port;
 }
 

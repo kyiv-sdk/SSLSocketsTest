@@ -42,7 +42,7 @@
 
 - (void)executeGesture:(NSArray *)gesture {
     NSString *action = [[NSDictionary RCGesturingJSONWithGesture:gesture] convertedToString];
-    [[RCManager sharedInstance] sendAction:action toClient:self.ssl];
+    [[RCManager sharedInstance] sendGesture:action];
 }
 
 @end

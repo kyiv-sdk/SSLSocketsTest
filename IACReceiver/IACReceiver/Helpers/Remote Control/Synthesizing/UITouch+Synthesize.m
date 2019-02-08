@@ -10,40 +10,47 @@
 
 @implementation UITouch (Synthesize)
 
-- (id)initInView:(UIView *)view {
+- (id)initWithLocation:(nonnull NSValue *)location {
     self = [super init];
-    if (self != nil)
-    {
-        CGRect frameInWindow;
-        if ([view isKindOfClass:[UIWindow class]]) {
-            frameInWindow = view.frame;
-        }
-        else {
-            frameInWindow = [view.window convertRect:view.frame fromView:view.superview];
-        }
-    
-        NSNumber *_timestamp = [NSNumber numberWithDouble:[NSDate timeIntervalSinceReferenceDate]];
-        CGPoint point = CGPointMake(frameInWindow.origin.x + 0.5 * frameInWindow.size.width, frameInWindow.origin.y + 0.5 * frameInWindow.size.height);
-        UIView *_target = [view.window hitTest:point withEvent:nil];
+    if (self != nil) {
+        UIWindow *_window = [[[UIApplication sharedApplication] delegate] window];
+        NSNumber *_timestamp = [NSNumber numberWithDouble:[[NSProcessInfo processInfo] systemUptime]];
+        UIView *_target = [_window hitTest:[location CGPointValue] withEvent:nil];
+        
+        NSMutableArray *_gestureRecognizers = [[NSMutableArray alloc] initWithArray:[_window gestureRecognizers]];
+        [_gestureRecognizers addObjectsFromArray:[_target gestureRecognizers]];
+        
         
         [self setValue:@1 forKey:@"_tapCount"];
-        [self setValue:[NSValue valueWithCGPoint:point] forKey:@"_locationInWindow"];
+        [self setValue:location forKey:@"_locationInWindow"];
         [self setValue:[self valueForKey:@"_locationInWindow"] forKey:@"_previousLocationInWindow"];
         [self setValue:_target forKey:@"_view"];
-        [self setValue:view.window forKey:@"_window"];
-        [self setValue:@0 forKey:@"_phase"]; // UITouchPhaseBegan
+        [self setValue:_window forKey:@"_window"];
+        [self setValue:_window forKey:@"__windowServerHitTestWindow"];
+        [self setValue:@0 forKey:@"_phase"];
         [self setValue:@1 forKeyPath:@"_touchFlags._firstTouchForView"];
         [self setValue:@1 forKeyPath:@"_touchFlags._isTap"];
         [self setValue:_timestamp forKeyPath:@"_timestamp"];
+        [self setValue:_timestamp forKeyPath:@"_initialTouchTimestamp"];
+        [self setValue:@400 forKey:@"_maximumPossiblePressure"];
+        
+        //[self setValue:_gestureRecognizers forKey:@"_gestureRecognizers"];
     }
     return self;
 }
 
 - (void)changeToPhase:(UITouchPhase)phase {
     NSNumber *_phase = [NSNumber numberWithInteger:phase];
-    NSNumber *timestamp = [NSNumber numberWithDouble:[NSDate timeIntervalSinceReferenceDate]];
+    NSNumber *timestamp = [NSNumber numberWithDouble:[[NSProcessInfo processInfo] systemUptime]];
     [self setValue:_phase forKey:@"_phase"];
     [self setValue:timestamp forKeyPath:@"_timestamp"];
+}
+
+- (void)changeLocationInWindow:(NSValue *)location {
+     NSNumber *_timestamp = [NSNumber numberWithDouble:[[NSProcessInfo processInfo] systemUptime]];
+    [self setValue:[self valueForKey:@"_locationInWindow"] forKey:@"_previousLocationInWindow"];
+    [self setValue:location forKey:@"_locationInWindow"];
+    [self setValue:_timestamp forKeyPath:@"_timestamp"];
 }
 
 @end

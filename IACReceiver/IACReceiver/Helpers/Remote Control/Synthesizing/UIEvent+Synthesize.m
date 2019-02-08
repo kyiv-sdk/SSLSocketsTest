@@ -57,10 +57,12 @@
     {
         self = [touchesEventClass alloc];
     }
-    
-    self = [self _initWithEvent:gsEventProxy touches:[NSSet setWithObject:touch]];
+    NSMutableSet *touches = [NSMutableSet setWithObjects:touch, nil];
+    NSSet *immutableTouches = [NSSet setWithObject:touch];
+    self = [self _initWithEvent:gsEventProxy touches:touches];
     if (self) {
-        
+        [self setValue:immutableTouches forKey:@"_allTouchesImmutableCached"];
+        [self setValue:[touch valueForKey:@"_timestamp"] forKey:@"_timestamp"];
     }
     return self;
 }

@@ -13,7 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface UITouch (Synthesize)
 
 - (void)changeToPhase:(UITouchPhase)phase;
-- (id)initInView:(UIView *)view;
+- (void)changeLocationInWindow:(NSValue *)location;
+- (id)initWithLocation:(NSValue *)location;
 
 @end
 

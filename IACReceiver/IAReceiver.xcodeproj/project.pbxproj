@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		560ACDAF220C92B90019E6ED /* UITouch+Synthesize.m in Sources */ = {isa = PBXBuildFile; fileRef = 560ACDAE220C92B90019E6ED /* UITouch+Synthesize.m */; };
 		560ACDB2220C9D750019E6ED /* UIEvent+Synthesize.m in Sources */ = {isa = PBXBuildFile; fileRef = 560ACDB1220C9D750019E6ED /* UIEvent+Synthesize.m */; };
+		560ACDB5220DC2C90019E6ED /* TestButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 560ACDB4220DC2C90019E6ED /* TestButton.m */; };
 		5616C46322020879001DDDB5 /* SSLUILogger.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5616C46222020879001DDDB5 /* SSLUILogger.mm */; };
 		5616C46922020F78001DDDB5 /* LogsViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5616C46822020F78001DDDB5 /* LogsViewController.mm */; };
 		5649804321F5ED1B00905409 /* NSString+ProjectAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5649803F21F5ED1B00905409 /* NSString+ProjectAdditions.m */; };
@@ -96,6 +97,8 @@
 		560ACDAE220C92B90019E6ED /* UITouch+Synthesize.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITouch+Synthesize.m"; sourceTree = "<group>"; };
 		560ACDB0220C9D750019E6ED /* UIEvent+Synthesize.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIEvent+Synthesize.h"; sourceTree = "<group>"; };
 		560ACDB1220C9D750019E6ED /* UIEvent+Synthesize.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIEvent+Synthesize.m"; sourceTree = "<group>"; };
+		560ACDB3220DC2C90019E6ED /* TestButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestButton.h; sourceTree = "<group>"; };
+		560ACDB4220DC2C90019E6ED /* TestButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestButton.m; sourceTree = "<group>"; };
 		5616C46122020879001DDDB5 /* SSLUILogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSLUILogger.h; sourceTree = "<group>"; };
 		5616C46222020879001DDDB5 /* SSLUILogger.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SSLUILogger.mm; sourceTree = "<group>"; };
 		5616C46722020F78001DDDB5 /* LogsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LogsViewController.h; sourceTree = "<group>"; };
@@ -241,6 +244,8 @@
 		56B7B93421E4F76000EDAB1D = {
 			isa = PBXGroup;
 			children = (
+				560ACDB3220DC2C90019E6ED /* TestButton.h */,
+				560ACDB4220DC2C90019E6ED /* TestButton.m */,
 				568D0DC121F7504300A9E165 /* SSLSockets.xcodeproj */,
 				56B7B93F21E4F76000EDAB1D /* IACReceiver */,
 				56B7B93E21E4F76000EDAB1D /* Products */,
@@ -450,6 +455,7 @@
 				56B7B94221E4F76000EDAB1D /* AppDelegate.mm in Sources */,
 				560ACDAF220C92B90019E6ED /* UITouch+Synthesize.m in Sources */,
 				567FDE982209B26200CC5BD5 /* RCSocketSharingHandler.m in Sources */,
+				560ACDB5220DC2C90019E6ED /* TestButton.m in Sources */,
 				56B7B9EC21E6104D00EDAB1D /* CoreDataManager.mm in Sources */,
 				567FDE702208590E00CC5BD5 /* NSDictionary+ProjectAdditions.m in Sources */,
 				567FDE84220972EE00CC5BD5 /* WebSite+CoreDataProperties.m in Sources */,

@@ -16,6 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)startSession;
 - (void)stopSession;
 - (void)sendAction:(NSString *)action toClient:(SSL *)ssl;
+- (void)receiveSharingFromSocket:(SSLServerSocket *)socket;
+- (void)sendGesture:(NSString *)gesture;
 
 + (instancetype)sharedInstance;
 

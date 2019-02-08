@@ -27,8 +27,7 @@
     return _sharedApplication;
 }
 
-- (instancetype)init
-{
+- (instancetype)init {
     self = [super init];
     if (self) {
     }

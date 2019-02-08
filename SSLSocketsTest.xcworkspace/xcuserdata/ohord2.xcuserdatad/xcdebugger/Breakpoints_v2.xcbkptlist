@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "IACReceiver/IACReceiver/Helpers/Remote Control/Synthesizing/UIEvent+Synthesize.m"
-            timestampString = "571307172.511235"
+            filePath = "IACReceiver/TestButton.m"
+            timestampString = "571337311.590789"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
-            landmarkName = "-initWithTouch:"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "-touchesEnded:withEvent:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -14,6 +14,7 @@
 @interface RCManager ()
 
 @property (strong, nonatomic) SSLServerSocket *RCSocket;
+@property (weak, nonatomic) SSLServerSocket *RCSharingSocket;
 
 @end
 
@@ -31,6 +32,15 @@
 
 - (void)sendAction:(NSString *)action toClient:(SSL *)ssl {
     [self.RCSocket sendData:action toSSL:ssl];
+}
+
+- (void)receiveSharingFromSocket:(SSLServerSocket *)socket {
+    self.RCSharingSocket = socket;
+}
+
+- (void)sendGesture:(NSString *)gesture {
+    SSLSocketHandler *client = [[self.RCSharingSocket acceptedSockets] firstObject];
+    [self.RCSharingSocket sendData:gesture toSSL:client.ssl];
 }
 
 #pragma mark - Singletone
