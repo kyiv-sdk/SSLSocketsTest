@@ -34,7 +34,18 @@
         [self setValue:_timestamp forKeyPath:@"_initialTouchTimestamp"];
         [self setValue:@400 forKey:@"_maximumPossiblePressure"];
         
-        //[self setValue:_gestureRecognizers forKey:@"_gestureRecognizers"];
+        [self setValue:@22 forKey:@"_pressure"];
+        [self setValue:@22 forKey:@"_previousPressure"];
+        [self setValue:@777 forKey:@"_touchIdentifier"];
+        [self setValue:@'\x02' forKey:@"_pathIndex"];
+        [self setValue:@'\x02' forKey:@"_pathIdentity"];
+        [self setValue:@24.5 forKey:@"_pathMajorRadius"];
+        [self setValue:@6.05 forKey:@"_majorRadiusTolerance"];
+        [self setValue:@22 forKey:@"_maxObservedPressure"];
+        [self setValue:@777 forKey:@"_senderID"];
+        [self setValue:@1.5 forKey:@"_altitudeAngle"];
+        //[self setValue:@1.5 forKey:@"_hidEvent"];
+        [self setValue:_gestureRecognizers forKey:@"_gestureRecognizers"];
     }
     return self;
 }
