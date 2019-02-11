@@ -11,7 +11,7 @@
 
 @interface RCSocketSharingHandler ()
 
-@property (weak, nonatomic) id<RCSharingPresenter> presenter;
+@property (weak, nonatomic) id<RCApplicationPresenter> presenter;
 @property (strong, nonatomic) dispatch_queue_t serialThread;
 
 @end
@@ -23,9 +23,9 @@
 #pragma mark - Methods
 - (void)handleBase64Image:(NSString *)base64Image {
     NSData *data = [[NSData alloc] initWithBase64EncodedString:base64Image options:0];
-    UIImage *screenshot = [UIImage imageWithData:data];
+    __block UIImage *screenshot = [UIImage imageWithData:data];
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self.presenter updateWithImage:screenshot];
+        [self.presenter updateDisplayWithImage:screenshot];
     });
 }
 
@@ -42,7 +42,7 @@
 }
 
 #pragma mark - Constructor
-- (instancetype)initWithPresenter:(id<RCSharingPresenter>)presenter {
+- (instancetype)initWithPresenter:(id<RCApplicationPresenter>)presenter {
     self = [super init];
     if (self) {
         self.presenter = presenter;

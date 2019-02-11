@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol RCApplicationPresenter
 
 - (void)setApplication:(ClientApplication *)application;
+- (void)updateDisplayWithImage:(UIImage *)image;
 
 @end
 

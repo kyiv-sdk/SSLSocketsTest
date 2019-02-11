@@ -7,14 +7,14 @@
 //
 
 #import "RCSocketHandler.h"
-#import "RCSharingPresenter.h"
+#import "RCApplicationPresenter.h"
 #import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface RCSocketSharingHandler : NSObject <RCSocketHandler>
 
-- (instancetype)initWithPresenter:(id <RCSharingPresenter>)presenter;
+- (instancetype)initWithPresenter:(id <RCApplicationPresenter>)presenter;
 
 @end
 

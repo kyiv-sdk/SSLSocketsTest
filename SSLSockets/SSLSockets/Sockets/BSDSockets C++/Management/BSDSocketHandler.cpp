@@ -113,6 +113,7 @@ void BSDSocketHandler::startReading() {
                 char *receivedData = readData();
                 CSSLLogger::log(LOG, "BSDSocketHandler -> redirecting received message to C++ delegate.");
                 if (delegate) delegate->didReceiveMessage(receivedData, ssl);
+                free(receivedData);
             } else {
                 CSSLLogger::log(ERROR, "BSDSocketHandler -> message has unsupported protocol.");
             }

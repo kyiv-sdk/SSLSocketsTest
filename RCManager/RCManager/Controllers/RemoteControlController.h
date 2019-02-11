@@ -7,12 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "RCSharingPresenter.h"
 #import "RCApplicationPresenter.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface RemoteControlController : UIViewController <RCApplicationPresenter, RCSharingPresenter>
+@interface RemoteControlController : UIViewController <RCApplicationPresenter>
 
 @property (weak, nonatomic) IBOutlet UIImageView *remoteDisplay;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *remoteDisplayWidth;

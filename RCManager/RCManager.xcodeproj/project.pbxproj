@@ -130,7 +130,6 @@
 		567FDE8F22099DBB00CC5BD5 /* RCSocketHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCSocketHandler.h; sourceTree = "<group>"; };
 		567FDE9022099FCD00CC5BD5 /* RCSocketSharingHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCSocketSharingHandler.h; sourceTree = "<group>"; };
 		567FDE9122099FCD00CC5BD5 /* RCSocketSharingHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RCSocketSharingHandler.m; sourceTree = "<group>"; };
-		567FDE932209A0C900CC5BD5 /* RCSharingPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCSharingPresenter.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -229,7 +228,6 @@
 			isa = PBXGroup;
 			children = (
 				567FDE8E22099CFE00CC5BD5 /* Handlers */,
-				567FDE932209A0C900CC5BD5 /* RCSharingPresenter.h */,
 				567FDE722208893D00CC5BD5 /* RCManager.h */,
 				567FDE732208893D00CC5BD5 /* RCManager.m */,
 				567FDE0B22042B1800CC5BD5 /* RCSocketDelegate.h */,

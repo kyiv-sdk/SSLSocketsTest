@@ -14,7 +14,7 @@
 
 @interface RemoteControlController ()
 
-@property (strong, nonatomic) ClientApplication *clientApplication;
+@property (weak, nonatomic) ClientApplication *clientApplication;
 @property (strong, nonatomic) SSLServerSocket *screenSharingSocket;
 @property (strong, nonatomic) NSMutableArray *touches;
 
@@ -127,15 +127,15 @@
     });
 }
 
-#pragma mark - <RCSharingPresenter>
-- (void)updateWithImage:(UIImage *)image {
-    [self.remoteDisplay setImage:image];
-}
-
 #pragma mark - <RCApplicationPresenter>
 - (void)setApplication:(ClientApplication *)application {
     self.clientApplication = application;
 }
+
+- (void)updateDisplayWithImage:(UIImage *)image {
+    [self.remoteDisplay setImage:image];
+}
+
 
 #pragma mark - Destructor
 - (void)dealloc {

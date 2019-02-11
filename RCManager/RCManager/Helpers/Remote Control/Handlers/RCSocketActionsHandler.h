@@ -13,8 +13,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface RCSocketAcionsHandler : NSObject <RCSocketHandler>
 
-- (instancetype)init;
-
 @end
 
 NS_ASSUME_NONNULL_END
