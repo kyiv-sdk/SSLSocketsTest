@@ -6,48 +6,47 @@
 //  Copyright © 2019 SoftServe. All rights reserved.
 //
 
+#import "GSEventProxy.h"
 #import "UITouch+Synthesize.h"
 
 @implementation UITouch (Synthesize)
 
 - (id)initWithLocation:(nonnull NSValue *)location {
-    self = [super init];
-    if (self != nil) {
-        UIWindow *_window = [[[UIApplication sharedApplication] delegate] window];
-        NSNumber *_timestamp = [NSNumber numberWithDouble:[[NSProcessInfo processInfo] systemUptime]];
-        UIView *_target = [_window hitTest:[location CGPointValue] withEvent:nil];
-        
-        NSMutableArray *_gestureRecognizers = [[NSMutableArray alloc] initWithArray:[_window gestureRecognizers]];
-        [_gestureRecognizers addObjectsFromArray:[_target gestureRecognizers]];
-        
-        
-        [self setValue:@1 forKey:@"_tapCount"];
-        [self setValue:location forKey:@"_locationInWindow"];
-        [self setValue:[self valueForKey:@"_locationInWindow"] forKey:@"_previousLocationInWindow"];
-        [self setValue:_target forKey:@"_view"];
-        [self setValue:_window forKey:@"_window"];
-        [self setValue:_window forKey:@"__windowServerHitTestWindow"];
-        [self setValue:@0 forKey:@"_phase"];
-        [self setValue:@1 forKeyPath:@"_touchFlags._firstTouchForView"];
-        [self setValue:@1 forKeyPath:@"_touchFlags._isTap"];
-        [self setValue:_timestamp forKeyPath:@"_timestamp"];
-        [self setValue:_timestamp forKeyPath:@"_initialTouchTimestamp"];
-        [self setValue:@400 forKey:@"_maximumPossiblePressure"];
-        
-        [self setValue:@22 forKey:@"_pressure"];
-        [self setValue:@22 forKey:@"_previousPressure"];
-        [self setValue:@777 forKey:@"_touchIdentifier"];
-        [self setValue:@'\x02' forKey:@"_pathIndex"];
-        [self setValue:@'\x02' forKey:@"_pathIdentity"];
-        [self setValue:@24.5 forKey:@"_pathMajorRadius"];
-        [self setValue:@6.05 forKey:@"_majorRadiusTolerance"];
-        [self setValue:@22 forKey:@"_maxObservedPressure"];
-        [self setValue:@777 forKey:@"_senderID"];
-        [self setValue:@1.5 forKey:@"_altitudeAngle"];
-        //[self setValue:@1.5 forKey:@"_hidEvent"];
-        [self setValue:_gestureRecognizers forKey:@"_gestureRecognizers"];
-    }
-    return self;
+    
+    CGPoint _loc = [location CGPointValue];
+    UIWindow *_window = [[[UIApplication sharedApplication] delegate] window];
+    UIView *_target = [_window hitTest:_loc withEvent:nil];
+    GSEventProxy *gsEventProxy = [[GSEventProxy alloc] init];
+    gsEventProxy->x1 = _loc.x;
+    gsEventProxy->y1 = _loc.y;
+    gsEventProxy->x2 = _loc.x;
+    gsEventProxy->y2 = _loc.y;
+    gsEventProxy->x3 = _loc.x;
+    gsEventProxy->y3 = _loc.y;
+    gsEventProxy->sizeX = 1.0;
+    gsEventProxy->sizeY = 1.0;
+    gsEventProxy->flags = 0x3010180;
+    gsEventProxy->type = 3001;
+    
+    UITouch *touch = [[UITouch _createTouchesWithGSEvent:gsEventProxy phase:0 view:_target] anyObject];
+    
+    NSNumber *_timestamp = [NSNumber numberWithDouble:[[NSProcessInfo processInfo] systemUptime]];
+    NSMutableArray *_gestureRecognizers = [[NSMutableArray alloc] initWithArray:[_target gestureRecognizers]];
+    [_gestureRecognizers addObjectsFromArray:[_window gestureRecognizers]];
+   
+    
+    [touch setValue:@1 forKey:@"_tapCount"];
+    [touch setValue:location forKey:@"_locationInWindow"];
+    [touch setValue:location forKey:@"_preciseLocationInWindow"];
+    [touch setValue:location forKey:@"_previousLocationInWindow"];
+    [touch setValue:location forKey:@"_precisePreviousLocationInWindow"];
+    [touch setValue:@1 forKeyPath:@"_touchFlags._firstTouchForView"];
+    [touch setValue:@1 forKeyPath:@"_touchFlags._isTap"];
+    [touch setValue:_timestamp forKeyPath:@"_timestamp"];
+    [touch setValue:_timestamp forKeyPath:@"_initialTouchTimestamp"];
+    [touch setValue:_gestureRecognizers forKey:@"_gestureRecognizers"];
+    
+    return touch;
 }
 
 - (void)changeToPhase:(UITouchPhase)phase {
@@ -58,8 +57,11 @@
 }
 
 - (void)changeLocationInWindow:(NSValue *)location {
-     NSNumber *_timestamp = [NSNumber numberWithDouble:[[NSProcessInfo processInfo] systemUptime]];
-    [self setValue:[self valueForKey:@"_locationInWindow"] forKey:@"_previousLocationInWindow"];
+    NSNumber *_timestamp = [NSNumber numberWithDouble:[[NSProcessInfo processInfo] systemUptime]];
+    id previousLocation = [self valueForKey:@"_locationInWindow"];
+    [self setValue:previousLocation forKey:@"_previousLocationInWindow"];
+    [self setValue:previousLocation forKey:@"_precisePreviousLocationInWindow"];
+    [self setValue:location forKey:@"_preciseLocationInWindow"];
     [self setValue:location forKey:@"_locationInWindow"];
     [self setValue:_timestamp forKeyPath:@"_timestamp"];
 }

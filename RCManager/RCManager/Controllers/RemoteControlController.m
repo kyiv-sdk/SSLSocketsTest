@@ -107,6 +107,7 @@
 }
 
 - (void)redirectGesture {
+    if (![self.touches count]) return;
     NSArray *touches = [NSArray arrayWithArray:self.touches];
     [self.touches removeAllObjects];
     CGSize remoteDisplaySize = self.remoteDisplay.bounds.size;

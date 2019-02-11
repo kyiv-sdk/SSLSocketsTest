@@ -22,7 +22,7 @@ NSString * SSLLoggerFileName = @"RSSLLoggerDestintion.txt";
 int kRCScreenSharingDelay = 1000000;
 double kScreenshotCompressionQuality = 0.5;
 int RCServerSocketPort = 1666;
-NSString * const RCServerSocketAddress = @"127.0.0.1";
+NSString * const RCServerSocketAddress = @"10.131.203.54";
 #pragma mark RCSocket Keys
 NSString * const kRCActionKey = @"action";
 NSString * const kRCAppNameKey = @"appName";

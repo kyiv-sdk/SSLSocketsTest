@@ -6,16 +6,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "IACReceiver/TestButton.m"
-            timestampString = "571337311.590789"
+            filePath = "IACReceiver/IACReceiver/ControlledApplication.m"
+            timestampString = "571567757.415866"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "22"
-            endingLineNumber = "22"
-            landmarkName = "-touchesEnded:withEvent:"
+            startingLineNumber = "14"
+            endingLineNumber = "14"
+            landmarkName = "-sendEvent:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

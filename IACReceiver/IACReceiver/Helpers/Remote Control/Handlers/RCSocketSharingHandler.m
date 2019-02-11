@@ -47,31 +47,23 @@
 }
 
 - (void)executeGesture:(NSArray *)touches {
-    __block UITouch *touch;
-    
     dispatch_async(dispatch_get_main_queue(), ^{
-        touch = [[UITouch alloc] initWithLocation:[touches firstObject]];
+        UITouch *touch = [[UITouch alloc] initWithLocation:[touches firstObject]];
         UIEvent *touchesBeganEvent = [[UIEvent alloc] initWithTouch:touch];
         [[UIApplication sharedApplication] sendEvent:touchesBeganEvent];
-        NSLog(@"Began");
-    });
-    usleep(100000);
-    NSUInteger touchesCount = [touches count];
-    [touch changeToPhase:UITouchPhaseMoved];
-    for (NSUInteger idx = 1; idx < touchesCount; idx++) {
-        dispatch_async(dispatch_get_main_queue(), ^{
+        
+        NSUInteger touchesCount = [touches count];
+        [touch changeToPhase:UITouchPhaseMoved];
+        for (NSUInteger idx = 1; idx < touchesCount; idx++) {
             [touch changeLocationInWindow:[touches objectAtIndex:idx]];
             UIEvent *touchesMovedEvent = [[UIEvent alloc] initWithTouch:touch];
             [[UIApplication sharedApplication] sendEvent:touchesMovedEvent];
-            NSLog(@"Moved");
-        });
-    }
-    usleep(100000);
-    dispatch_async(dispatch_get_main_queue(), ^{
+        }
+        
         [touch changeToPhase:UITouchPhaseEnded];
         UIEvent *touchesEndedEvent = [[UIEvent alloc] initWithTouch:touch];
         [[UIApplication sharedApplication] sendEvent:touchesEndedEvent];
-        NSLog(@"Ended");
+        
     });
 }
 

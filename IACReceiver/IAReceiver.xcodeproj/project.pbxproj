@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		560ACDAF220C92B90019E6ED /* UITouch+Synthesize.m in Sources */ = {isa = PBXBuildFile; fileRef = 560ACDAE220C92B90019E6ED /* UITouch+Synthesize.m */; };
 		560ACDB2220C9D750019E6ED /* UIEvent+Synthesize.m in Sources */ = {isa = PBXBuildFile; fileRef = 560ACDB1220C9D750019E6ED /* UIEvent+Synthesize.m */; };
-		560ACDB5220DC2C90019E6ED /* TestButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 560ACDB4220DC2C90019E6ED /* TestButton.m */; };
 		5616C46322020879001DDDB5 /* SSLUILogger.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5616C46222020879001DDDB5 /* SSLUILogger.mm */; };
 		5616C46922020F78001DDDB5 /* LogsViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5616C46822020F78001DDDB5 /* LogsViewController.mm */; };
 		5649804321F5ED1B00905409 /* NSString+ProjectAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5649803F21F5ED1B00905409 /* NSString+ProjectAdditions.m */; };
@@ -22,7 +21,6 @@
 		567FDE83220972EE00CC5BD5 /* WebSite+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 567FDE81220972EE00CC5BD5 /* WebSite+CoreDataClass.m */; };
 		567FDE84220972EE00CC5BD5 /* WebSite+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 567FDE82220972EE00CC5BD5 /* WebSite+CoreDataProperties.m */; };
 		567FDE982209B26200CC5BD5 /* RCSocketSharingHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 567FDE972209B26200CC5BD5 /* RCSocketSharingHandler.m */; };
-		567FDE9B220B1AF600CC5BD5 /* ControlledApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 567FDE9A220B1AF600CC5BD5 /* ControlledApplication.m */; };
 		568D0DD521F7505700A9E165 /* SSLSockets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 568D0DC721F7504300A9E165 /* SSLSockets.framework */; };
 		56B7B94221E4F76000EDAB1D /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 56B7B94121E4F76000EDAB1D /* AppDelegate.mm */; };
 		56B7B94821E4F76000EDAB1D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56B7B94621E4F76000EDAB1D /* Main.storyboard */; };
@@ -36,6 +34,7 @@
 		56B7B97421E50B5800EDAB1D /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56B7B97321E50B5700EDAB1D /* CoreData.framework */; };
 		56B7B97721E5EBE900EDAB1D /* NetworkManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 56B7B97621E5EBE900EDAB1D /* NetworkManager.mm */; };
 		56B7B9EC21E6104D00EDAB1D /* CoreDataManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 56B7B9EB21E6104D00EDAB1D /* CoreDataManager.mm */; };
+		56C3AA7B221163AF00219E73 /* GSEventProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 56C3AA7A221163AF00219E73 /* GSEventProxy.m */; };
 		56DC639821F0D03500331A6F /* ProjectConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 56DC639721F0D03500331A6F /* ProjectConstants.m */; };
 		56DC639C21F0D5CF00331A6F /* URLsocketDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 56DC639B21F0D5CF00331A6F /* URLsocketDelegate.mm */; };
 /* End PBXBuildFile section */
@@ -97,8 +96,6 @@
 		560ACDAE220C92B90019E6ED /* UITouch+Synthesize.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITouch+Synthesize.m"; sourceTree = "<group>"; };
 		560ACDB0220C9D750019E6ED /* UIEvent+Synthesize.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIEvent+Synthesize.h"; sourceTree = "<group>"; };
 		560ACDB1220C9D750019E6ED /* UIEvent+Synthesize.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIEvent+Synthesize.m"; sourceTree = "<group>"; };
-		560ACDB3220DC2C90019E6ED /* TestButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestButton.h; sourceTree = "<group>"; };
-		560ACDB4220DC2C90019E6ED /* TestButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestButton.m; sourceTree = "<group>"; };
 		5616C46122020879001DDDB5 /* SSLUILogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSLUILogger.h; sourceTree = "<group>"; };
 		5616C46222020879001DDDB5 /* SSLUILogger.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SSLUILogger.mm; sourceTree = "<group>"; };
 		5616C46722020F78001DDDB5 /* LogsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LogsViewController.h; sourceTree = "<group>"; };
@@ -123,8 +120,6 @@
 		567FDE952209B1A800CC5BD5 /* RCSocketHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCSocketHandler.h; sourceTree = "<group>"; };
 		567FDE962209B26200CC5BD5 /* RCSocketSharingHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCSocketSharingHandler.h; sourceTree = "<group>"; };
 		567FDE972209B26200CC5BD5 /* RCSocketSharingHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RCSocketSharingHandler.m; sourceTree = "<group>"; };
-		567FDE99220B1AF600CC5BD5 /* ControlledApplication.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ControlledApplication.h; sourceTree = "<group>"; };
-		567FDE9A220B1AF600CC5BD5 /* ControlledApplication.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ControlledApplication.m; sourceTree = "<group>"; };
 		568D0DC121F7504300A9E165 /* SSLSockets.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SSLSockets.xcodeproj; path = ../SSLSockets/SSLSockets.xcodeproj; sourceTree = "<group>"; };
 		56B7B93D21E4F76000EDAB1D /* IAReceiver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IAReceiver.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56B7B94021E4F76000EDAB1D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -146,6 +141,8 @@
 		56B7B97621E5EBE900EDAB1D /* NetworkManager.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = NetworkManager.mm; sourceTree = "<group>"; };
 		56B7B9EA21E6104D00EDAB1D /* CoreDataManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreDataManager.h; sourceTree = "<group>"; };
 		56B7B9EB21E6104D00EDAB1D /* CoreDataManager.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = CoreDataManager.mm; sourceTree = "<group>"; };
+		56C3AA752211612D00219E73 /* GSEventProxy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GSEventProxy.h; sourceTree = "<group>"; };
+		56C3AA7A221163AF00219E73 /* GSEventProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSEventProxy.m; sourceTree = "<group>"; };
 		56DC639621F0C06200331A6F /* SocketConnectionDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SocketConnectionDelegate.h; sourceTree = "<group>"; };
 		56DC639721F0D03500331A6F /* ProjectConstants.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProjectConstants.m; sourceTree = "<group>"; };
 		56DC639921F0D0F100331A6F /* ProjectConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProjectConstants.h; sourceTree = "<group>"; };
@@ -174,6 +171,8 @@
 				560ACDAE220C92B90019E6ED /* UITouch+Synthesize.m */,
 				560ACDB0220C9D750019E6ED /* UIEvent+Synthesize.h */,
 				560ACDB1220C9D750019E6ED /* UIEvent+Synthesize.m */,
+				56C3AA752211612D00219E73 /* GSEventProxy.h */,
+				56C3AA7A221163AF00219E73 /* GSEventProxy.m */,
 			);
 			path = Synthesizing;
 			sourceTree = "<group>";
@@ -244,8 +243,6 @@
 		56B7B93421E4F76000EDAB1D = {
 			isa = PBXGroup;
 			children = (
-				560ACDB3220DC2C90019E6ED /* TestButton.h */,
-				560ACDB4220DC2C90019E6ED /* TestButton.m */,
 				568D0DC121F7504300A9E165 /* SSLSockets.xcodeproj */,
 				56B7B93F21E4F76000EDAB1D /* IACReceiver */,
 				56B7B93E21E4F76000EDAB1D /* Products */,
@@ -272,8 +269,6 @@
 				56B7B95921E4FB2400EDAB1D /* Controllers */,
 				56B7B94021E4F76000EDAB1D /* AppDelegate.h */,
 				56B7B94121E4F76000EDAB1D /* AppDelegate.mm */,
-				567FDE99220B1AF600CC5BD5 /* ControlledApplication.h */,
-				567FDE9A220B1AF600CC5BD5 /* ControlledApplication.m */,
 				56B7B95121E4F76100EDAB1D /* Info.plist */,
 				56B7B94C21E4F76000EDAB1D /* Assets.xcassets */,
 				56B7B94621E4F76000EDAB1D /* Main.storyboard */,
@@ -442,6 +437,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				560ACDB2220C9D750019E6ED /* UIEvent+Synthesize.m in Sources */,
+				56C3AA7B221163AF00219E73 /* GSEventProxy.m in Sources */,
 				5649804421F5ED1B00905409 /* NSDate+ProjectAdditions.m in Sources */,
 				5616C46322020879001DDDB5 /* SSLUILogger.mm in Sources */,
 				5616C46922020F78001DDDB5 /* LogsViewController.mm in Sources */,
@@ -455,14 +451,12 @@
 				56B7B94221E4F76000EDAB1D /* AppDelegate.mm in Sources */,
 				560ACDAF220C92B90019E6ED /* UITouch+Synthesize.m in Sources */,
 				567FDE982209B26200CC5BD5 /* RCSocketSharingHandler.m in Sources */,
-				560ACDB5220DC2C90019E6ED /* TestButton.m in Sources */,
 				56B7B9EC21E6104D00EDAB1D /* CoreDataManager.mm in Sources */,
 				567FDE702208590E00CC5BD5 /* NSDictionary+ProjectAdditions.m in Sources */,
 				567FDE84220972EE00CC5BD5 /* WebSite+CoreDataProperties.m in Sources */,
 				56B7B96321E4FC5100EDAB1D /* ReceivedURLCell.m in Sources */,
 				56B7B97721E5EBE900EDAB1D /* NetworkManager.mm in Sources */,
 				567FDE672208566300CC5BD5 /* RCSocketActionsHandler.m in Sources */,
-				567FDE9B220B1AF600CC5BD5 /* ControlledApplication.m in Sources */,
 				56B7B95F21E4FC0600EDAB1D /* ReceivedTableViewController.mm in Sources */,
 				567FDE602208533300CC5BD5 /* RCManager.mm in Sources */,
 				567FDE83220972EE00CC5BD5 /* WebSite+CoreDataClass.m in Sources */,

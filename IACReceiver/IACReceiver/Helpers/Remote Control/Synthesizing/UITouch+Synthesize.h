@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+@class GSEventProxy;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -15,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)changeToPhase:(UITouchPhase)phase;
 - (void)changeLocationInWindow:(NSValue *)location;
 - (id)initWithLocation:(NSValue *)location;
++ (id)_createTouchesWithGSEvent:(GSEventProxy *)arg1 phase:(long long)arg2 view:(id)arg3;
 
 @end
 
