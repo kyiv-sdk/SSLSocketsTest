@@ -8,10 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
-#import "ControlledApplication.h"
 
 int main(int argc, char * argv[]) {
     @autoreleasepool {
-        return UIApplicationMain(argc, argv, NSStringFromClass([ControlledApplication class]), NSStringFromClass([AppDelegate class]));
+        return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
     }
 }

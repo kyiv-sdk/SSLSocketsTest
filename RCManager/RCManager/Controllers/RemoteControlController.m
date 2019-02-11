@@ -7,15 +7,11 @@
 //
 
 #import "RCManager.h"
-#import "RCSocketDelegate.h"
-#import <SSLSockets/SSLSockets.h>
-#import "RCSocketSharingHandler.h"
 #import "RemoteControlController.h"
 
 @interface RemoteControlController ()
 
 @property (weak, nonatomic) ClientApplication *clientApplication;
-@property (strong, nonatomic) SSLServerSocket *screenSharingSocket;
 @property (strong, nonatomic) NSMutableArray *touches;
 
 @end
@@ -37,7 +33,7 @@
 #pragma mark - Methods
 - (void)prepareViewController {
     if (self.clientApplication) {
-        int port = [self runSharingSocket];
+        int port = [[RCManager sharedInstance] openSharingSocketWithPresented:self];
         self.touches = [[NSMutableArray alloc] init];
         [self.clientApplication shareScreenToPort:port];
     }
@@ -63,21 +59,6 @@
         self.remoteDisplayWidth.constant = containerSize.width;
         self.remoteDisplayHeight.constant = self.remoteDisplayWidth.constant / screenAspectRatio;
     }
-}
-
-- (int)runSharingSocket {
-    int port;
-    RCSocketSharingHandler *handler = [[RCSocketSharingHandler alloc] initWithPresenter:self];
-    RCSocketDelegate *delegate = [[RCSocketDelegate alloc] initWithHandler:handler];
-    
-    do {
-        port = 1+ arc4random_uniform(65534);
-        self.screenSharingSocket = [[SSLServerSocket alloc] initWithPort:port andDelegate:delegate];
-        [self.screenSharingSocket startSocket];
-    } while (![self.screenSharingSocket isRunning]);
-    
-    [[RCManager sharedInstance] receiveSharingFromSocket:self.screenSharingSocket];
-    return port;
 }
 
 #pragma mark - Touches handling

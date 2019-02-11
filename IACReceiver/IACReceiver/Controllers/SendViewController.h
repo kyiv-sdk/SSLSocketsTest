@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "TestButton.h"
 #import <SSLSockets/SSLSockets.h>
 #import "SocketConnectionDelegate.h"
 
@@ -21,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic, nullable) SSLClientSocket *socket;
 @property (assign, nonatomic) BOOL isAsking;
 
-- (IBAction)sendURLButtonPressed:(TestButton *)sender;
+- (IBAction)sendURLButtonPressed:(UIButton *)sender;
 - (IBAction)askForConnectionButtonPressed:(UIButton *)sender;
 - (IBAction)disconnectButtonPressed:(UIButton *)sender;
 

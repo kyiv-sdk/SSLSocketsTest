@@ -24,7 +24,6 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [SSLLogger addLoggingDestination:[RemoteServerLogger sharedInstance]];
     return YES;
 }
 

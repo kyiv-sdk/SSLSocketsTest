@@ -9,12 +9,13 @@
 #import "RCManager.h"
 #import "RCSocketDelegate.h"
 #import "ProjectConstants.h"
+#import "RCSocketSharingHandler.h"
 #import "RCSocketActionsHandler.h"
 
 @interface RCManager ()
 
 @property (strong, nonatomic) SSLServerSocket *RCSocket;
-@property (weak, nonatomic) SSLServerSocket *RCSharingSocket;
+@property (strong, nonatomic) SSLServerSocket *RCSharingSocket;
 
 @end
 
@@ -34,8 +35,18 @@
     [self.RCSocket sendData:action toSSL:ssl];
 }
 
-- (void)receiveSharingFromSocket:(SSLServerSocket *)socket {
-    self.RCSharingSocket = socket;
+- (int)openSharingSocketWithPresented:(id <RCApplicationPresenter>)presenter {
+    int port;
+    RCSocketSharingHandler *handler = [[RCSocketSharingHandler alloc] initWithPresenter:presenter];
+    RCSocketDelegate *delegate = [[RCSocketDelegate alloc] initWithHandler:handler];
+    
+    do {
+        port = 1+ arc4random_uniform(65534);
+        self.RCSharingSocket = [[SSLServerSocket alloc] initWithPort:port andDelegate:delegate];
+        [self.RCSharingSocket startSocket];
+    } while (![self.RCSharingSocket isRunning]);
+    
+    return port;
 }
 
 - (void)sendGesture:(NSString *)gesture {

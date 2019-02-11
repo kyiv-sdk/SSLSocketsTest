@@ -35,6 +35,7 @@
 		56B7B97721E5EBE900EDAB1D /* NetworkManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 56B7B97621E5EBE900EDAB1D /* NetworkManager.mm */; };
 		56B7B9EC21E6104D00EDAB1D /* CoreDataManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 56B7B9EB21E6104D00EDAB1D /* CoreDataManager.mm */; };
 		56C3AA7B221163AF00219E73 /* GSEventProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 56C3AA7A221163AF00219E73 /* GSEventProxy.m */; };
+		56C3AA852211906900219E73 /* ScreenshotsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 56C3AA842211906900219E73 /* ScreenshotsManager.m */; };
 		56DC639821F0D03500331A6F /* ProjectConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 56DC639721F0D03500331A6F /* ProjectConstants.m */; };
 		56DC639C21F0D5CF00331A6F /* URLsocketDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 56DC639B21F0D5CF00331A6F /* URLsocketDelegate.mm */; };
 /* End PBXBuildFile section */
@@ -143,6 +144,8 @@
 		56B7B9EB21E6104D00EDAB1D /* CoreDataManager.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = CoreDataManager.mm; sourceTree = "<group>"; };
 		56C3AA752211612D00219E73 /* GSEventProxy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GSEventProxy.h; sourceTree = "<group>"; };
 		56C3AA7A221163AF00219E73 /* GSEventProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSEventProxy.m; sourceTree = "<group>"; };
+		56C3AA832211906900219E73 /* ScreenshotsManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScreenshotsManager.h; sourceTree = "<group>"; };
+		56C3AA842211906900219E73 /* ScreenshotsManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScreenshotsManager.m; sourceTree = "<group>"; };
 		56DC639621F0C06200331A6F /* SocketConnectionDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SocketConnectionDelegate.h; sourceTree = "<group>"; };
 		56DC639721F0D03500331A6F /* ProjectConstants.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProjectConstants.m; sourceTree = "<group>"; };
 		56DC639921F0D0F100331A6F /* ProjectConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProjectConstants.h; sourceTree = "<group>"; };
@@ -208,6 +211,7 @@
 		567FDE61220853BD00CC5BD5 /* Remote Control */ = {
 			isa = PBXGroup;
 			children = (
+				56C3AA822211901A00219E73 /* ScreenSharing */,
 				560ACDA7220C92480019E6ED /* Synthesizing */,
 				567FDE942209B13300CC5BD5 /* Handlers */,
 				567FDE5E2208533300CC5BD5 /* RCManager.h */,
@@ -320,6 +324,15 @@
 				56B7B97321E50B5700EDAB1D /* CoreData.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		56C3AA822211901A00219E73 /* ScreenSharing */ = {
+			isa = PBXGroup;
+			children = (
+				56C3AA832211906900219E73 /* ScreenshotsManager.h */,
+				56C3AA842211906900219E73 /* ScreenshotsManager.m */,
+			);
+			path = ScreenSharing;
 			sourceTree = "<group>";
 		};
 		56DC63BE21F2097D00331A6F /* CDModels */ = {
@@ -459,6 +472,7 @@
 				567FDE672208566300CC5BD5 /* RCSocketActionsHandler.m in Sources */,
 				56B7B95F21E4FC0600EDAB1D /* ReceivedTableViewController.mm in Sources */,
 				567FDE602208533300CC5BD5 /* RCManager.mm in Sources */,
+				56C3AA852211906900219E73 /* ScreenshotsManager.m in Sources */,
 				567FDE83220972EE00CC5BD5 /* WebSite+CoreDataClass.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -10,6 +10,7 @@
 #import "RCManager.h"
 #import "ProjectConstants.h"
 #import "RCSocketDelegate.h"
+#import "ScreenshotsManager.h"
 #import "RCSocketActionsHandler.h"
 #import "RCSocketSharingHandler.h"
 #import "NSDictionary+ProjectAdditions.h"
@@ -48,50 +49,19 @@
 - (void)startSharingScreen {
     [self.screenSharingSocket startSocket];
     __block RCManager *weakSelf = self;
-    __block UIWindow *weakWindow = [self startCapturing];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [[ScreenshotsManager sharedInstance] startSessionWithWindow];
         while ([weakSelf.screenSharingSocket isRunning]) {
             @autoreleasepool {
-                UIImage *screenshot = [self takeScreenShotOfView:weakWindow];
+                UIImage *screenshot = [[ScreenshotsManager sharedInstance] takeScreenshot];
                 NSString *action = [[NSDictionary RCSharingJSONWithScreenshot:screenshot] convertedToString];
                 [weakSelf.screenSharingSocket sendData:action];
             }
             usleep(kRCScreenSharingDelay);
         }
-        [self stopCapturing];
+        [[ScreenshotsManager sharedInstance] endSession];
     });
 }
-
-- (UIWindow *)startCapturing {
-    __block UIWindow *weakWindow;
-    dispatch_group_t group = dispatch_group_create();
-    dispatch_group_enter(group);
-    dispatch_async(dispatch_get_main_queue(), ^{
-        weakWindow = [[[UIApplication sharedApplication] delegate] window];
-        UIGraphicsBeginImageContextWithOptions(weakWindow.frame.size, NO, 0.0);
-        dispatch_group_leave(group);
-    });
-    dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
-    return weakWindow;
-}
-
-- (UIImage *)takeScreenShotOfView:(UIView *)view {
-    __block UIImage *screenshot;
-    dispatch_group_t group = dispatch_group_create();
-    dispatch_group_enter(group);
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [view.layer renderInContext:UIGraphicsGetCurrentContext()];
-        screenshot = UIGraphicsGetImageFromCurrentImageContext();
-        dispatch_group_leave(group);
-    });
-    dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
-    return screenshot;
-}
-
-- (void)stopCapturing {
-    UIGraphicsEndImageContext();
-}
-
 
 - (void)stopSharingScreen {
     [self.screenSharingSocket stopSocket];

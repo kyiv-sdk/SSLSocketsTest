@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <SSLSockets/SSLSockets.h>
+#import "RCApplicationPresenter.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -16,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)startSession;
 - (void)stopSession;
 - (void)sendAction:(NSString *)action toClient:(SSL *)ssl;
-- (void)receiveSharingFromSocket:(SSLServerSocket *)socket;
+- (int)openSharingSocketWithPresented:(id <RCApplicationPresenter>)presenter;
 - (void)sendGesture:(NSString *)gesture;
 
 + (instancetype)sharedInstance;

@@ -12,14 +12,6 @@
 #import "UITouch+Synthesize.h"
 #import "UIEvent+Synthesize.h"
 
-@interface RCSocketSharingHandler ()
-
-@property (strong, nonatomic) dispatch_queue_t serialThread;
-
-@end
-
-
-
 @implementation RCSocketSharingHandler
 
 - (void)handleJSON:(NSDictionary *)json {
@@ -63,16 +55,7 @@
         [touch changeToPhase:UITouchPhaseEnded];
         UIEvent *touchesEndedEvent = [[UIEvent alloc] initWithTouch:touch];
         [[UIApplication sharedApplication] sendEvent:touchesEndedEvent];
-        
     });
-}
-
-- (instancetype)init {
-    self = [super init];
-    if (self) {
-        self.serialThread = dispatch_queue_create("com.o9e6y.RCSocketSharingHandler", DISPATCH_QUEUE_SERIAL);
-    }
-    return self;
 }
 
 @end
